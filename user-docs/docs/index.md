@@ -58,6 +58,8 @@ rassemble toutes les icônes. Sinon, voici les principaux :
 
 💡 Tu peux aussi **ajouter tes propres médias** : voir **[Ajouter mes médias](./ajouter-mes-medias.md)**.
 
+🔎 **Et bien d'autres** dans le menu de gauche : demander un film/série ([Jellyseerr](./medias/jellyseerr.md)), santé & sport ([SparkyFitness](./cloud/sparkyfitness.md)), outils PDF ([Stirling](./cloud/stirling-pdf.md)), jeux rétro ([RomM](./jeux/romm.md)), lecture ([Kavita](./medias/kavita.md), [Readeck](./medias/readeck.md)), budget ([Firefly](./finances/firefly.md), [Ghostfolio](./finances/ghostfolio.md)), notes de lieux ([Dawarich](./cloud/dawarich.md), [Wanderer](./cloud/wanderer.md))…
+
 ## Un souci ?
 
 1. Vérifie d'abord que **WireGuard est bien activé** (c'est 9 fois sur 10 la cause).
