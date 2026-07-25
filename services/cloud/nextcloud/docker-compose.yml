@@ -31,7 +31,9 @@ services:
       - nextcloud-internal
 
   nextcloud:
-    image: nextcloud:34.0.1-apache
+    build:
+      context: .
+    image: yapserver/nextcloud:34.0.2-smbclient
     container_name: nextcloud
     restart: unless-stopped
     environment:
@@ -60,7 +62,7 @@ services:
       - traefik-proxy
 
   nextcloud-cron:
-    image: nextcloud:34.0.1-apache
+    image: yapserver/nextcloud:34.0.2-smbclient
     container_name: nextcloud-cron
     restart: unless-stopped
     entrypoint: /cron.sh
