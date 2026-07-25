@@ -33,6 +33,7 @@ services:
   nextcloud:
     build:
       context: .
+      network: host          # egress Internet pour apt/pecl (les réseaux docker sont filtrés en sortie)
     image: yapserver/nextcloud:34.0.2-smbclient
     container_name: nextcloud
     restart: unless-stopped
