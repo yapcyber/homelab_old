@@ -1,0 +1,29 @@
+services:
+  dossier-docs:
+    build:
+      context: .
+      target: production
+    image: yapserver/dossier-docs:local
+    container_name: dossier-docs
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx:mode=1777
+      - /tmp:mode=1777
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - traefik-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-proxy"
+      - "traefik.http.routers.dossier-docs.rule=Host(`dossier.yapserver.fr`)"
+      - "traefik.http.routers.dossier-docs.entrypoints=websecure"
+      - "traefik.http.routers.dossier-docs.tls.certresolver=cloudflare"
+      - "traefik.http.routers.dossier-docs.middlewares=internal-only@file,rate-limit@file"
+      - "traefik.http.services.dossier-docs.loadbalancer.server.port=8080"
+
+networks:
+  traefik-proxy:
+    external: true
+    name: traefik-proxy
