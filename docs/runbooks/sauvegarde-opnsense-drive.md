@@ -1,4 +1,13 @@
-# Sauvegarde de la configuration OPNsense vers Google Drive
+# Sauvegarde OPNsense vers Drive — voie de repli (tirage restic)
+
+> **Voie principale retenue** : le plugin natif `os-gdrive-backup`, qui rend le
+> pare-feu autonome — voir [sauvegarde-opnsense-gdrive.md](sauvegarde-opnsense-gdrive.md).
+>
+> Le mécanisme décrit ici est un **repli**, à activer si Google coupe l'accès
+> Drive des comptes de service (verrou du 15/04/2025). Il est **inerte** tant que
+> `scripts/opnsense-api.enc.env` n'existe pas : la fonction `backup_opnsense()`
+> de `scripts/backup-restic-drive.sh` se contente alors d'afficher
+> « non configuré — ignoré ».
 
 Ajoute le **pare-feu** à la chaîne hors-site existante
 ([sauvegarde-restic-drive.md](sauvegarde-restic-drive.md)). OPNsense était le seul
