@@ -69,6 +69,72 @@ for entry in "${HOSTS[@]}"; do
   fi
 done
 
+# --- OPNsense : configuration du pare-feu -> restic --------------------------
+# config.xml porte des SECRETS EN CLAIR (clé privée WireGuard, hashes de comptes,
+# token DDNS Cloudflare, clés API). Il ne touche le disque que dans un fichier
+# 0600 détruit en sortie, et ne quitte la machine QUE chiffré par restic.
+# Ne JAMAIS le committer, ni le laisser dans /tmp.
+backup_opnsense() {
+  local secret="$REPO_DIR/scripts/opnsense-api.enc.env"
+  local url key sec pin tmpd xml size
+
+  if [ ! -f "$secret" ]; then
+    echo "• opnsense    ... non configuré ($(basename "$secret") absent) — ignoré"
+    SKIP=$((SKIP+1)); return 0
+  fi
+  printf '• %-11s ... ' "opnsense"
+  if ! command -v xmllint >/dev/null 2>&1; then
+    echo "ÉCHEC (xmllint absent → sudo apt install libxml2-utils)"; FAIL=$((FAIL+1)); return 1
+  fi
+
+  # Secrets déchiffrés en mémoire uniquement
+  local env_out; env_out="$(sops -d "$secret" 2>/dev/null)" || {
+    echo "ÉCHEC (déchiffrement SOPS)"; FAIL=$((FAIL+1)); return 1; }
+  url="$(sed -n 's/^OPNSENSE_URL=//p'            <<<"$env_out")"
+  key="$(sed -n 's/^OPNSENSE_API_KEY=//p'        <<<"$env_out")"
+  sec="$(sed -n 's/^OPNSENSE_API_SECRET=//p'     <<<"$env_out")"
+  pin="$(sed -n 's/^OPNSENSE_PINNED_PUBKEY=//p'  <<<"$env_out")"
+  unset env_out
+  if [ -z "$url" ] || [ -z "$key" ] || [ -z "$sec" ]; then
+    echo "ÉCHEC (OPNSENSE_URL / _API_KEY / _API_SECRET manquants)"; FAIL=$((FAIL+1)); return 1
+  fi
+
+  tmpd="$(mktemp -d)" || { echo "ÉCHEC (mktemp)"; FAIL=$((FAIL+1)); return 1; }
+  chmod 700 "$tmpd"; xml="$tmpd/config.xml"
+  # shellcheck disable=SC2064
+  trap "shred -u '$xml' 2>/dev/null; rm -rf '$tmpd'" RETURN
+
+  # Cert du pare-feu = auto-signé -> -k, mais la clé publique est ÉPINGLÉE si
+  # OPNSENSE_PINNED_PUBKEY est fourni (protection MITM réelle, sans fichier CA).
+  local curl_args=(-sS --fail --max-time 60 -k -u "$key:$sec")
+  [ -n "$pin" ] && curl_args+=(--pinnedpubkey "$pin")
+  if ! curl "${curl_args[@]}" -o "$xml" "$url/api/core/backup/download/this" 2>/dev/null; then
+    echo "ÉCHEC (API injoignable / auth refusée / épinglage rejeté)"; FAIL=$((FAIL+1)); return 1
+  fi
+
+  # Validation fail-closed : on refuse de sauvegarder un fichier inexploitable.
+  # (Régression connue OPNsense 25.7.3 : XML renvoyé échappé en HTML.)
+  size="$(stat -c%s "$xml" 2>/dev/null || echo 0)"
+  if [ "$size" -lt 10000 ]; then
+    echo "ÉCHEC (config.xml suspect : ${size} octets)"; FAIL=$((FAIL+1)); return 1
+  fi
+  if grep -q '&lt;opnsense&gt;' "$xml"; then
+    echo "ÉCHEC (XML échappé en HTML — régression API ; voir runbook, repli SSH)"
+    FAIL=$((FAIL+1)); return 1
+  fi
+  if ! xmllint --noout "$xml" 2>/dev/null || ! grep -q '<opnsense>' "$xml"; then
+    echo "ÉCHEC (XML invalide ou racine <opnsense> absente)"; FAIL=$((FAIL+1)); return 1
+  fi
+
+  if restic backup --stdin --stdin-filename "opnsense-config.xml" \
+       --host opnsense --tag offsite --tag opnsense < "$xml" >/dev/null 2>&1; then
+    echo "OK (config.xml, ${size} octets)"; OK=$((OK+1))
+  else
+    echo "ÉCHEC (restic)"; FAIL=$((FAIL+1)); return 1
+  fi
+}
+backup_opnsense
+
 # --- Rétention + intégrité ---------------------------------------------------
 echo "→ Rétention (7j/4s/6m par hôte) ..."
 restic forget --group-by host --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune >/dev/null 2>&1 \

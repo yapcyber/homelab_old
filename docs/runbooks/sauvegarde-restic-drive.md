@@ -20,6 +20,10 @@ Chaque exécution capture, par VM, le **dernier `daily`** + sa clé
 `/etc/homelab-backup.key` (nécessaire aux `.enc`), dans un snapshot restic taggé par hôte.
 Rétention : **7 quotidiennes / 4 hebdo / 6 mensuelles par hôte**, puis `restic check`.
 
+La même exécution capture aussi la **configuration du pare-feu OPNsense**
+(hôte `opnsense`, tirée par API depuis le poste de contrôle) —
+voir [sauvegarde-opnsense-drive.md](sauvegarde-opnsense-drive.md).
+
 ## Installation (une seule fois)
 
 ### 1. Outils (poste de contrôle)
