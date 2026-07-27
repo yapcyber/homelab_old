@@ -72,7 +72,7 @@ services:
   #   DB 1 (REDIS_CACHE_DATABASE=1) : File de tâches Redis Queue (jobs asynchrones)
   # Une seule instance Redis suffit grâce aux databases Redis (0-15).
   netbox-redis:
-    image: redis:7-alpine
+    image: redis:8-alpine
     container_name: netbox-redis
     restart: unless-stopped
     security_opt:
