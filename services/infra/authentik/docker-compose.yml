@@ -45,7 +45,7 @@ services:
   # (réseau authentik-internal, jamais exposé à l'extérieur).
   # ===========================================================================
   authentik-postgresql:
-    image: postgres:16-alpine
+    image: postgres:18-alpine
     container_name: authentik-postgresql
     restart: unless-stopped
     security_opt:
@@ -54,9 +54,12 @@ services:
       POSTGRES_USER: ${AUTHENTIK_POSTGRESQL__USER}
       POSTGRES_PASSWORD: ${AUTHENTIK_POSTGRESQL__PASSWORD}
       POSTGRES_DB: ${AUTHENTIK_POSTGRESQL__NAME}
-      PGDATA: /var/lib/postgresql/data/pgdata   # Sous-dossier pour éviter les conflits
+      # PGDATA n'est plus fixé : depuis PostgreSQL 18, l'image range les données
+      # dans un sous-dossier par majeure (18/docker/), ce qui règle nativement le
+      # conflit que l'ancien PGDATA=.../data/pgdata contournait à la main.
     volumes:
-      - ./data/postgresql:/var/lib/postgresql/data
+      # PostgreSQL 18+ : montage sur /var/lib/postgresql, plus sur .../data.
+      - ./data/postgresql:/var/lib/postgresql
     networks:
       - authentik-internal
     healthcheck:
