@@ -47,6 +47,20 @@ jobs:
       - run: npm run build
         working-directory: user-docs
 
+  # Garde-fou sur les montées d'image : une majeure de base de données n'est pas
+  # un changement de tag, c'est une migration de données. Échoue la PR pour
+  # forcer la lecture — un label seul se survole, une CI rouge non.
+  image-bumps:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Classer les changements d'image par risque
+        run: ./scripts/check-image-bumps.sh "origin/${{ github.base_ref }}"
+
   static-validation:
     runs-on: ubuntu-latest
     steps:

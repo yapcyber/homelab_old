@@ -20,6 +20,73 @@
       "matchPackageNames": ["nextcloud"],
       "matchUpdateTypes": ["major"],
       "enabled": false
+    },
+    {
+      "description": "ROUGE - bases de donnees: le repertoire de donnees est lie a la majeure, le moteur refuse de demarrer sur un format qu'il n'a pas ecrit. Changer le tag ne migre RIEN.",
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": [
+        "/postgres/",
+        "/postgis/",
+        "/mariadb/",
+        "/mysql/",
+        "/percona/",
+        "/elasticsearch/",
+        "/opensearch/",
+        "/cassandra/",
+        "/mongo/",
+        "/influxdb/",
+        "/clickhouse/",
+        "/timescale/"
+      ],
+      "addLabels": ["risque:rouge", "migration-donnees"],
+      "prBodyNotes": [
+        "> ### MIGRATION DE DONNEES OBLIGATOIRE",
+        ">",
+        "> Cette montee change la **majeure d'un moteur de base de donnees**. Le volume de donnees existant a ete ecrit par l'ancienne majeure : le conteneur **refusera de demarrer** apres un simple `compose up`.",
+        ">",
+        "> Avant de fusionner : snapshot Proxmox de la VM, dump verifie, migration (dump/restore ou `pg_upgrade`), smoke-test, puis rollback par snapshot en cas d'echec.",
+        ">",
+        "> Une seule pile a la fois. Verification locale : `./scripts/check-image-bumps.sh`"
+      ]
+    },
+    {
+      "description": "ORANGE - applications a etat: migration de schema jouee au premier demarrage, souvent irreversible sans restauration.",
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": [
+        "/uptime-kuma/",
+        "/immich/",
+        "/authentik/",
+        "/netbox/",
+        "/firefly/",
+        "/ghostfolio/",
+        "/jellystat/",
+        "/thehive/",
+        "/cortex/",
+        "/wazuh/",
+        "/romm/",
+        "/siyuan/",
+        "/dawarich/",
+        "/wanderer/",
+        "/splitpro/",
+        "/sparkyfitness/"
+      ],
+      "addLabels": ["risque:orange", "migration-schema"],
+      "prBodyNotes": [
+        "> ### MIGRATION DE SCHEMA AU DEMARRAGE",
+        ">",
+        "> L'application migre sa base au premier lancement, et le retour arriere n'est generalement possible que par restauration.",
+        ">",
+        "> Avant de fusionner : sauvegarde verifiee + snapshot Proxmox, puis lecture des notes de version amont."
+      ]
+    },
+    {
+      "description": "JAUNE - caches cle-valeur: format de persistance ascendant-compatible et donnee reconstructible. Un redemarrage suffit.",
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["/redis/", "/valkey/", "/keydb/", "/memcached/"],
+      "addLabels": ["risque:jaune"]
     }
   ]
 }

@@ -111,6 +111,48 @@ for entry in "${HOSTS[@]}"; do
   OK=$((OK+1))
 done
 
+# --- 4bis. OPNsense : configuration du pare-feu ------------------------------
+# Même source que la sauvegarde Drive (API tirée depuis ce poste). Le fichier
+# atterrit EN CLAIR sur la clé : c'est le chiffrement LUKS du support qui le
+# protège, au même titre que les dumps *.sql.gz et les clés keys/*.key.
+printf '• %-11s ... ' "opnsense"
+OPN_SECRET="$REPO/scripts/opnsense-api.enc.env"
+if [ ! -f "$OPN_SECRET" ]; then
+  echo "non configuré — ignoré"; SKIP=$((SKIP+1))
+elif ! command -v sops >/dev/null 2>&1 || ! command -v xmllint >/dev/null 2>&1; then
+  echo "⚠️ ÉCHEC (sops ou xmllint absent)"; FAIL=$((FAIL+1))
+else
+  opn_env="$(sops -d "$OPN_SECRET" 2>/dev/null)"
+  opn_url="$(sed -n 's/^OPNSENSE_URL=//p'           <<<"$opn_env")"
+  opn_key="$(sed -n 's/^OPNSENSE_API_KEY=//p'       <<<"$opn_env")"
+  opn_sec="$(sed -n 's/^OPNSENSE_API_SECRET=//p'    <<<"$opn_env")"
+  opn_pin="$(sed -n 's/^OPNSENSE_PINNED_PUBKEY=//p' <<<"$opn_env")"
+  unset opn_env
+  opn_out="$DEST/opnsense-config.xml"
+  opn_args=(-sS --fail --max-time 60 -k -u "$opn_key:$opn_sec")
+  [ -n "$opn_pin" ] && opn_args+=(--pinnedpubkey "$opn_pin")
+  if [ -z "$opn_key" ] || [ -z "$opn_sec" ]; then
+    echo "⚠️ ÉCHEC (secret incomplet)"; FAIL=$((FAIL+1))
+  elif ! curl "${opn_args[@]}" -o "$opn_out" "$opn_url/api/core/backup/download/this" 2>/dev/null; then
+    echo "⚠️ ÉCHEC (API injoignable / auth / épinglage)"; FAIL=$((FAIL+1)); rm -f "$opn_out"
+  else
+    opn_size="$(stat -c%s "$opn_out" 2>/dev/null || echo 0)"
+    # Mêmes contrôles fail-closed que la sauvegarde Drive : on refuse d'écrire
+    # une configuration inexploitable sur le support hors-site.
+    if [ "$opn_size" -lt 10000 ] || grep -q '&lt;opnsense&gt;' "$opn_out" \
+       || ! xmllint --noout "$opn_out" 2>/dev/null || ! grep -q '<opnsense>' "$opn_out"; then
+      echo "⚠️ ÉCHEC (config.xml invalide, ${opn_size} octets)"; FAIL=$((FAIL+1)); rm -f "$opn_out"
+    else
+      chmod 600 "$opn_out"
+      echo "OK (config.xml, $(du -h "$opn_out" | cut -f1))"
+      printf '%-11s %s %s %s\n' "opnsense" "$DATE" "$(du -h "$opn_out" | cut -f1)" \
+        "$(sha256sum "$opn_out" | cut -d' ' -f1)" >> "$MANIFEST"
+      OK=$((OK+1))
+    fi
+  fi
+  unset opn_key opn_sec
+fi
+
 # --- 5. RESTORE.md (auto-documentation de la clé) ---------------------------
 cat > "$ROOT/RESTORE.md" <<'EOF'
 # Restaurer depuis cette clé USB (hors-site)
@@ -118,6 +160,12 @@ cat > "$ROOT/RESTORE.md" <<'EOF'
 Chaque dossier daté contient, par VM :
 - `<host>.tar`     : le dernier « daily » de la VM (archives sous `daily/<date>/`).
 - `keys/<host>.key`: la clé openssl de CETTE VM (indispensable pour les `.enc`).
+
+Plus, à la racine du dossier daté :
+- `opnsense-config.xml` : configuration complète du pare-feu (VLANs, règles, Kea,
+  Unbound, WireGuard, DDNS). ⚠️ Contient des SECRETS EN CLAIR (clé privée
+  WireGuard, hashes de comptes, token DDNS) — c'est LUKS qui les protège ici.
+  Restauration : OPNsense → System → Configuration → Backups → Restore.
 
 ## Extraire
     mkdir -p /tmp/restore && tar xf cloud.tar -C /tmp/restore
