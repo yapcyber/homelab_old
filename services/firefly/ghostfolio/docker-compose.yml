@@ -29,7 +29,7 @@ services:
       retries: 5
 
   postgres:
-    image: docker.io/library/postgres:15-alpine
+    image: docker.io/library/postgres:18-alpine
     container_name: gf-postgres
     restart: unless-stopped
     cap_drop:
@@ -49,7 +49,9 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - postgres:/var/lib/postgresql/data
+      # PostgreSQL 18+ : montage sur /var/lib/postgresql (données rangées par
+      # majeure dans un sous-dossier). Monter .../data fait boucler le conteneur.
+      - postgres:/var/lib/postgresql
 
   redis:
     image: docker.io/library/redis:7.4-alpine
