@@ -112,6 +112,25 @@ http:
           X-Robots-Tag: "noindex, nofollow"
 
     # =========================================================================
+    # NO-STORE — Interdit la mise en cache des pages d'authentification
+    # =========================================================================
+    # Authentik sert ses pages de flow SANS aucun en-tête Cache-Control (seulement
+    # 'Vary: Cookie'). Le navigateur applique alors une mise en cache HEURISTIQUE :
+    # il peut réutiliser une coquille HTML périmée qui référence les assets d'une
+    # version antérieure (les noms sont versionnés, ex. FlowInterface-2026.5.3.js)
+    # -> les scripts n'existent plus -> page BLANCHE, réparée par un rechargement
+    # manuel qui revalide.
+    # Une page d'authentification ne doit de toute façon jamais être écrite en
+    # cache disque : elle varie selon le cookie de session.
+    # USAGE : sur les routers de pages de login uniquement, PAS sur /static/
+    # (les assets versionnés doivent rester cacheables).
+    no-store:
+      headers:
+        customResponseHeaders:
+          Cache-Control: "no-store, no-cache, must-revalidate"
+          Pragma: "no-cache"
+
+    # =========================================================================
     # RATE LIMITING — Protection brute force et DDoS applicatif
     # =========================================================================
     # Limite le nombre de requêtes par IP par unité de temps.

@@ -197,6 +197,17 @@ services:
       - "traefik.http.routers.authentik.tls.options=websocket@file"
       - "traefik.http.routers.authentik.middlewares=rate-limit@file"
       - "traefik.http.services.authentik.loadbalancer.server.port=9000"
+      # Routeur dédié aux PAGES de flow/interface : même service, mais interdit
+      # leur mise en cache (voir middleware no-store). Priorité supérieure pour
+      # passer avant le routeur générique ; /static/ n'est pas visé, les assets
+      # versionnés restent cacheables.
+      - "traefik.http.routers.authentik-pages.rule=Host(`auth.${DOMAIN}`) && (PathPrefix(`/if/`) || PathPrefix(`/flows/`))"
+      - "traefik.http.routers.authentik-pages.priority=20"
+      - "traefik.http.routers.authentik-pages.entrypoints=websecure"
+      - "traefik.http.routers.authentik-pages.tls.certresolver=cloudflare"
+      - "traefik.http.routers.authentik-pages.tls.options=websocket@file"
+      - "traefik.http.routers.authentik-pages.middlewares=rate-limit@file,no-store@file"
+      - "traefik.http.routers.authentik-pages.service=authentik"
 
     healthcheck:
       test: ["CMD", "ak", "healthcheck"]
