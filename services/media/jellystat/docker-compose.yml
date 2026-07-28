@@ -1,11 +1,15 @@
 services:
   jellystat-db:
-    image: postgres:16.14
+    image: postgres:18.4
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    volumes: [ "db:/var/lib/postgresql/data" ]
+    # PostgreSQL 18+ : le montage se fait sur /var/lib/postgresql (et non plus
+    # sur .../data). L'image y range les données par majeure (18/docker/), ce qui
+    # permet pg_upgrade sans franchir de frontière de point de montage.
+    # Monter sur .../data fait échouer le démarrage en 18+ (« unused mount/volume »).
+    volumes: [ "db:/var/lib/postgresql" ]
   jellystat:
     image: cyfershepard/jellystat:1.1.11@sha256:c4e2dfa8bddf8d5ac3a675d7202f71a54dcfe3540cc186899d9201e0fe701fa5
     restart: unless-stopped
