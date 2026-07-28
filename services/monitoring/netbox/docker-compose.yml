@@ -1,3 +1,9 @@
+# Nom de projet FIGÉ : les volumes existants sont préfixés « netbox-docker_ »
+# (déploiement historique depuis ~/netbox-docker). Sans cette ligne, déployer
+# depuis services/monitoring/netbox donnerait le projet « netbox » et donc des
+# volumes NEUFS ET VIDES — la base NetBox serait perdue.
+name: netbox-docker
+
 services:
   netbox: &netbox
     image: docker.io/netboxcommunity/netbox:${VERSION-v4.6-5.0.1}
