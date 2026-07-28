@@ -106,7 +106,19 @@ OPNSENSE_API_KEY=$API_KEY
 OPNSENSE_API_SECRET=$API_SECRET
 OPNSENSE_PINNED_PUBKEY=$PIN
 EOF
-sops --encrypt "$TMPD/opn.env" > "$SECRET_FILE" || die "Chiffrement SOPS échoué."
+# SOPS choisit sa règle de chiffrement d'après le chemin du fichier d'ENTRÉE, et
+# cherche .sops.yaml au-dessus de lui : un fichier dans /tmp ne correspond à
+# aucune règle. D'où --filename-override + exécution depuis la racine du dépôt
+# (convention déjà en place dans scripts/sops-runbook.sh).
+# On écrit dans un temporaire : une redirection directe créerait un fichier vide
+# avant même de savoir si sops réussit.
+if ! (cd "$REPO_DIR" && sops --encrypt --filename-override "${SECRET_FILE##*/}" \
+        "$TMPD/opn.env") > "$TMPD/opn.enc" 2>"$TMPD/sops.err"; then
+  echo "  --- détail sops ---"; cat "$TMPD/sops.err" >&2
+  die "Chiffrement SOPS échoué (rien n'a été écrit)."
+fi
+[ -s "$TMPD/opn.enc" ] || die "Sortie SOPS vide (rien n'a été écrit)."
+mv "$TMPD/opn.enc" "$SECRET_FILE"
 chmod 600 "$SECRET_FILE"
 sops -d "$SECRET_FILE" >/dev/null 2>&1 || die "Relecture du secret chiffré impossible."
 ok "$(basename "$SECRET_FILE") écrit et relu."
