@@ -15,17 +15,25 @@
 #               changements incompatibles possibles (options, API).
 #   ✅ VERT    — mineure, correctif ou digest : déploiement de routine.
 #
-#   ./scripts/check-image-bumps.sh [ref]      # défaut : origin/main
+#   ./scripts/check-image-bumps.sh [base] [cible]
+#     base  : révision de référence (défaut : origin/main)
+#     cible : révision comparée (défaut : l'arbre de travail)
 #
 # Sortie non nulle s'il existe au moins un ROUGE ou un ORANGE → utilisable comme
-# garde-fou en CI sur les pull requests Renovate.
+# garde-fou en CI sur les pull requests Renovate, et comme AIGUILLAGE du
+# déploiement automatique : seuls jaune/vert sont réversibles par un simple
+# retour git, le reste exige une migration de données.
 # =============================================================================
 set -uo pipefail
 
 BASE="${1:-origin/main}"
+TARGET="${2:-}"
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)" || exit 1
 
 git rev-parse --verify "$BASE" >/dev/null 2>&1 || { echo "❌ Révision inconnue : $BASE" >&2; exit 2; }
+if [ -n "$TARGET" ]; then
+  git rev-parse --verify "$TARGET" >/dev/null 2>&1 || { echo "❌ Révision inconnue : $TARGET" >&2; exit 2; }
+fi
 
 # Bases de données : le répertoire de données est lié à la majeure, le moteur
 # refuse de démarrer sur un format qu'il n'a pas écrit.
@@ -57,7 +65,11 @@ extract() { # $1 = révision ("" = arbre de travail)
           name="${name##*/}"                     # retire le registre/namespace
           printf '%s\t%s\t%s\n' "$f" "$name" "$tag"
         done
-  done < <(git ls-files 'services/*docker-compose*.yml' 'services/*compose*.yaml' 2>/dev/null)
+  done < <(if [ -z "$rev" ]; then
+             git ls-files 'services/*docker-compose*.yml' 'services/*compose*.yaml' 2>/dev/null
+           else
+             git ls-tree -r --name-only "$rev" -- services 2>/dev/null | grep -E 'docker-compose.*\.yml$|compose.*\.yaml$'
+           fi)
 }
 
 major() { # extrait la majeure d'un tag : "16-alpine" -> 16 ; "v2.1" -> 2 ; sinon vide
@@ -66,11 +78,11 @@ major() { # extrait la majeure d'un tag : "16-alpine" -> 16 ; "v2.1" -> 2 ; sino
 
 OLD="$(mktemp)"; NEW="$(mktemp)"
 trap 'rm -f "$OLD" "$NEW"' EXIT
-extract "$BASE" | sort -u > "$OLD"
-extract ""      | sort -u > "$NEW"
+extract "$BASE"   | sort -u > "$OLD"
+extract "$TARGET" | sort -u > "$NEW"
 
 RED=0; ORANGE=0; YELLOW=0; GREEN=0
-echo "Comparaison des images : $BASE → travail en cours"
+echo "Comparaison des images : $BASE → ${TARGET:-travail en cours}"
 echo ""
 
 while IFS=$'\t' read -r f name tag; do
