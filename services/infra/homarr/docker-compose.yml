@@ -1,6 +1,6 @@
 services:
   homarr:
-    image: ghcr.io/homarr-labs/homarr@sha256:fc96436bf80000bed8989d6606fc1ac0929bf4809bb4594168ad4b327e8f2c5f   # épinglé par digest (Renovate)
+    image: ghcr.io/homarr-labs/homarr@sha256:dc16da05861c8f6f5839495bf59c241e7f4bacd850fe7d472ad3c4fa37fb2f75   # épinglé par digest (Renovate)
     container_name: homarr
     restart: unless-stopped
     environment:
