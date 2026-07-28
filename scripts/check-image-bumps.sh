@@ -15,9 +15,11 @@
 #               changements incompatibles possibles (options, API).
 #   ✅ VERT    — mineure, correctif ou digest : déploiement de routine.
 #
-#   ./scripts/check-image-bumps.sh [base] [cible]
-#     base  : révision de référence (défaut : origin/main)
-#     cible : révision comparée (défaut : l'arbre de travail)
+#   ./scripts/check-image-bumps.sh [base] [cible] [portée]
+#     base   : révision de référence (défaut : origin/main)
+#     cible  : révision comparée (défaut : l'arbre de travail)
+#     portée : sous-arbre examiné (défaut : services) — ex. services/cloud,
+#              pour qu'une VM ne soit pas bloquée par le risque d'une autre
 #
 # Sortie non nulle s'il existe au moins un ROUGE ou un ORANGE → utilisable comme
 # garde-fou en CI sur les pull requests Renovate, et comme AIGUILLAGE du
@@ -28,6 +30,7 @@ set -uo pipefail
 
 BASE="${1:-origin/main}"
 TARGET="${2:-}"
+SCOPE="${3:-services}"
 # Racine du dépôt via git plutôt que via le chemin du script : permet de
 # l'exécuter depuis une copie temporaire (le déploiement GitOps évalue le
 # risque avec la version du détecteur issue de la révision ENTRANTE).
@@ -71,9 +74,9 @@ extract() { # $1 = révision ("" = arbre de travail)
           printf '%s\t%s\t%s\n' "$f" "$name" "$tag"
         done
   done < <(if [ -z "$rev" ]; then
-             git ls-files 'services/*docker-compose*.yml' 'services/*compose*.yaml' 2>/dev/null
+             git ls-files "$SCOPE" 2>/dev/null | grep -E 'docker-compose.*\.yml$|compose.*\.yaml$'
            else
-             git ls-tree -r --name-only "$rev" -- services 2>/dev/null | grep -E 'docker-compose.*\.yml$|compose.*\.yaml$'
+             git ls-tree -r --name-only "$rev" -- "$SCOPE" 2>/dev/null | grep -E 'docker-compose.*\.yml$|compose.*\.yaml$'
            fi)
 }
 
@@ -87,7 +90,7 @@ extract "$BASE"   | sort -u > "$OLD"
 extract "$TARGET" | sort -u > "$NEW"
 
 RED=0; ORANGE=0; YELLOW=0; GREEN=0
-echo "Comparaison des images : $BASE → ${TARGET:-travail en cours}"
+echo "Comparaison des images : $BASE → ${TARGET:-travail en cours}  (portée : $SCOPE)"
 echo ""
 
 while IFS=$'\t' read -r f name tag; do

@@ -71,7 +71,7 @@ if ! git show "$NEW:scripts/check-image-bumps.sh" > "$CIB" 2>/dev/null || [ ! -s
 Impossible d'évaluer le risque, donc refus (fail-closed)." high
   exit 1
 fi
-RISK="$(bash "$CIB" "$PREV" "$NEW" 2>&1)" && RISK_RC=0 || RISK_RC=$?
+RISK="$(bash "$CIB" "$PREV" "$NEW" "services/$VM" 2>&1)" && RISK_RC=0 || RISK_RC=$?
 if [ "$RISK_RC" -ne 0 ]; then
   echo "$NEW" > "$BLOCKED"
   alert "⛔ $VM : déploiement refusé — migration de données requise" \
