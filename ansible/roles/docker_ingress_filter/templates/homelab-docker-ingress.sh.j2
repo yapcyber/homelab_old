@@ -12,6 +12,12 @@ iptables -A "$CHAIN" -m conntrack --ctstate ESTABLISHED,RELATED -j RETURN
 {% for source in docker_ingress_allowed_sources %}
 iptables -A "$CHAIN" -s {{ source }} -j RETURN
 {% endfor %}
+{% for exc in docker_ingress_port_exceptions %}
+# Exception ciblée : source autorisée sur CE port uniquement, pas sur les autres.
+{% for source in exc.sources %}
+iptables -A "$CHAIN" -s {{ source }} -p tcp -m conntrack --ctorigdstport {{ exc.port }} -j RETURN
+{% endfor %}
+{% endfor %}
 {% for port in docker_restricted_ports %}
 # --ctorigdstport cible le port publié avant la DNAT Docker.
 iptables -A "$CHAIN" -p tcp -m conntrack --ctorigdstport {{ port }} -j REJECT --reject-with tcp-reset

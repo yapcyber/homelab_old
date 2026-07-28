@@ -10,3 +10,12 @@ backup_jobs:
   10-grafana: |
     docker cp -q grafana:/var/lib/grafana - | gzip > "$DAILY/grafana-data.tar.gz"
 docker_restricted_ports: [3000, 3001, 3100, 8082, 9090]
+
+# ntfy (8082) est le canal d'alerte de TOUTES les VM : sans cette exception, les
+# tâches planifiées de cloud/media/firefly/security/scanner échouent en silence
+# (constaté le 28/07/2026 — aucune de leurs alertes n'a jamais pu partir).
+# Ouverture strictement limitée à ce port ; Grafana/Prometheus/Loki restent
+# inaccessibles en direct depuis le VLAN services.
+docker_ingress_port_exceptions:
+  - port: 8082
+    sources: [10.0.30.0/24]

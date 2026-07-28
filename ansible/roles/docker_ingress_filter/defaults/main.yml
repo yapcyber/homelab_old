@@ -5,3 +5,9 @@ docker_ingress_allowed_sources:
   - 10.0.30.10/32   # Traefik inter-VM
   - 10.0.30.11/32   # Uptime Kuma (monitoring) — health-checks backend directs
   - 10.0.100.0/24   # VLAN Admin / break-glass
+
+# Exceptions CIBLEES : une source autorisee sur UN port precis uniquement.
+# Evite d'ouvrir toute la liste des ports restreints a une source qui n'a besoin
+# que d'un seul (cf. ntfy : toutes les VM doivent pouvoir alerter, aucune ne doit
+# pouvoir joindre Grafana/Prometheus/Loki en direct).
+docker_ingress_port_exceptions: []
