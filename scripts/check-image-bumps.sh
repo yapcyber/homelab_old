@@ -28,7 +28,12 @@ set -uo pipefail
 
 BASE="${1:-origin/main}"
 TARGET="${2:-}"
-cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)" || exit 1
+# Racine du dépôt via git plutôt que via le chemin du script : permet de
+# l'exécuter depuis une copie temporaire (le déploiement GitOps évalue le
+# risque avec la version du détecteur issue de la révision ENTRANTE).
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" \
+  || ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT" || exit 1
 
 git rev-parse --verify "$BASE" >/dev/null 2>&1 || { echo "❌ Révision inconnue : $BASE" >&2; exit 2; }
 if [ -n "$TARGET" ]; then

@@ -59,7 +59,19 @@ Résoudre la dérive avant de laisser le déploiement reprendre." high
 fi
 
 # --- Aiguillage : refuser ce que git ne sait pas annuler ---------------------
-RISK="$(bash scripts/check-image-bumps.sh "$PREV" "$NEW" 2>&1)" && RISK_RC=0 || RISK_RC=$?
+# Le détecteur est pris dans la révision ENTRANTE, pas dans celle en place :
+# c'est le changement à venir qu'on évalue, et la version locale peut être
+# ancienne — voire absente si la VM est très en retard (constaté au test).
+CIB="$(mktemp)"
+trap 'rm -f "$CIB"' EXIT
+if ! git show "$NEW:scripts/check-image-bumps.sh" > "$CIB" 2>/dev/null || [ ! -s "$CIB" ]; then
+  echo "$NEW" > "$BLOCKED"
+  alert "⛔ $VM : déploiement refusé — détecteur de risque introuvable" \
+        "scripts/check-image-bumps.sh absent de la révision ${NEW:0:8}.
+Impossible d'évaluer le risque, donc refus (fail-closed)." high
+  exit 1
+fi
+RISK="$(bash "$CIB" "$PREV" "$NEW" 2>&1)" && RISK_RC=0 || RISK_RC=$?
 if [ "$RISK_RC" -ne 0 ]; then
   echo "$NEW" > "$BLOCKED"
   alert "⛔ $VM : déploiement refusé — migration de données requise" \
