@@ -202,7 +202,10 @@ services:
       # passer avant le routeur générique ; /static/ n'est pas visé, les assets
       # versionnés restent cacheables.
       - "traefik.http.routers.authentik-pages.rule=Host(`auth.${DOMAIN}`) && (PathPrefix(`/if/`) || PathPrefix(`/flows/`))"
-      - "traefik.http.routers.authentik-pages.priority=20"
+      # ⚠️ Traefik calcule la priorité par défaut d'après la LONGUEUR de la règle.
+      # Le routeur générique Host(`auth.…`) obtient ainsi ~26 : une priorité
+      # explicite de 20 passerait EN DESSOUS et ne servirait jamais.
+      - "traefik.http.routers.authentik-pages.priority=100"
       - "traefik.http.routers.authentik-pages.entrypoints=websecure"
       - "traefik.http.routers.authentik-pages.tls.certresolver=cloudflare"
       - "traefik.http.routers.authentik-pages.tls.options=websocket@file"
