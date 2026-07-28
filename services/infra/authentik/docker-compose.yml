@@ -189,6 +189,12 @@ services:
       - "traefik.http.routers.authentik.rule=Host(`auth.${DOMAIN}`)"
       - "traefik.http.routers.authentik.entrypoints=websecure"
       - "traefik.http.routers.authentik.tls.certresolver=cloudflare"
+      # L'interface de flow d'Authentik ouvre un WebSocket (/ws/client/). Le
+      # handshake Upgrade: n'existe pas en HTTP/2 : sans cette option, le
+      # navigateur negocie h2, l'upgrade echoue et la page de connexion reste
+      # BLANCHE jusqu'a un rechargement manuel. Verifie : auth negociait h2,
+      # talk (qui porte deja l'option) negocie bien http/1.1.
+      - "traefik.http.routers.authentik.tls.options=websocket@file"
       - "traefik.http.routers.authentik.middlewares=rate-limit@file"
       - "traefik.http.services.authentik.loadbalancer.server.port=9000"
 
