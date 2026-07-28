@@ -113,7 +113,7 @@ services:
   #   - authentik-internal : pour joindre PostgreSQL et Redis
   # ===========================================================================
   authentik-server:
-    image: ghcr.io/goauthentik/server:${AUTHENTIK_TAG}
+    image: ghcr.io/goauthentik/server:2026.5.3@sha256:377ee38726785f98aafc3665202ad198a366fa979b0f61c0660a9c05e3a9b1b3
     container_name: authentik-server
     command: server
     restart: unless-stopped
@@ -233,7 +233,7 @@ services:
   # Il n'est PAS sur traefik-proxy (pas de trafic entrant direct).
   # ===========================================================================
   authentik-worker:
-    image: ghcr.io/goauthentik/server:${AUTHENTIK_TAG}
+    image: ghcr.io/goauthentik/server:2026.5.3@sha256:377ee38726785f98aafc3665202ad198a366fa979b0f61c0660a9c05e3a9b1b3
     container_name: authentik-worker
     command: worker
     restart: unless-stopped
