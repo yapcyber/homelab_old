@@ -82,6 +82,12 @@
       ]
     },
     {
+      "description": "MariaDB: rester sur la ligne LTS 11.8 (support communautaire jusqu'au 04/06/2028). Les 12.x sont des versions ROULANTES a support court (12.2 deja en fin de vie) et 12.3 n'est qu'une candidate LTS sans date GA confirmee. Passer en 12.x sous Firefly III, c'est troquer une LTS contre une version a duree de vie courte.",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["/mariadb/"],
+      "allowedVersions": "<12"
+    },
+    {
       "description": "JAUNE - caches cle-valeur: format de persistance ascendant-compatible et donnee reconstructible. Un redemarrage suffit.",
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["major"],
