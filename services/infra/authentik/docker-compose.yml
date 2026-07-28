@@ -45,7 +45,7 @@ services:
   # (réseau authentik-internal, jamais exposé à l'extérieur).
   # ===========================================================================
   authentik-postgresql:
-    image: postgres:18-alpine
+    image: postgres:16-alpine
     container_name: authentik-postgresql
     restart: unless-stopped
     security_opt:
@@ -78,7 +78,7 @@ services:
   # pourrait vider le cache ou injecter des tâches malveillantes.
   # ===========================================================================
   authentik-redis:
-    image: redis:8-alpine
+    image: redis:7-alpine
     container_name: authentik-redis
     restart: unless-stopped
     security_opt:
