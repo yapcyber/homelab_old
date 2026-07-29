@@ -134,3 +134,9 @@ services/cloud/homeassistant/config/*
 
 # Contexte de travail privé : cartographie complète, état et données personnelles.
 /prompting/
+
+# Documents GRC : inventaires, cartographie et matrice des flux.
+# Contiennent versions exactes, adresses IP et numéros de VLAN — soit exactement
+# ce que la contrainte portfolio interdit de publier (dépôt PUBLIC).
+# Ce sont des documents de gouvernance internes, pas de la vitrine.
+/GRC/

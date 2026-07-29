@@ -80,6 +80,8 @@ jobs:
           docker compose -f user-docs/docker-compose.yml config --quiet
       - name: Prevent private prompting context
         run: test -z "$(git ls-files prompting)"
+      - name: Prevent private GRC documents
+        run: test -z "$(git ls-files GRC)"
       - name: Validate encrypted secret structure
         run: |
           test -z "$(git ls-files ':(glob)**/.env')"
