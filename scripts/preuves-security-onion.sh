@@ -30,7 +30,9 @@ step()  { echo ""; echo "▶ $*"; }
 ok()    { echo "  ✓ $*"; }
 warn()  { echo "  ⚠ $*" >&2; }
 die()   { echo "  ❌ $*" >&2; exit 1; }
-stamp() { date -u '+%Y-%m-%d %H:%M:%S UTC'; }
+# Heure LOCALE d'abord : c'est celle qu'affiche l'interface Security Onion.
+# L'UTC suit entre parenthèses, pour les journaux qui l'utilisent.
+stamp() { date '+%Y-%m-%d %H:%M:%S %Z'" (UTC $(date -u '+%H:%M:%S'))"; }
 
 pause() {
   echo ""
@@ -52,19 +54,23 @@ ssh "${SSH_OPTS[@]}" "debian@$INFRA" 'command -v python3 >/dev/null' 2>/dev/null
 [ "${1:-}" = "--check" ] && { echo ""; ok "Prérequis satisfaits."; exit 0; }
 
 echo ""
-echo "  Interface à ouvrir maintenant : https://soc.yapserver.fr  →  Alerts"
+echo "  Interface à ouvrir : https://soc.yapserver.fr  →  HUNT"
+echo "  (la page Alerts ne porte qu'un filtre ; c'est Hunt qui accepte les requêtes)"
 read -r -p "  Entrée quand l'interface est ouverte : " _
 
 # --- Étape 0 : ce que voit le SPAN ------------------------------------------
 step "[0/4] Portée du SPAN — décide de la forme du test est-ouest"
 cat <<'EOF'
-  Sur le switch :   ssh <ton-user>@10.0.10.2   puis   show monitor session all
+  Configuration relevée le 29/07/2026 (show monitor session all) :
+      Source VLANs — Both : 10,20,30,...,100   →  destination Gi0/2, Replicate
 
-    Source VLANs 30 (ou les ports d'accès des nœuds) → variante A (intra-VLAN)
-    Source Ports Gi0/1 seulement (le trunk)          → variante B (inter-VLAN)
+  C'est un SPAN par VLAN : il copie AUSSI le trafic commuté entre deux VM du
+  même VLAN. La variante A s'applique. (Variante B = repli si un jour la source
+  devenait un port unique, typiquement le trunk Gi0/1.)
 
-  Si le SPAN ne copie que le trunk, le trafic entre deux VM du VLAN 30 est
-  COMMUTÉ : il ne monte jamais vers OPNsense, la sonde ne le verra jamais.
+  ⚠️ Vrai dans les deux cas : le SPAN ne voit que ce qui ATTEINT le switch.
+     Deux VM sur le même hyperviseur passent par le bridge Proxmox et restent
+     invisibles — d'où osint (pve3) vers infra (pve1).
 EOF
 echo ""
 read -r -p "  Variante à utiliser [A/b] : " VAR
@@ -78,12 +84,32 @@ RES="$(ssh "${SSH_OPTS[@]}" "debian@$OSINT" "curl -s --max-time 15 -o /dev/null 
 [ "$RES" = "200" ] && ok "Motif récupéré depuis osint (HTTP $RES)" \
   || warn "Réponse inattendue ($RES) — egress bloqué ? Le test suivant reste valable."
 echo "  Attendre ~60 s l'indexation ..."; sleep 60
-pause "Dans Alerts, filtrer autour de $T1
-Attendu : une alerte contenant « id check returned root »
-          source $OSINT, destination publique
+pause "La page Alerts ne porte qu'un filtre : passe par HUNT pour chercher.
+Fenêtre de temps : autour de $T1
 
-Si RIEN n'apparaît ici, la chaîne de détection est en cause :
-inutile de continuer, il faut d'abord la réparer."
+Requête 1 — l'alerte attendue :
+    event.dataset:alert AND source.ip:\"$OSINT\"
+
+Attendu : une alerte « GPL ATTACK_RESPONSE id check returned root »
+
+────────── SI AUCUN RÉSULTAT, DIAGNOSTIQUER ICI ──────────
+Requête 2 — la sonde voit-elle seulement ce trafic ?
+    source.ip:\"$OSINT\" | groupby event.dataset
+
+  • Des lignes conn / http apparaissent → la capture fonctionne,
+    c'est le JEU DE RÈGLES qui ne déclenche pas.
+  • Rien du tout → le trafic n'atteint pas la sonde :
+    problème de SPAN, d'interface de capture, ou Suricata à l'arrêt.
+
+Note ce que tu obtiens : la suite en dépend.
+
+Si la requête 2 ne renvoie RIEN non plus, dérouler sur la sonde
+(sudo demande le mot de passe, donc en session interactive) :
+    ssh admin@10.0.50.10
+    sudo so-status                    # Suricata / Zeek / Elastic en marche ?
+    ip -br link                       # repérer l'interface de capture
+    sudo timeout 10 tcpdump -i <iface> -nn -c 20
+                                      # des paquets arrivent-ils vraiment ?"
 
 # --- Étape 2 : est-ouest (LA preuve) ----------------------------------------
 step "[2/4] Est-ouest — la preuve attendue par le dossier"
@@ -100,6 +126,7 @@ if [ "$VAR" = "A" ]; then
   if [ -n "$OUT" ]; then ok "Motif transféré $OSINT → $INFRA : $OUT"; else warn "Aucune réponse — flux bloqué ?"; fi
   wait "$SRV" 2>/dev/null
   ssh "${SSH_OPTS[@]}" "debian@$INFRA" 'rm -f /tmp/id.txt' 2>/dev/null && ok "Serveur arrêté, fichier effacé"
+  CIBLE="$INFRA"
   ATTENDU="source $OSINT → destination $INFRA (deux adresses internes du VLAN 30)"
 else
   echo "  Variante B : $OSINT (VLAN 30) → $GAMING (VLAN 90), flux ROUTÉ par OPNsense."
@@ -120,21 +147,37 @@ EOF
     warn "C'est une preuve en soi : capture le REJET dans les journaux OPNsense,"
     warn "puis relance ce script en variante A."
   fi
+  CIBLE="$GAMING"
   ATTENDU="source $OSINT (VLAN 30) → destination $GAMING (VLAN 90), mouvement entre segments"
 fi
 echo "  Attendre ~60 s l'indexation ..."; sleep 60
-pause "Dans Alerts, filtrer autour de $T2
+pause "HUNT, fenêtre de temps autour de $T2
+
+Requête — cibler précisément ce flux :
+    event.dataset:alert AND source.ip:\"$OSINT\" AND destination.ip:\"$CIBLE\"
+
+Variante si tu préfères chercher par signature :
+    event.dataset:alert AND alert.signature:*root*
+
 Attendu : $ATTENDU
 C'est LA preuve est-ouest : détection sur un flux interne.
+
+Si aucune alerte mais que le flux a bien transité, vérifier ce que
+la sonde a vu :
+    source.ip:\"$OSINT\" AND destination.ip:\"$CIBLE\" | groupby event.dataset
 
 → preuve pour dossier-docs/docs/01-preuves/suivi.md"
 
 # --- Étape 3 : SO voit, Wazuh ne voit pas -----------------------------------
 step "[3/4] Complémentarité — SO détecte, Wazuh ne voit rien"
 echo "  On ne relance rien : on réexploite l'événement de $T2."
-pause "1. Dans SO   : l'alerte de $T2, HORODATAGE VISIBLE à l'écran
+pause "1. Dans SO (Hunt) : l'alerte de $T2, HORODATAGE VISIBLE à l'écran
+       event.dataset:alert AND source.ip:\"$OSINT\" AND destination.ip:\"$CIBLE\"
+
 2. Dans Wazuh (wazuh.yapserver.fr) → Threat Hunting
-   même fenêtre de temps, rechercher $OSINT puis $INFRA
+   MÊME fenêtre de temps, rechercher :
+       data.srcip:\"$OSINT\" OR data.dstip:\"$CIBLE\"
+   ou, plus simplement, le texte brut : $OSINT
    Attendu : AUCUN résultat — c'est le but
 
 Un curl entre deux VM ne produit aucun journal hôte : les agents
@@ -147,7 +190,10 @@ surveillent fichiers, journaux et intégrité, pas les flux réseau.
 
 # --- Étape 4 : l'investigation complète -------------------------------------
 step "[4/4] Investigation complète — 5 captures enchaînées"
-pause "Sur l'alerte de $T2, dérouler la chaîne, une capture par étape :
+pause "Repartir de l'alerte de $T2 :
+    event.dataset:alert AND source.ip:\"$OSINT\" AND destination.ip:\"$CIBLE\"
+
+Puis dérouler la chaîne, une capture par étape :
 
 1. Alerts       — la liste, ton alerte visible avec son horodatage
 2. Le détail    — règle déclenchée, signature, sévérité, IP src/dst
@@ -164,9 +210,14 @@ la bascule vers Suricata/OPNsense te fera perdre.
 # --- Bilan -------------------------------------------------------------------
 step "Terminé"
 cat <<EOF
-  Horodatages à conserver :
+  Horodatages à conserver (heure locale, celle de l'interface) :
     nord-sud  : $T1
     est-ouest : $T2
+
+  Requêtes Hunt utilisées :
+    event.dataset:alert AND source.ip:"$OSINT"
+    event.dataset:alert AND source.ip:"$OSINT" AND destination.ip:"$CIBLE"
+    source.ip:"$OSINT" | groupby event.dataset        (diagnostic)
 
   Checklist avant d'effacer la machine (détail dans le runbook) :
     [ ] bc01/c10 — alerte, détail, corrélation, Zeek, PCAP (5 captures)
