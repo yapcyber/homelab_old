@@ -58,19 +58,22 @@ ssh -t "$SOUSER@$SOC" "
   # NE JAMAIS parcourir /nsm : c'est le dépôt de PCAP, potentiellement des
   # centaines de Go — un grep -r s'y enlise et le diagnostic s'arrête là.
   sudo grep -E 'default-rule-path' /opt/so/conf/suricata/suricata.yaml 2>/dev/null
-  RF=\$(sudo find /opt/so /etc/suricata -name 'all-rulesets.rules' 2>/dev/null | head -1)
-  echo \"   fichier : \${RF:-INTROUVABLE}\"
-  [ -n \"\$RF\" ] && sudo ls -l \"\$RF\"
+  # Il existe potentiellement DEUX copies : la source Salt et le fichier
+  # d'exécution pointé par default-rule-path. Les lister TOUTES.
+  sudo find / -name 'all-rulesets.rules' -not -path '/nsm/*' -not -path '/proc/*' -not -path '/sys/*' 2>/dev/null \
+    | while read -r x; do sudo ls -l \"\$x\"; done
   echo
-  echo '── 5. La règle $SID y est-elle, et le fichier est-il à jour ? ──'
-  if [ -n \"\$RF\" ]; then
-    echo \"   règles totales : \$(sudo grep -c '^alert' \"\$RF\" 2>/dev/null)\"
-    if sudo grep -q 'sid:$SID' \"\$RF\" 2>/dev/null; then
-      echo '   ✓ règle PRÉSENTE dans le fichier déployé'
-    else
-      echo '   ⛔ règle ABSENTE → la synchronisation Detections n a jamais eu lieu'
-    fi
-  fi
+  echo '── 5. La règle $SID est-elle dans chaque copie ? ──'
+  sudo find / -name 'all-rulesets.rules' -not -path '/nsm/*' -not -path '/proc/*' -not -path '/sys/*' 2>/dev/null \
+    | while read -r x; do
+        n=\$(sudo grep -c '^alert' \"\$x\" 2>/dev/null)
+        if sudo grep -q 'sid:$SID' \"\$x\" 2>/dev/null; then r='✓ PRESENTE'; else r='⛔ ABSENTE '; fi
+        echo \"   \$r  (\$n règles)  \$x\"
+      done
+  echo
+  echo '── 6. Quel fichier le conteneur Suricata lit-il ? ──'
+  sudo docker inspect so-suricata --format '{{range .Mounts}}{{.Source}} -> {{.Destination}}{{\"\\n\"}}{{end}}' 2>/dev/null \
+    | grep -i rule || echo '   (montages non lisibles)'
 "
 
 [ "${1:-}" = "--diag" ] && { echo ""; ok "Diagnostic terminé, rien modifié."; exit 0; }
@@ -95,21 +98,28 @@ read -r -p "  Lancer la VOIE 2 maintenant ? [o/N] " a
 
 step "Injection directe de la règle $SID"
 ssh -t "$SOUSER@$SOC" "
-  # Cible : le SEUL fichier listé dans rule-files de suricata.yaml.
-  LOCAL=\$(sudo find /opt/so /etc/suricata -name 'all-rulesets.rules' 2>/dev/null | head -1)
-  [ -n \"\$LOCAL\" ] || { echo '   ❌ Aucun fichier de règles identifié.'; exit 1; }
-  echo \"   Cible : \$LOCAL\"
-  sudo cp \"\$LOCAL\" \"\$LOCAL.avant-$SID\" 2>/dev/null && echo '   Sauvegarde faite'
-  sudo grep -q 'sid:$SID' \"\$LOCAL\" && echo '   Règle déjà présente' \
-    || echo '$REGLE' | sudo tee -a \"\$LOCAL\" >/dev/null
+  # Injecter dans TOUTES les copies : la source Salt ET le fichier d'exécution.
+  # N'en traiter qu'une laisserait Suricata lire l'autre, restée inchangée.
+  sudo find / -name 'all-rulesets.rules' -not -path '/nsm/*' -not -path '/proc/*' -not -path '/sys/*' 2>/dev/null \
+    | while read -r LOCAL; do
+        echo \"   Cible : \$LOCAL\"
+        sudo cp \"\$LOCAL\" \"\$LOCAL.avant-$SID\" 2>/dev/null && echo '     sauvegarde faite'
+        if sudo grep -q 'sid:$SID' \"\$LOCAL\" 2>/dev/null; then
+          echo '     règle déjà présente'
+        else
+          echo '$REGLE' | sudo tee -a \"\$LOCAL\" >/dev/null && echo '     règle ajoutée'
+        fi
+      done
   echo
   echo '── Rechargement ──'
   sudo so-suricata-reload-rules 2>&1 | tail -5
-  sleep 5
+  sleep 8
   echo
-  echo '── Vérification : la règle est-elle chargée ? ──'
-  sudo grep -c 'sid:$SID' \"\$LOCAL\" | sed 's/^/   occurrences dans le fichier : /'
-  sudo so-suricata-rulestats 2>&1 | head -8
+  echo '── Vérification : la règle est-elle dans chaque copie ? ──'
+  sudo find / -name 'all-rulesets.rules' -not -path '/nsm/*' -not -path '/proc/*' -not -path '/sys/*' 2>/dev/null \
+    | while read -r x; do
+        sudo grep -q 'sid:$SID' \"\$x\" 2>/dev/null && echo \"   ✓ \$x\" || echo \"   ⛔ \$x\"
+      done
   echo
   echo '── Erreurs de chargement éventuelles ──'
   sudo tail -30 /opt/so/log/suricata/suricata.log 2>/dev/null | grep -iE 'error|invalid|$SID' | tail -5 \
