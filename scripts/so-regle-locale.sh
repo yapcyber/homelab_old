@@ -54,13 +54,23 @@ ssh -t "$SOUSER@$SOC" "
   echo '── 3. Fichiers de règles que Suricata lit ──'
   sudo grep -A12 '^rule-files' /opt/so/conf/suricata/suricata.yaml 2>/dev/null | head -15
   echo
-  echo '── 4. La règle $SID est-elle DANS un fichier déployé ? ──'
-  f=\$(sudo grep -rl 'sid:$SID' /opt/so /nsm 2>/dev/null | head -5)
-  if [ -n \"\$f\" ]; then echo \"\$f\" | sed 's/^/   trouvée dans : /'
-  else echo '   ABSENTE de tous les fichiers de règles → c est la cause'; fi
+  echo '── 4. Où vit le fichier que Suricata lit ? ──'
+  # NE JAMAIS parcourir /nsm : c'est le dépôt de PCAP, potentiellement des
+  # centaines de Go — un grep -r s'y enlise et le diagnostic s'arrête là.
+  sudo grep -E 'default-rule-path' /opt/so/conf/suricata/suricata.yaml 2>/dev/null
+  RF=\$(sudo find /opt/so /etc/suricata -name 'all-rulesets.rules' 2>/dev/null | head -1)
+  echo \"   fichier : \${RF:-INTROUVABLE}\"
+  [ -n \"\$RF\" ] && sudo ls -l \"\$RF\"
   echo
-  echo '── 5. Emplacement des règles locales ──'
-  sudo find /opt/so /nsm -name 'local.rules' 2>/dev/null | head -5
+  echo '── 5. La règle $SID y est-elle, et le fichier est-il à jour ? ──'
+  if [ -n \"\$RF\" ]; then
+    echo \"   règles totales : \$(sudo grep -c '^alert' \"\$RF\" 2>/dev/null)\"
+    if sudo grep -q 'sid:$SID' \"\$RF\" 2>/dev/null; then
+      echo '   ✓ règle PRÉSENTE dans le fichier déployé'
+    else
+      echo '   ⛔ règle ABSENTE → la synchronisation Detections n a jamais eu lieu'
+    fi
+  fi
 "
 
 [ "${1:-}" = "--diag" ] && { echo ""; ok "Diagnostic terminé, rien modifié."; exit 0; }
@@ -85,12 +95,8 @@ read -r -p "  Lancer la VOIE 2 maintenant ? [o/N] " a
 
 step "Injection directe de la règle $SID"
 ssh -t "$SOUSER@$SOC" "
-  LOCAL=\$(sudo find /opt/so /nsm -name 'local.rules' 2>/dev/null | head -1)
-  if [ -z \"\$LOCAL\" ]; then
-    LOCAL=\$(sudo grep -A12 '^rule-files' /opt/so/conf/suricata/suricata.yaml 2>/dev/null \
-            | sed -n 's/^ *- *//p' | head -1)
-    [ -n \"\$LOCAL\" ] && LOCAL=\"/opt/so/conf/suricata/rules/\$LOCAL\"
-  fi
+  # Cible : le SEUL fichier listé dans rule-files de suricata.yaml.
+  LOCAL=\$(sudo find /opt/so /etc/suricata -name 'all-rulesets.rules' 2>/dev/null | head -1)
   [ -n \"\$LOCAL\" ] || { echo '   ❌ Aucun fichier de règles identifié.'; exit 1; }
   echo \"   Cible : \$LOCAL\"
   sudo cp \"\$LOCAL\" \"\$LOCAL.avant-$SID\" 2>/dev/null && echo '   Sauvegarde faite'
