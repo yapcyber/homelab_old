@@ -27,10 +27,21 @@ C'est le point qui décide de la forme du test est-ouest. Sur le switch :
     ssh <ton-user>@10.0.10.2
     show monitor session all
 
-| Ce que tu lis | Ce que la sonde voit | Test est-ouest à utiliser |
-|---|---|---|
-| `Source VLANs ... 30` (ou les ports d'accès des nœuds) | Le trafic **commuté** entre VM | **Variante A** (intra-VLAN) |
-| `Source Ports ... Gi0/1` seulement (le trunk) | Uniquement ce qui monte vers OPNsense | **Variante B** (inter-VLAN) |
+La ligne qui décide est le **type de source**, pas la liste qui suit :
+
+| Ce que tu lis | Nature | Ce que la sonde voit | Variante |
+|---|---|---|---|
+| **`Source VLANs`** … contient `30` | SPAN par VLAN (VSPAN) | Tout le VLAN, y compris le trafic **commuté** entre VM | **A** (intra-VLAN) |
+| **`Source Ports`** … `Gi0/1` (le trunk) uniquement | SPAN par port | Uniquement ce qui monte vers OPNsense | **B** (inter-VLAN) |
+
+> Configuration relevée le 29/07/2026 : `Source VLANs — Both : 10,20,30,…,100`,
+> destination `Gi0/2`, encapsulation `Replicate` → **variante A**. Le SPAN couvre
+> les dix VLAN dans les deux sens et préserve les étiquettes.
+
+⚠️ Dans tous les cas, le SPAN ne voit que ce qui **atteint le switch** : deux VM
+sur le *même* hyperviseur communiquent par le bridge Proxmox et ne sortent jamais
+sur le câble. D'où le choix `osint` (pve3) → `infra` (pve1) — deux nœuds
+physiques distincts. Ne pas substituer d'autres machines sans le vérifier.
 
 C'est la limite documentée dans `AUDIT-SECURITE.md` : le trafic est-ouest à
 l'intérieur du VLAN 30 est commuté, pas routé, et ne traverse jamais le pare-feu.
