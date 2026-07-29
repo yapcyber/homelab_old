@@ -98,6 +98,13 @@ Requête 2 — la sonde voit-elle seulement ce trafic ?
 
   • Des lignes conn / http apparaissent → la capture fonctionne,
     c'est le JEU DE RÈGLES qui ne déclenche pas.
+    ⇒ NE PAS CONTINUER : un journal conn est de la télémétrie, pas une
+      détection, et bc03/c09 n'aurait rien à montrer.
+      Écrire une règle locale — c'est plus rapide que de réparer le
+      ruleset, et c'est une meilleure preuve.
+      Procédure complète : section « Test 1bis » du runbook
+      docs/runbooks/preuves-security-onion.md
+      Puis relancer CE script depuis le début.
   • Rien du tout → le trafic n'atteint pas la sonde :
     problème de SPAN, d'interface de capture, ou Suricata à l'arrêt.
 

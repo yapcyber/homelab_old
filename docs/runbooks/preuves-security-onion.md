@@ -73,6 +73,66 @@ Si rien n'apparaît ici, inutile de continuer.
 **Attendu** dans *Alerts*, sous une minute : une alerte contenant
 `id check returned root`, source 10.0.30.17, destination publique.
 
+## Test 1bis — Aucune alerte alors que Zeek voit le trafic
+
+Cas rencontré le 29/07/2026 : `source.ip:"10.0.30.17" | groupby event.dataset`
+renvoie bien des lignes `conn` et `http`, mais **aucune alerte**. La capture
+fonctionne ; c'est le jeu de règles qui ne déclenche pas.
+
+**Ne pas continuer en l'état** : un journal `conn` est de la télémétrie, pas une
+détection. Sans alerte, `bc03/c09` n'a rien à montrer.
+
+D'abord, savoir si le moteur alerte tout court :
+
+    event.dataset:alert | groupby rule.name
+
+| Résultat | Interprétation | À dire dans le dossier |
+|---|---|---|
+| D'autres alertes existent | Le moteur tourne ; seule cette signature manque ou est désactivée | Rien de particulier |
+| Aucune alerte, jamais | Le ruleset est vide ou non chargé — le SPAN est configuré mais **la détection est inopérante** | À signaler tel quel : une visibilité qu'on croit avoir et qu'on n'a pas est un constat d'audit en soi |
+
+### Écrire sa propre règle (recommandé)
+
+Plus rapide que de réparer un ruleset sur une sonde qu'on décommissionne, et
+c'est une **meilleure preuve** : écrire, déployer et déclencher une signature
+relève de l'ingénierie de détection, pas de l'usage d'un produit.
+
+Interface **Detections** → bouton **+** (entre *Options* et la barre de requête)
+→ moteur *Suricata* → coller :
+
+```
+alert tcp any any -> any any (msg:"HOMELAB TEST Reponse id root sur flux interne"; \
+flow:established,to_client; content:"uid=0(root)"; classtype:bad-unknown; \
+sid:1000001; rev:1;)
+```
+
+Puis activer la règle et synchroniser :
+
+    ssh admin@10.0.50.10
+    sudo so-idstools-restart
+    sudo so-suricata-restart
+
+> **Pourquoi `tcp` et pas `http`** : le match TCP sur le contenu fonctionne quelle
+> que soit la version de Suricata et le parsing applicatif. Pour une règle de
+> production on préférerait la version applicative
+> (`alert http … http.response_body; content:"uid=0(root)";`), plus précise et
+> moins coûteuse — mais ici on veut une preuve qui part à coup sûr.
+>
+> **`sid:1000001`** : la plage `1000000-1999999` est réservée aux règles locales,
+> elle n'entrera jamais en collision avec un identifiant éditeur.
+
+Vérifier ensuite que la règle est chargée, puis **relancer le test 1** : l'alerte
+doit apparaître avec le message `HOMELAB TEST Reponse id root sur flux interne`.
+
+    event.dataset:alert AND alert.signature:*HOMELAB*
+
+Une fois qu'elle part, enchaîner sur le test 2 — la même règle couvrira le flux
+est-ouest, puisqu'elle ne dépend d'aucune adresse.
+
+> **Capture bonus pour le dossier** : la règle affichée dans l'interface
+> Detections, à côté de l'alerte qu'elle a produite. C'est la démonstration
+> complète d'une chaîne de détection maîtrisée de bout en bout.
+
 ## Test 2 — Est-ouest (la preuve)
 
 ### Variante A — intra-VLAN (si le SPAN couvre le VLAN 30)
