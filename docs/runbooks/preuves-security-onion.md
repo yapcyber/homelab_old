@@ -4,6 +4,11 @@
 du dossier de validation en dépendent, et elles deviendront inproduisibles une
 fois la sonde effacée.
 
+> **Exécution guidée** : `./scripts/preuves-security-onion.sh` enchaîne les
+> déclencheurs, horodate chaque étape et s'arrête le temps des captures.
+> `--check` vérifie seulement les prérequis. Ce document reste la référence
+> pour le détail des captures et la checklist finale.
+
 | Preuve attendue | Fichier concerné |
 |---|---|
 | Une investigation complète (alerte → contexte → PCAP) | `dossier-docs/docs/blocs/bc01/c10.md` |
