@@ -73,9 +73,22 @@ Si rien n'apparaît ici, inutile de continuer.
 **Attendu** dans *Alerts*, sous une minute : une alerte contenant
 `id check returned root`, source 10.0.30.17, destination publique.
 
-## ⚠️ Le piège directionnel — à lire AVANT de chercher
+## ⚠️ Deux pièges de recherche — à lire AVANT de conclure
 
-Constaté le 30/07/2026 après deux heures perdues.
+Constatés le 30/07/2026, après des heures perdues sur un faux diagnostic.
+
+### Piège 1 — le nom du jeu de données
+
+En SO 3.x, le champ vaut **`suricata.alert`**, pas `alert` :
+
+    event.dataset : suricata.alert     ← relevé sur l'instance 3.1.0
+
+Une requête `event.dataset:alert` ne renvoie **rien**, sur aucune fenêtre, et
+laisse croire que Hunt est cassé ou que la sonde ne détecte pas. Les exemples de
+la documentation SO 2.4 utilisent `alert` : **vérifier la valeur réelle sur son
+instance** en ouvrant n'importe quelle alerte depuis la page *Alerts*.
+
+### Piège 2 — la direction du flux
 
 La signature `id check returned root` matche la **réponse HTTP**, celle qui
 contient `uid=0(root)`. Cette réponse va du **serveur vers le client**
@@ -86,18 +99,22 @@ Pour un test `osint (10.0.30.17) → infra (10.0.30.10:8000)`, l'alerte porte :
     source.ip = 10.0.30.10        ← le SERVEUR
     destination.ip = 10.0.30.17   ← le CLIENT
 
-**Chercher `source.ip:"<le client>"` ne renvoie donc RIEN**, et laisse croire que
-la sonde ne détecte pas. C'est exactement ce qui s'est produit : la chaîne de
-détection fonctionnait depuis le début.
+**Chercher `source.ip:"<le client>"` ne renvoie donc RIEN.** Cumulé au piège 1,
+c'est ce qui a fait conclure à tort que la sonde ne détectait pas : la chaîne de
+détection fonctionnait depuis le début, et la règle GPL 2100498 suffisait.
 
     # ✅ la bonne requête
-    event.dataset:alert AND source.ip:"10.0.30.10" AND destination.ip:"10.0.30.17"
+    event.dataset:suricata.alert AND source.ip:"10.0.30.10" AND destination.ip:"10.0.30.17"
 
     # ✅ ou, plus robuste, par signature — SANS joker initial
-    event.dataset:alert AND alert.signature:GPL*
+    event.dataset:suricata.alert AND alert.signature:GPL*
 
 > **Pas de joker en début de motif** (`*HOMELAB*`) : Elasticsearch les gère mal
 > ou les refuse. Préférer `HOMELAB*`.
+>
+> **En cas de doute, la page *Alerts* fonctionne sans requête** : elle liste tout
+> et permet d'ouvrir une alerte pour y lire les noms de champs réels. C'est par
+> là qu'il faut commencer, pas par Hunt.
 
 Autre détail qui trompe : `pkt_src: "stream (flow timeout)"` — Suricata émet
 l'alerte à l'expiration du flux, pas à la volée. Compter **une à deux minutes**
@@ -115,7 +132,7 @@ Si, direction corrigée et fenêtre élargie à deux minutes, il n'y a toujours 
 un journal `conn` est de la télémétrie, pas une détection, et `bc03/c09` n'aurait
 rien à montrer. Chercher alors si le moteur alerte tout court :
 
-    event.dataset:alert | groupby rule.name
+    event.dataset:suricata.alert | groupby rule.name
 
 | Résultat | Interprétation | À dire dans le dossier |
 |---|---|---|
@@ -160,7 +177,7 @@ Puis activer la règle et synchroniser :
 Vérifier ensuite que la règle est chargée, puis **relancer le test 1** : l'alerte
 doit apparaître avec le message `HOMELAB TEST Reponse id root sur flux interne`.
 
-    event.dataset:alert AND alert.signature:HOMELAB*
+    event.dataset:suricata.alert AND alert.signature:HOMELAB*
 
 Une fois qu'elle part, enchaîner sur le test 2 — la même règle couvrira le flux
 est-ouest, puisqu'elle ne dépend d'aucune adresse.
