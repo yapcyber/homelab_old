@@ -88,7 +88,7 @@ pause "La page Alerts ne porte qu'un filtre : passe par HUNT pour chercher.
 Fenêtre de temps : autour de $T1
 
 Requête 1 — l'alerte attendue :
-    event.dataset:alert AND source.ip:\"$OSINT\"
+    event.dataset:alert AND destination.ip:\"$OSINT\"
 
 Attendu : une alerte « GPL ATTACK_RESPONSE id check returned root »
 
@@ -161,10 +161,10 @@ echo "  Attendre ~60 s l'indexation ..."; sleep 60
 pause "HUNT, fenêtre de temps autour de $T2
 
 Requête — cibler précisément ce flux :
-    event.dataset:alert AND source.ip:\"$OSINT\" AND destination.ip:\"$CIBLE\"
+    event.dataset:alert AND source.ip:\"$CIBLE\" AND destination.ip:\"$OSINT\"
 
 Variante si tu préfères chercher par signature :
-    event.dataset:alert AND alert.signature:*root*
+    event.dataset:alert AND alert.signature:GPL*
 
 Attendu : $ATTENDU
 C'est LA preuve est-ouest : détection sur un flux interne.
@@ -179,7 +179,7 @@ la sonde a vu :
 step "[3/4] Complémentarité — SO détecte, Wazuh ne voit rien"
 echo "  On ne relance rien : on réexploite l'événement de $T2."
 pause "1. Dans SO (Hunt) : l'alerte de $T2, HORODATAGE VISIBLE à l'écran
-       event.dataset:alert AND source.ip:\"$OSINT\" AND destination.ip:\"$CIBLE\"
+       event.dataset:alert AND source.ip:\"$CIBLE\" AND destination.ip:\"$OSINT\"
 
 2. Dans Wazuh (wazuh.yapserver.fr) → Threat Hunting
    MÊME fenêtre de temps, rechercher :
@@ -198,7 +198,7 @@ surveillent fichiers, journaux et intégrité, pas les flux réseau.
 # --- Étape 4 : l'investigation complète -------------------------------------
 step "[4/4] Investigation complète — 5 captures enchaînées"
 pause "Repartir de l'alerte de $T2 :
-    event.dataset:alert AND source.ip:\"$OSINT\" AND destination.ip:\"$CIBLE\"
+    event.dataset:alert AND source.ip:\"$CIBLE\" AND destination.ip:\"$OSINT\"
 
 Puis dérouler la chaîne, une capture par étape :
 

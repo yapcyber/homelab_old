@@ -73,16 +73,47 @@ Si rien n'apparaît ici, inutile de continuer.
 **Attendu** dans *Alerts*, sous une minute : une alerte contenant
 `id check returned root`, source 10.0.30.17, destination publique.
 
+## ⚠️ Le piège directionnel — à lire AVANT de chercher
+
+Constaté le 30/07/2026 après deux heures perdues.
+
+La signature `id check returned root` matche la **réponse HTTP**, celle qui
+contient `uid=0(root)`. Cette réponse va du **serveur vers le client**
+(`direction: to_client`). Le paquet qui déclenche l'alerte part donc du serveur.
+
+Pour un test `osint (10.0.30.17) → infra (10.0.30.10:8000)`, l'alerte porte :
+
+    source.ip = 10.0.30.10        ← le SERVEUR
+    destination.ip = 10.0.30.17   ← le CLIENT
+
+**Chercher `source.ip:"<le client>"` ne renvoie donc RIEN**, et laisse croire que
+la sonde ne détecte pas. C'est exactement ce qui s'est produit : la chaîne de
+détection fonctionnait depuis le début.
+
+    # ✅ la bonne requête
+    event.dataset:alert AND source.ip:"10.0.30.10" AND destination.ip:"10.0.30.17"
+
+    # ✅ ou, plus robuste, par signature — SANS joker initial
+    event.dataset:alert AND alert.signature:GPL*
+
+> **Pas de joker en début de motif** (`*HOMELAB*`) : Elasticsearch les gère mal
+> ou les refuse. Préférer `HOMELAB*`.
+
+Autre détail qui trompe : `pkt_src: "stream (flow timeout)"` — Suricata émet
+l'alerte à l'expiration du flux, pas à la volée. Compter **une à deux minutes**
+d'écart entre le trafic et l'alerte, et cadrer la fenêtre en conséquence.
+
 ## Test 1bis — Aucune alerte alors que Zeek voit le trafic
 
-Cas rencontré le 29/07/2026 : `source.ip:"10.0.30.17" | groupby event.dataset`
-renvoie bien des lignes `conn` et `http`, mais **aucune alerte**. La capture
-fonctionne ; c'est le jeu de règles qui ne déclenche pas.
+> **Dans 90 % des cas, c'est le piège directionnel ci-dessus.** Le 29/07/2026,
+> `source.ip:"10.0.30.17" | groupby event.dataset` ne renvoyait que `conn` et
+> `http` — non pas parce que le moteur ne déclenchait pas, mais parce que
+> l'alerte portait `source.ip = 10.0.30.10`. Deux heures perdues sur un faux
+> diagnostic. **Vérifier la direction AVANT de conclure quoi que ce soit.**
 
-**Ne pas continuer en l'état** : un journal `conn` est de la télémétrie, pas une
-détection. Sans alerte, `bc03/c09` n'a rien à montrer.
-
-D'abord, savoir si le moteur alerte tout court :
+Si, direction corrigée et fenêtre élargie à deux minutes, il n'y a toujours rien :
+un journal `conn` est de la télémétrie, pas une détection, et `bc03/c09` n'aurait
+rien à montrer. Chercher alors si le moteur alerte tout court :
 
     event.dataset:alert | groupby rule.name
 
@@ -91,11 +122,12 @@ D'abord, savoir si le moteur alerte tout court :
 | D'autres alertes existent | Le moteur tourne ; seule cette signature manque ou est désactivée | Rien de particulier |
 | Aucune alerte, jamais | Le ruleset est vide ou non chargé — le SPAN est configuré mais **la détection est inopérante** | À signaler tel quel : une visibilité qu'on croit avoir et qu'on n'a pas est un constat d'audit en soi |
 
-### Écrire sa propre règle (recommandé)
+### Écrire sa propre règle (facultatif)
 
-Plus rapide que de réparer un ruleset sur une sonde qu'on décommissionne, et
-c'est une **meilleure preuve** : écrire, déployer et déclencher une signature
-relève de l'ingénierie de détection, pas de l'usage d'un produit.
+Le ruleset GPL contient déjà `id check returned root` (sid **2100498**) et
+déclenche très bien : une règle maison n'est **pas nécessaire** pour produire la
+preuve. Elle reste un plus pour le dossier — écrire, déployer et déclencher une
+signature relève de l'ingénierie de détection, pas de l'usage d'un produit.
 
 Interface **Detections** → bouton **+** (entre *Options* et la barre de requête)
 → moteur *Suricata* → coller :
@@ -109,8 +141,12 @@ sid:1000001; rev:1;)
 Puis activer la règle et synchroniser :
 
     ssh admin@10.0.50.10
-    sudo so-idstools-restart
     sudo so-suricata-restart
+
+> ⚠️ `so-idstools-restart` **n'existe plus en SO 3.x** : la synchronisation passe
+> par le moteur Detections. Et créer la règle dans l'interface ne suffit pas —
+> elle peut rester absente des trois copies de `all-rulesets.rules` que la sonde
+> utilise. Diagnostic et injection : [so-regle-locale.md](so-regle-locale.md).
 
 > **Pourquoi `tcp` et pas `http`** : le match TCP sur le contenu fonctionne quelle
 > que soit la version de Suricata et le parsing applicatif. Pour une règle de
@@ -124,7 +160,7 @@ Puis activer la règle et synchroniser :
 Vérifier ensuite que la règle est chargée, puis **relancer le test 1** : l'alerte
 doit apparaître avec le message `HOMELAB TEST Reponse id root sur flux interne`.
 
-    event.dataset:alert AND alert.signature:*HOMELAB*
+    event.dataset:alert AND alert.signature:HOMELAB*
 
 Une fois qu'elle part, enchaîner sur le test 2 — la même règle couvrira le flux
 est-ouest, puisqu'elle ne dépend d'aucune adresse.
