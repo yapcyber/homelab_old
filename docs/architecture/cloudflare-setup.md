@@ -143,10 +143,10 @@ Ajouter une entrée par service interne :
 | Host | Domain | IP | Description |
 |------|--------|----|-------------|
 | traefik | yapserver.fr | 10.0.40.10 | Dashboard Traefik |
-| wazuh | yapserver.fr | 10.0.50.10 | Wazuh Dashboard |
+| wazuh | yapserver.fr | 10.0.30.14 | Wazuh Dashboard |
 | proxmox | yapserver.fr | 10.0.10.10 | Proxmox Node 1 |
 | *(vide)* | yapserver.fr | 10.0.40.10 | Apex → Traefik (portfolio) |
 
 Résultat :
-- **Depuis le LAN/WireGuard** : `wazuh.yapserver.fr` → 10.0.50.10 (direct, sans Cloudflare)
+- **Depuis le LAN/WireGuard** : `wazuh.yapserver.fr` → 10.0.30.14 (direct, sans Cloudflare)
 - **Depuis internet** : `yapserver.fr` → Cloudflare → Tunnel → Traefik → Portfolio

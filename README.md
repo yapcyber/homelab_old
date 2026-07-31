@@ -32,9 +32,9 @@ OPNsense bare metal
   |-- VLAN Management / Corosync / Production / DMZ / SOC
   |-- VLAN Storage / IoT / Guest / Gaming / Admin / WireGuard
   |
-Cisco 3560X -- SPAN --> Security Onion (Suricata + Zeek)
+Cisco 3560X (SPAN par VLAN disponible)
   |
-Cluster Proxmox VE : pve1 / pve2 / pve3
+Cluster Proxmox VE : pve1 / pve2 / pve3 / pve4 (+ arbitre de quorum)
   |-- VMs Docker de services
   |-- TrueNAS SCALE (stockage NFS/ZFS provisoire)
   `-- workloads sécurité, monitoring et réponse à incident
@@ -88,7 +88,7 @@ est réservé à Traefik et au VLAN Admin.
 
 ### Sécurité et réponse à incident
 
-- Security Onion : Suricata, Zeek et visibilité réseau via SPAN ;
+- Suricata intégré à OPNsense : détection réseau nord-sud et inter-VLAN ;
 - Wazuh : SIEM/HIDS, FIM, SCA, vulnérabilités et règles locales ;
 - Greenbone/OpenVAS ;
 - TheHive 5 et Cortex 4 avec analyzer Maigret ;
@@ -198,7 +198,7 @@ ne figurent volontairement pas dans cette vue publique.
 - services personnels/familiaux derrière Traefik ;
 - SSO Authentik sur les applications compatibles ;
 - monitoring, alerting et tâches de maintenance ;
-- Wazuh, Security Onion, Greenbone, TheHive/Cortex et OSINT ;
+- Wazuh, Suricata/OPNsense, Greenbone, TheHive/Cortex et OSINT ;
 - chaîne Packer/OpenTofu/Ansible fonctionnelle sur son périmètre actuel.
 
 ### Priorités
@@ -216,7 +216,7 @@ ne figurent volontairement pas dans cette vue publique.
 
 - stockage TrueNAS provisoire, sans redondance matérielle suffisante ;
 - switch limité à 1 Gbit/s tant que le module 10G n'est pas installé ;
-- OPNsense, Cisco, Security Onion et une partie de Cloudflare ne sont pas encore
+- OPNsense, Cisco et une partie de Cloudflare ne sont pas encore
   entièrement reproductibles depuis ce dépôt ;
 - les configurations publiques évitent les secrets, mais exposent nécessairement
   une partie de la conception technique du portfolio.
@@ -226,7 +226,6 @@ ne figurent volontairement pas dans cette vue publique.
 - [Documentation homelab](docs/homelab.md)
 - [Runbook VM gelée par dépendance NFS](docs/runbooks/vm-gelee-nfs-nas.md)
 - [Runbook diagnostic SSH](docs/runbooks/ban-ssh-depuis-control-node.md)
-- [Autoriser le control node sur Security Onion](docs/runbooks/security-onion-ssh-control-node.md)
 - [Procédure TrueNAS / Proxmox](infrastructure/nas/truenas-proxmox/TRUENAS-PROXMOX.md)
 
 ---

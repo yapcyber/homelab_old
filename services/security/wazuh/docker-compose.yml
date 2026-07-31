@@ -14,7 +14,7 @@
 #   │  Wazuh Manager                                                  │
 #   │  ← Reçoit les logs de tous les agents (port 1514)              │
 #   │  ← Reçoit les syslogs réseau d'OPNsense (port 514/udp)         │
-#   │  ← Reçoit les logs Security Onion (port 514/udp)               │
+#   │  ← Reçoit les logs syslog d'OPNsense (port 514/udp)            │
 #   │  → Analyse, corrèle, génère des alertes                        │
 #   │  → Envoie les alertes à l'Indexer via Filebeat (TLS)           │
 #   └───────────────────────────┬─────────────────────────────────────┘
@@ -86,8 +86,8 @@ services:
       - "1514:1514"
       # Enregistrement des nouveaux agents (génération de clés)
       - "1515:1515"
-      # Syslog UDP — reçoit les logs OPNsense et Security Onion
-      # OPNsense : Syslog → Remote → 10.0.50.10:514 UDP
+      # Syslog UDP — reçoit les logs d'OPNsense (dont les alertes Suricata)
+      # OPNsense : Syslog → Remote → 10.0.30.14:514 UDP
       - "514:514/udp"
       # API REST Wazuh (utilisée par le Dashboard et les intégrations)
       # Accessible uniquement depuis VLAN 50 et VLAN 100 (Jump Host)
