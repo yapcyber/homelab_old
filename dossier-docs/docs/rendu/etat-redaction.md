@@ -19,7 +19,7 @@ calibré sur cette date.
 |---|---|---|
 | Volume du document Word | 60 pages minimum hors annexes | environ 13 pages montées (BC01 seul) |
 | Partie 1, écrit narratif | 10 à 15 pages | **rien n'est écrit** |
-| Partie 2, portefeuille | 61 compétences | 18 rédigées sur le site, 43 restantes |
+| Partie 2, portefeuille | 61 compétences | 21 rédigées sur le site, 40 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
 ## Méthode retenue
@@ -79,6 +79,7 @@ Elles ne souffrent aucune exception.
 | Haute disponibilité | **Armée le 1er août, jamais testée.** Le test est reporté tant que la mémoire n'est pas rééquilibrée |
 | Lien 10 Gb/s | **Non actif.** Possible à partir du 10 août, après déménagement |
 | Mesure de consommation | **Non réalisée.** Possible à partir du 10 août |
+| Détection réseau | Le moteur du pare-feu produit des alertes mais **son export est désactivé** : elles n'atteignent pas le SIEM. Corrigé côté dépôt, à activer côté pare-feu |
 | CrowdSec | Mécanisme en place, aucune décision de blocage réelle. À présenter comme tel |
 | CV-as-Code | À décrire au présent seulement une fois en production |
 | Certifications | CyberOps non validée, CCNA reportée. **Aucune certification réseau n'est présentée comme acquise.** La préparation peut être mentionnée comme telle |
@@ -90,8 +91,8 @@ Elles ne souffrent aucune exception.
 | Bloc | Compétences | État |
 |---|---|---|
 | [BC01](/blocs/bc01) | 11 | Textes figés, **rafraîchissement factuel requis** |
-| [BC02](/blocs/bc02) | 16 | C1 validée, C2, C3, C15 et C16 rédigées. 11 à rédiger |
-| [BC03](/blocs/bc03) | 18 | **G5 continuité rédigée** (C11 à C14, C16, C17). 12 à rédiger |
+| [BC02](/blocs/bc02) | 16 | C1 validée, C2, C3, C7, C15 et C16 rédigées. 10 à rédiger |
+| [BC03](/blocs/bc03) | 18 | **G5 continuité et G4 détection rédigées** (C8, C9, C11 à C14, C16, C17). 10 à rédiger |
 | [BC04](/blocs/bc04) | 16 | C12, C15 et C16 rédigées. 13 à rédiger |
 | Partie 1 | — | **Intégralement à écrire** |
 
@@ -107,4 +108,7 @@ régénérées depuis le référentiel comme source unique, et les grappes G6 et
 ont été rédigées, puis **G5, la continuité**, qui couvre six compétences du
 BC03. Trois preuves convergentes en sortent, par ordre de priorité : le test de
 bascule contrôlé, le procès-verbal du test de restauration du 22 juillet, et le
-tableau BIA.
+tableau BIA. Puis **G4, supervision et détection**, dont la preuve principale
+était déjà capturée, et qui a fait remonter une action technique courte :
+activer l'export des alertes du moteur de détection réseau vers le SIEM, qui
+est aujourd'hui désactivé.

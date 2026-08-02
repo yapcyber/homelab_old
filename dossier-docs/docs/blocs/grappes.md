@@ -22,7 +22,7 @@ dans le document Word, où il est la seule chose que le jury voit.
 | G1 | Correctifs et parc | B2C05, B2C09, B2C14, B3C10 | Tanium, WSUS, politique CVSS | À rédiger |
 | G2 | Projet périphériques | B2C04, B2C06, B3C05, B4C01, B4C08 | Pièces 11 à 14 | À rédiger |
 | G3 | Support et tickets | B2C12, B2C13, B4C07 | GLPI, Concentrix | À rédiger |
-| G4 | Supervision et détection | B2C07, B3C08, B3C09 | Détection est-ouest, cascade mémoire, post-mortem SOC | À rédiger |
+| **G4** | **Supervision et détection** | **B2C07, B3C08, B3C09** | **Détection est-ouest, cascade mémoire, post-mortem SOC** | **Rédigée** |
 | **G5** | **Continuité** | **B3C11, B3C12, B3C13, B3C14, B3C16, B3C17** | **BIA, PV de restauration, test de bascule** | **Rédigée** |
 | **G6** | **Réseau, budget, achats** | **B2C02, B2C03, B4C12, B4C15, B4C16** | **Arbitrages d'architecture, mesures de débit** | **Rédigée** |
 | G7 | IaC et intégration continue | B2C08, B2C10, B2C11 | Packer, OpenTofu, Renovate, CI, corpus GRC | À rédiger |
@@ -47,6 +47,11 @@ G5 a été traitée ensuite parce qu'elle est la plus rentable du dossier : six 
 dix-huit compétences du BC03 d'un seul tenant, et une convergence de trois
 preuves à produire seulement, le test de bascule, le procès-verbal de
 restauration et le tableau BIA.
+
+G4 a suivi pour la raison inverse : sa preuve principale, la synthèse de
+détection est-ouest, était **déjà écrite et capturée**. Elle a coûté peu et
+elle a révélé une action technique courte à mener avant le rendu, l'activation
+de l'export des alertes réseau vers le SIEM.
 
 ## Règle d'honnêteté commune
 
