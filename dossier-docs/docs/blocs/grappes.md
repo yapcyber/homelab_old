@@ -20,7 +20,7 @@ dans le document Word, où il est la seule chose que le jury voit.
 | # | Grappe | Compétences | Preuve pivot | État |
 |---|---|---|---|---|
 | G1 | Correctifs et parc | B2C05, B2C09, B2C14, B3C10 | Tanium, WSUS, politique CVSS | À rédiger |
-| G2 | Projet périphériques | B2C04, B2C06, B3C05, B4C01, B4C08 | Pièces 11 à 14 | À rédiger |
+| **G2** | **Projet périphériques** | **B2C04, B2C06, B3C05, B4C01, B4C08** | **Pièces 11 à 14** | **Rédigée** |
 | G3 | Support et tickets | B2C12, B2C13, B4C07 | GLPI, Concentrix | À rédiger |
 | **G4** | **Supervision et détection** | **B2C07, B3C08, B3C09** | **Détection est-ouest, cascade mémoire, post-mortem SOC** | **Rédigée** |
 | **G5** | **Continuité** | **B3C11, B3C12, B3C13, B3C14, B3C16, B3C17** | **BIA, PV de restauration, test de bascule** | **Rédigée** |
@@ -34,9 +34,9 @@ dans le document Word, où il est la seule chose que le jury voit.
 
 ## Pourquoi ce regroupement
 
-Chaque grappe partage soit une preuve, soit un contexte, soit une méthode. En
-rédigeant G2, on ouvre une seule fois les quatre pièces du projet
-périphériques et on couvre cinq compétences sur trois blocs.
+Chaque grappe partage soit une preuve, soit un contexte, soit une méthode. G2
+l'a démontré : les quatre pièces du projet périphériques, ouvertes une seule
+fois, ont couvert cinq compétences réparties sur trois blocs.
 
 Deux grappes sont volontairement placées en tête, G6 et G11, parce qu'elles
 portent les quatre compétences dont les critères sont les plus étroits du
@@ -57,6 +57,12 @@ G8 a bouclé le gros du BC03 en réutilisant largement ce qui venait d'être éc
 en G4, et a fait remonter deux dernières manipulations sur le pare-feu, à
 grouper avec la précédente, ainsi qu'un seul livrable manquant, la politique
 cloud d'une page.
+
+G2 a ouvert le versant entreprise. Elle a mis au jour, dans les pièces déjà
+collectées, le motif de mise en pause du projet périphériques : les clés
+retenues n'exposent aucun numéro de série exploitable, ce qui rend impossible
+une liste d'autorisation par périphérique. Cet obstacle, découvert par un test
+au bon moment de la séquence, sert quatre des cinq compétences de la grappe.
 
 ## Règle d'honnêteté commune
 

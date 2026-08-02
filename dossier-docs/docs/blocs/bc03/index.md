@@ -5,10 +5,10 @@ sidebar_position: 1
 
 # BC03 — Définir la politique de sécurisation du SI
 
-**Statut : G5, G4 et G8 rédigées (14 compétences), 4 à rédiger.** Une page par compétence
+**Statut : G5, G4, G8 et G2 rédigées (15 compétences), 3 à rédiger.** Une page par compétence
 ci-dessous, avec l'intitulé et le critère **exacts** du référentiel. La
 rédaction se fait par [grappe](/blocs/grappes) : **G5 continuité, G4 détection et G8 sécurité et
-identités (faites)**. Restent C1 et C15 en G12, C5 en G2, C10 en G1.
+identités (faites)**. Restent C1 et C15 en G12, C10 en G1.
 
 ## Intitulé
 
@@ -62,7 +62,7 @@ tunnel distinct).
 | [C2](./c02.md) | Connaître et appliquer ISO 27001, télétravail | Les failles de sécurité sont identifiées, ou certification ISO 27001 obtenue | **Rédigée** (G8) |
 | [C3](./c03.md) | Configurer des solutions de sécurité classiques | Les configurations des services réseaux sont conformes au niveau attendu | **Rédigée** (G8) |
 | [C4](./c04.md) | Sécuriser les transactions numériques | Des procédures de sécurité contrôlent l'accès aux données | **Rédigée** (G8) |
-| [C5](./c05.md) | Accès physiques et logiques, données sensibles | Évaluation des risques liés aux équipements produite | Solide |
+| [C5](./c05.md) | Accès physiques et logiques, données sensibles | Une évaluation des risques associés à l'utilisation des équipements est produite | **Rédigée** (G2) |
 | [C6](./c06.md) | Gestion unique des terminaux mobiles (MDM) | Une solution de gestion unique des accès est mise en place | **Rédigée** (G8) |
 | [C7](./c07.md) | Règles IAM, gestion des habilitations | Les droits d'accès sont gérés par des listes d'accès ou des groupes | **Rédigée** (G8) |
 | [C8](./c08.md) | Protections passives et actives, plan d'urgence viral | Les accès physiques et virtuels sont contrôlés, ou l'attaque virale est maîtrisée | **Rédigée** (G4) |

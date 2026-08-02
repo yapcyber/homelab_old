@@ -17,9 +17,9 @@ format Word puis PDF, mais tout se prépare et se centralise ici.
 | Bloc | Intitulé | Compétences | État |
 |---|---|---|---|
 | [BC01](/blocs/bc01) | Administrer le système d'information | 11 | Validé, textes figés — **rafraîchissement factuel requis** |
-| [BC02](/blocs/bc02) | Assurer la gestion du SI | 16 | C1 validée, C2, C3, C7, C15 et C16 rédigées — 10 à rédiger |
-| [BC03](/blocs/bc03) | Définir la politique de sécurisation du SI | 18 | G5, G4 et G8 rédigées (14 compétences) — 4 à rédiger |
-| [BC04](/blocs/bc04) | Communiquer avec tous les acteurs | 16 | C12, C15 et C16 rédigées — 13 à rédiger |
+| [BC02](/blocs/bc02) | Assurer la gestion du SI | 16 | 7 compétences rédigées — 8 à rédiger |
+| [BC03](/blocs/bc03) | Définir la politique de sécurisation du SI | 18 | 15 compétences rédigées — 3 à rédiger |
+| [BC04](/blocs/bc04) | Communiquer avec tous les acteurs | 16 | 5 compétences rédigées — 11 à rédiger |
 | **Partie 1** | Écrit narratif (parcours, entreprise, métier) | — | **Intégralement à écrire** |
 
 Un bloc n'est validé que si **toutes** ses compétences le sont.

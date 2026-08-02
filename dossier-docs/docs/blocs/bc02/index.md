@@ -5,8 +5,8 @@ sidebar_position: 1
 
 # BC02 — Assurer la gestion du Système d'information
 
-**Statut : C1 validée** (texte final à retrouver, pièce 34), **C2, C3, C7, C15
-et C16 rédigées**, 10 compétences à rédiger. Une page par compétence ci-dessous,
+**Statut : C1 validée** (texte final à retrouver, pièce 34), **C2, C3, C4, C6,
+C7, C15 et C16 rédigées**, 8 compétences à rédiger. Une page par compétence ci-dessous,
 avec l'intitulé et le critère **exacts** du référentiel. La rédaction se fait
 par [grappe](/blocs/grappes) — voir aussi
 [l'état de la rédaction](/rendu/etat-redaction).
@@ -47,9 +47,9 @@ présent qu'une fois réellement en production.
 | [C1](./c01.md) | Gérer les évolutions (ISO/CEI 20000) | Tableau de bord renseigné | **Validée** |
 | [C2](./c02.md) | Évolution des équipements et débits | Les débits sont optimisés | **Rédigée** (G6) |
 | [C3](./c03.md) | Comparer les solutions de renouvellement | Adéquation des propositions retenues, ou certification ITIL | **Rédigée** (G6) |
-| [C4](./c04.md) | Ordonnancer le plan de déploiement | Le déploiement est planifié | Solide |
+| [C4](./c04.md) | Ordonnancer le plan de déploiement | Le déploiement est planifié | **Rédigée** (G2) |
 | [C5](./c05.md) | Maquetter les solutions pour test et validation | Solutions maquettées ou procédures établies | Solide |
-| [C6](./c06.md) | Attribuer les ressources selon le budget alloué | Ressources disponibles, allouées, budget respecté | Solide |
+| [C6](./c06.md) | Attribuer les ressources selon le budget alloué | Les ressources sont disponibles, allouées et respectent le budget | **Rédigée** (G2) |
 | [C7](./c07.md) | Superviser l'infrastructure et le patrimoine applicatif | Les difficultés sont identifiées et les solutions apportées | **Rédigée** (G4) |
 | [C8](./c08.md) | Recenser les ressources, cartographie du SI | La cartographie permet l'intégration de nouveautés | Solide |
 | [C9](./c09.md) | Migrer une architecture en gérant les risques | L'architecture cible est mise en place | À confirmer |
