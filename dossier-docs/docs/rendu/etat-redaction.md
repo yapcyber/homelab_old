@@ -19,7 +19,7 @@ calibré sur cette date.
 |---|---|---|
 | Volume du document Word | 60 pages minimum hors annexes | environ 13 pages montées (BC01 seul) |
 | Partie 1, écrit narratif | 10 à 15 pages | **rien n'est écrit** |
-| Partie 2, portefeuille | 61 compétences | 32 rédigées sur le site, 29 restantes |
+| Partie 2, portefeuille | 61 compétences | 39 rédigées sur le site, 22 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
 ## Méthode retenue
@@ -73,6 +73,7 @@ Elles ne souffrent aucune exception.
 
 | Point | État au 2 août 2026 |
 |---|---|
+| Charte informatique | Elle **existe**, versionnée et validée par la DSI, les RH et les représentants du personnel. Nuance à lever : ses destinataires visent la DSI alors que sa diffusion est autorisée à tous. Deux critères en dépendent |
 | Portfolio bilingue | **Aucune page en anglais.** Le volet anglais repose sur le niveau C1, deux réunions professionnelles et les courriels de la pièce 31, qui sont collectés. La traduction est un bonus, pas une dépendance |
 | Sauvegardes | **Point levé.** La chaîne hors site est réelle depuis le 22 juillet 2026. Le texte de BC01 C11 décrit désormais le réel |
 | Security Onion | **Décommissionnée le 31 juillet 2026.** À traiter au passé dans BC01 C1, C5 et C10 |
@@ -93,7 +94,7 @@ Elles ne souffrent aucune exception.
 | [BC01](/blocs/bc01) | 11 | Textes figés, **rafraîchissement factuel requis** |
 | [BC02](/blocs/bc02) | 16 | C1 validée, C2, C3, C4, C6, C7, C15 et C16 rédigées. 8 à rédiger |
 | [BC03](/blocs/bc03) | 18 | **G5, G4, G8 et G2 rédigées** (15 compétences). Restent C1, C10, C15 |
-| [BC04](/blocs/bc04) | 16 | C1, C8, C12, C15 et C16 rédigées. 11 à rédiger |
+| [BC04](/blocs/bc04) | 16 | **G6, G2 et G9 rédigées** (12 compétences). Restent C4, C5, C7, C9 |
 | Partie 1 | — | **Intégralement à écrire** |
 
 ## Historique
@@ -115,4 +116,6 @@ est aujourd'hui désactivé. Puis **G8, sécurité, identités et cloud**, qui
 achève l'essentiel du BC03 : il n'y reste que quatre compétences, rattachées à
 d'autres grappes. Puis **G2, projet périphériques**, première grappe du versant
 entreprise, qui a mis au jour dans les pièces le motif de mise en pause du
-projet : les clés retenues n'exposent aucun numéro de série exploitable.
+projet : les clés retenues n'exposent aucun numéro de série exploitable. Puis
+**G9, communication et sensibilisation**, la plus grosse grappe du dossier avec
+sept compétences, qui porte le BC04 à 12 sur 16.

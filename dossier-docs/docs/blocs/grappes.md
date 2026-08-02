@@ -27,7 +27,7 @@ dans le document Word, où il est la seule chose que le jury voit.
 | **G6** | **Réseau, budget, achats** | **B2C02, B2C03, B4C12, B4C15, B4C16** | **Arbitrages d'architecture, mesures de débit** | **Rédigée** |
 | G7 | IaC et intégration continue | B2C08, B2C10, B2C11 | Packer, OpenTofu, Renovate, CI, corpus GRC | À rédiger |
 | **G8** | **Sécurité, identités, cloud** | **B3C02, B3C03, B3C04, B3C06, B3C07, B3C18** | **OPNsense, Authentik, MDM, politique cloud** | **Rédigée** |
-| G9 | Communication et sensibilisation | B4C02, B4C03, B4C06, B4C10, B4C11, B4C13, B4C14 | Campagnes, procédures, base de connaissances | À rédiger |
+| **G9** | **Communication et sensibilisation** | **B4C02, B4C03, B4C06, B4C10, B4C11, B4C13, B4C14** | **Campagnes, procédures, base de connaissances** | **Rédigée** |
 | G10 | Encadrement | B4C04, B4C05, B4C09 | Suivi d'alternance, successeurs, challenge OVH | À rédiger |
 | **G11** | **Numérique responsable** | **B2C15, B2C16** | **Consolidation, réemploi, indicateurs** | **Rédigée** |
 | G12 | Gouvernance et audit | B2C01, B3C01, B3C15 | CVE, PingCastle, ISAE 3402, Concentrix | À rédiger |
@@ -63,6 +63,13 @@ collectées, le motif de mise en pause du projet périphériques : les clés
 retenues n'exposent aucun numéro de série exploitable, ce qui rend impossible
 une liste d'autorisation par périphérique. Cet obstacle, découvert par un test
 au bon moment de la séquence, sert quatre des cinq compétences de la grappe.
+
+G9 est la plus grosse grappe du dossier, sept compétences. Elle a confirmé que
+la charte informatique existe, versionnée et validée par la direction des
+systèmes d'information, les ressources humaines et les représentants du
+personnel, ce qui porte deux critères. Elle a aussi mis au jour une nuance de
+périmètre à lever avec le tuteur, et une note de préconisation à produire et à
+transmettre.
 
 ## Règle d'honnêteté commune
 

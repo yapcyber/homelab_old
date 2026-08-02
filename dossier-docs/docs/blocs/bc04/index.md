@@ -5,10 +5,10 @@ sidebar_position: 1
 
 # BC04 — Communiquer avec tous les acteurs internes ou externes
 
-**Statut : C1, C8, C12, C15 et C16 rédigées, 11 à rédiger.** Une page par compétence
+**Statut : 12 compétences rédigées, 4 à rédiger** (C4, C5, C7, C9). Une page par compétence
 ci-dessous, avec l'intitulé et le critère **exacts** du référentiel. La
-rédaction se fait par [grappe](/blocs/grappes) : G9 pour la communication, G10
-pour l'encadrement, G6 pour les fournisseurs, G2 et G3 pour le reste.
+rédaction se fait par [grappe](/blocs/grappes) : **G6, G2 et G9 faites**.
+Restent G10 pour l'encadrement (C4, C5, C9) et G3 pour C7.
 
 ## Intitulé
 
@@ -52,18 +52,18 @@ CCNA reportée) ; seule la préparation peut être mentionnée.
 | C | Intitulé abrégé | Critère d'évaluation | Route retenue |
 |---|---|---|---|
 | [C1](./c01.md) | Collecter et synthétiser | Une base de connaissances est disponible | **Rédigée** (G2) |
-| [C2](./c02.md) | Documentation technique FR et EN | Des documentations sont consultables | Réel (courriels EN collectés) |
-| [C3](./c03.md) | Former les équipes support | L'équipe support est opérationnelle | Réel (accompagnement Tanium) |
+| [C2](./c02.md) | Documentation technique FR et EN | Des documentations sur les procédures en place sont consultables | **Rédigée** (G9) |
+| [C3](./c03.md) | Former les équipes support | Les membres de l'équipe support sont opérationnels | **Rédigée** (G9) |
 | [C4](./c04.md) | Compétences attendues, fiche de poste | Choix justifié, intégration positive | Réel + entretien tuteur |
 | [C5](./c05.md) | Conduire un entretien annuel | Objectifs réalistes, besoins identifiés | Réel (côté évalué) puis projection |
-| [C6](./c06.md) | Outils collaboratifs | Le travail en équipe est efficace | Réel (Git, Docusaurus, base Dupont) |
+| [C6](./c06.md) | Outils collaboratifs | Les objectifs fixés sont réalistes | **Rédigée** (G9) |
 | [C7](./c07.md) | Déléguer les tâches N1 et N2 | Les tickets sont répartis entre techniciens | Réel (chargé de flux Concentrix) |
 | [C8](./c08.md) | Définir les rôles, planifier | Les tickets sont répartis, les tâches planifiées, le travail en équipe efficace | **Rédigée** (G2) |
 | [C9](./c09.md) | Arbitrer par l'écoute active | Divergences aplanies sans conflit | Réel (OVH 48h, Nespresso) |
-| [C10](./c10.md) | Information de réunion, FR et EN | Comptes rendus diffusés rapidement | Réel (COSECOPS, réunions EN) |
-| [C11](./c11.md) | Diffuser les bonnes pratiques | Volet d'usage de la charte diffusé | Réel (campagnes Dupont) |
+| [C10](./c10.md) | Information de réunion, FR et EN | Les comptes rendus de réunions sont diffusés rapidement | **Rédigée** (G9) |
+| [C11](./c11.md) | Diffuser les bonnes pratiques | Le volet d'usage quotidien de la charte informatique est diffusé | **Rédigée** (G9) |
 | [C12](./c12.md) | Rapports qualité prix du marché | Présentation efficiente et compréhensible | **Rédigée** (G6) |
-| [C13](./c13.md) | Sensibiliser aux mesures techniques | Volet sécurité de la charte diffusé à tous | Réel (campagnes Dupont) |
-| [C14](./c14.md) | Adhésion des décideurs | Rapport de préconisation transmis à la direction | Entretien tuteur |
+| [C13](./c13.md) | Sensibiliser aux mesures techniques | Le volet sécurité de la charte est diffusé à l'ensemble du personnel | **Rédigée** (G9) |
+| [C14](./c14.md) | Adhésion des décideurs | Un rapport de préconisation est transmis à la direction | **Rédigée** (G9) |
 | [C15](./c15.md) | Faire respecter les SLA | Obligations du fournisseur respectées | **Rédigée** (G6) |
 | [C16](./c16.md) | Obtenir rabais, remises ou délais | L'avantage recherché est obtenu | **Rédigée** (G6) |
