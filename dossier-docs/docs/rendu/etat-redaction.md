@@ -79,8 +79,8 @@ Elles ne souffrent aucune exception.
 |---|---|
 | Charte informatique | Elle **existe**, versionnée et validée par la DSI, les RH et les représentants du personnel. Nuance à lever : ses destinataires visent la DSI alors que sa diffusion est autorisée à tous. Deux critères en dépendent |
 | Portfolio bilingue | **Aucune page en anglais.** Le volet anglais repose sur le niveau C1, deux réunions professionnelles et les courriels de la pièce 31, qui sont collectés. La traduction est un bonus, pas une dépendance |
-| Sauvegardes | **Point levé.** La chaîne hors site est réelle depuis le 22 juillet 2026. Le texte de BC01 C11 décrit désormais le réel |
-| Security Onion | **Décommissionnée le 31 juillet 2026.** À traiter au passé dans BC01 C1, C5 et C10 |
+| Sauvegardes | **Point levé.** La chaîne hors site est réelle depuis le 22 juillet 2026. Reste à confirmer si une restauration depuis la clé hors ligne a eu lieu, voir [BC01 C11](/rendu/bc01-textes) |
+| Security Onion | **Décommissionnée le 31 juillet 2026.** Traitée au passé dans BC01, correction appliquée |
 | Haute disponibilité | **Armée le 1er août, jamais testée.** Le test est reporté tant que la mémoire n'est pas rééquilibrée |
 | Lien 10 Gb/s | **Non actif.** Possible à partir du 10 août, après déménagement |
 | Mesure de consommation | **Non réalisée.** Possible à partir du 10 août |
@@ -95,7 +95,7 @@ Elles ne souffrent aucune exception.
 
 | Bloc | Compétences | État |
 |---|---|---|
-| [BC01](/blocs/bc01) | 11 | Textes figés, **rafraîchissement factuel requis** |
+| [BC01](/blocs/bc01) | 11 | **Rafraîchi le 2 août.** Textes à jour, un point à confirmer sur la restauration hors ligne |
 | [BC02](/blocs/bc02) | 16 | **Bloc complet**, 16 compétences rédigées |
 | [BC03](/blocs/bc03) | 18 | **Bloc complet**, 18 compétences rédigées |
 | [BC04](/blocs/bc04) | 16 | 13 rédigées. Restent C4, C5 et C9 (G10) |

@@ -5,6 +5,14 @@ sidebar_position: 1
 
 # BC01 — Administrer le système d'information
 
+:::tip Rafraîchissement factuel appliqué le 2 août 2026
+Les onze textes ont été mis à jour : sonde de détection **décommissionnée** et
+traitée au passé, cluster passé de **trois à quatre nœuds** avec arbitre de
+quorum, haute disponibilité **armée mais non testée** avec le motif du report,
+et démonstration de détection est-ouest ajoutée en C10. Voir les
+[textes du rendu](/rendu/bc01-textes).
+:::
+
 **Statut : validé.** Les 11 compétences sont couvertes — une page par compétence
 ci-dessous (intitulé, interprétation, réponse, preuves), et le texte complet du
 rendu dans **[Rendu final](/rendu/bc01-textes)**.
