@@ -5,10 +5,10 @@ sidebar_position: 1
 
 # BC03 — Définir la politique de sécurisation du SI
 
-**Statut : G5, G4, G8 et G2 rédigées (15 compétences), 3 à rédiger.** Une page par compétence
+**Statut : 16 compétences rédigées sur 18.** Restent C1 et C15, rattachées à G12. Une page par compétence
 ci-dessous, avec l'intitulé et le critère **exacts** du référentiel. La
 rédaction se fait par [grappe](/blocs/grappes) : **G5 continuité, G4 détection et G8 sécurité et
-identités (faites)**. Restent C1 et C15 en G12, C10 en G1.
+identités (faites)**. Restent C1 et C15, rattachées à G12.
 
 ## Intitulé
 
@@ -67,7 +67,7 @@ tunnel distinct).
 | [C7](./c07.md) | Règles IAM, gestion des habilitations | Les droits d'accès sont gérés par des listes d'accès ou des groupes | **Rédigée** (G8) |
 | [C8](./c08.md) | Protections passives et actives, plan d'urgence viral | Les accès physiques et virtuels sont contrôlés, ou l'attaque virale est maîtrisée | **Rédigée** (G4) |
 | [C9](./c09.md) | Évaluer les perturbations via les sondes | Une évaluation des risques associés aux malveillances est produite | **Rédigée** (G4) |
-| [C10](./c10.md) | Mises à jour automatisées des outils de sécurité | Outils de sécurité mis à jour systématiquement | Solide |
+| [C10](./c10.md) | Mises à jour automatisées des outils de sécurité | Les outils de sécurité bénéficient de mises à jour et de correctifs systématiques | **Rédigée** (G1) |
 | [C11](./c11.md) | Criticité de l'interruption d'activité | Le plan de reprise est priorisé, les délais d'interruption sont validés | **Rédigée** (G5) |
 | [C12](./c12.md) | Chiffrer les canaux de sauvegarde | Tests de sauvegarde sécurisée validés, ou processus d'archives validé | **Rédigée** (G5) |
 | [C13](./c13.md) | Plan périodique de restauration | Les tests des procédures de restauration sont probants | **Rédigée** (G5) |

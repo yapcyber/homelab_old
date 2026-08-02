@@ -130,7 +130,7 @@ Ordre de priorité, par rendement décroissant :
 
 | Pièce | Objet | Compétences servies |
 |---|---|---|
-| 9 | Analyse rétrospective d'une alerte | 5 compétences sur 3 blocs |
+| 9 | Analyse rétrospective d'une alerte, **collectée** | 5 compétences sur 3 blocs |
 | 7 | Incident de mise à jour : GPO et script | 4 compétences |
 | 12 | Recensement croisé des besoins | 4 compétences |
 | 28 | Les douze procédures d'exploitation | 3 compétences |
@@ -158,24 +158,36 @@ fonctions, neutraliser quelques lignes d'exemple.
 | 34 | Texte final validé de B2C01 | **À retrouver** dans tes échanges |
 | 1, 2, 4, 6, 7, 10, 11, 12, 14, 18, 22, 24, 26, 28, 29, 31 | Pièces déjà collectées | À trier et anonymiser |
 
-### 5.3 Pièces à demander, dépendantes d'un tiers
+### 5.3 État réel de la collecte, vérifié fichier par fichier
 
-| Pièce | Objet | Repli si refus |
+**26 pièces sur 34 sont collectées.** Le suffixe des fichiers indique ce qui
+reste à faire dessus, pas leur absence : « à vérifier » signifie qu'il faut
+contrôler que la pièce prouve bien ce qu'on attend d'elle, « à anonymiser »
+qu'elle est validée et attend son traitement.
+
+| Pièce | Objet | État |
 |---|---|---|
-| 9 | Analyse rétrospective d'une alerte | Aucun. **Pièce la plus rentable du dossier**, à relancer |
-| 3 | Console de gestion, état des correctifs | Oral |
-| 5 | Transition entre les deux outils de mise à jour | Note de cadrage reformulée |
-| 8 | Alerte de protection des postes ayant conduit à un correctif | Oral |
-| 13 | Devis des périphériques et courriel de cadrage | Oral |
-| 15 | Point d'accès unique au support | Oral, sans annexe |
-| 16 | Tableau de bord des tickets et SLA | Délais internes Concentrix, à l'oral |
-| 17 | Ticket de niveau expert clôturé | Oral |
-| 21 | Indicateurs de la campagne de hameçonnage | Taux de complétion suffisent |
-| 30 | Classeur de preuves du référentiel d'attestation | Oral |
-| 32 | Relances de prestataires | **Oral assumé**, déjà prévu |
-| 33 | Devis ou arbitrage budgétaire | **Oral suffit** |
+| 1 à 15 | Journal, politique de criticité, console, paliers, transition d'outils, déploiements, incident de mise à jour, alerte, **analyse rétrospective**, fiche réflexe, kanban, recensement, devis, scénario de test, portail de support | **Toutes collectées** |
+| 18, 20, 22, 24 à 31 | Relance, charte, flux automatisé, tableau de vulnérabilités, analyse d'annuaire, groupes d'annuaire, console mobile, procédures, base de connaissances, référentiel d'attestation, courriels en anglais | **Toutes collectées** |
+| **16** | Tableau de bord des tickets et SLA | Absente, à demander |
+| **17** | Ticket de niveau expert clôturé | Absente, à demander |
+| **19** | Rapport hebdomadaire des indicateurs de campagne | Absente, **sous ton contrôle** |
+| **21** | Indicateurs de la campagne de hameçonnage | Absente, à demander |
+| **23** | Tâche planifiée et script d'export des comptes | Absente, **sous ton contrôle** |
+| **32** | Relances de prestataires | Absente, **repli oral déjà assumé** |
+| **33** | Devis ou arbitrage budgétaire | Absente, **oral suffit** |
+| **34** | Texte final validé de B2C01 | Absente, à retrouver |
 
-**Obtenues** : pièces 20, 25 et 27.
+:::tip Correction du 2 août
+Une première version de cette page classait les pièces 3, 5, 8, 9, 13, 15 et 30
+comme à demander. **Elles sont en réalité collectées.** La plus importante est
+la **pièce 9**, l'analyse rétrospective d'une alerte, qui sert cinq compétences
+sur trois blocs : elle est disponible et n'attend que son anonymisation.
+
+Il ne reste donc que **quatre demandes réelles à un tiers** : les pièces 16, 17,
+21 et 33, dont deux ont un repli assumé. Deux pièces sont sous ton contrôle
+direct, 19 et 23. Une est à retrouver, 34.
+:::
 
 ---
 
@@ -193,7 +205,7 @@ fonctions, neutraliser quelques lignes d'exemple.
 | # | Chantier | Volume | État |
 |---|---|---|---|
 | R1 | **Partie 1, écrit narratif** | 10 à 15 pages | **Rien n'est écrit.** Interrogatoire préparatoire disponible |
-| R2 | Grappe G1, correctifs et parc | 4 compétences | À rédiger |
+| R2 | ~~Grappe G1, correctifs et parc~~ | 4 compétences | **Rédigée** |
 | R3 | Grappe G3, support et tickets | 3 compétences | À rédiger |
 | R4 | Grappe G7, IaC et intégration continue | 3 compétences | À rédiger |
 | R5 | Grappe G10, encadrement | 3 compétences | À rédiger, dépend de Q7 et Q8 |

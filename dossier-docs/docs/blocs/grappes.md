@@ -19,7 +19,7 @@ dans le document Word, où il est la seule chose que le jury voit.
 
 | # | Grappe | Compétences | Preuve pivot | État |
 |---|---|---|---|---|
-| G1 | Correctifs et parc | B2C05, B2C09, B2C14, B3C10 | Tanium, WSUS, politique CVSS | À rédiger |
+| **G1** | **Correctifs et parc** | **B2C05, B2C09, B2C14, B3C10** | **Tanium, WSUS, politique CVSS** | **Rédigée** |
 | **G2** | **Projet périphériques** | **B2C04, B2C06, B3C05, B4C01, B4C08** | **Pièces 11 à 14** | **Rédigée** |
 | G3 | Support et tickets | B2C12, B2C13, B4C07 | GLPI, Concentrix | À rédiger |
 | **G4** | **Supervision et détection** | **B2C07, B3C08, B3C09** | **Détection est-ouest, cascade mémoire, post-mortem SOC** | **Rédigée** |
@@ -70,6 +70,12 @@ systèmes d'information, les ressources humaines et les représentants du
 personnel, ce qui porte deux critères. Elle a aussi mis au jour une nuance de
 périmètre à lever avec le tuteur, et une note de préconisation à produire et à
 transmettre.
+
+G1 a bénéficié de pièces plus riches que leurs descriptions : une console de
+déploiement chiffrée, un déploiement de test à 100 % sur 25 machines, et
+surtout une alerte réellement qualifiée puis clôturée avec son motif consigné.
+Cette dernière fait converger la grappe : le déploiement de correctifs a
+déclenché l'alerte que la même personne a dû qualifier.
 
 ## Règle d'honnêteté commune
 

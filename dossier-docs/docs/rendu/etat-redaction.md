@@ -19,7 +19,7 @@ calibré sur cette date.
 |---|---|---|
 | Volume du document Word | 60 pages minimum hors annexes | environ 13 pages montées (BC01 seul) |
 | Partie 1, écrit narratif | 10 à 15 pages | **rien n'est écrit** |
-| Partie 2, portefeuille | 61 compétences | 39 rédigées sur le site, 22 restantes |
+| Partie 2, portefeuille | 61 compétences | 43 rédigées sur le site, 18 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
 La liste consolidée de tout ce qui reste à faire est sur la page
@@ -95,8 +95,8 @@ Elles ne souffrent aucune exception.
 | Bloc | Compétences | État |
 |---|---|---|
 | [BC01](/blocs/bc01) | 11 | Textes figés, **rafraîchissement factuel requis** |
-| [BC02](/blocs/bc02) | 16 | C1 validée, C2, C3, C4, C6, C7, C15 et C16 rédigées. 8 à rédiger |
-| [BC03](/blocs/bc03) | 18 | **G5, G4, G8 et G2 rédigées** (15 compétences). Restent C1, C10, C15 |
+| [BC02](/blocs/bc02) | 16 | 11 rédigées. Restent C8, C10, C11 (G7) et C12, C13 (G3) |
+| [BC03](/blocs/bc03) | 18 | 16 rédigées. Restent C1 et C15 (G12) |
 | [BC04](/blocs/bc04) | 16 | **G6, G2 et G9 rédigées** (12 compétences). Restent C4, C5, C7, C9 |
 | Partie 1 | — | **Intégralement à écrire.** [Interrogatoire préparatoire](/interrogatoires/partie1) disponible |
 
@@ -121,4 +121,6 @@ d'autres grappes. Puis **G2, projet périphériques**, première grappe du versa
 entreprise, qui a mis au jour dans les pièces le motif de mise en pause du
 projet : les clés retenues n'exposent aucun numéro de série exploitable. Puis
 **G9, communication et sensibilisation**, la plus grosse grappe du dossier avec
-sept compétences, qui porte le BC04 à 12 sur 16.
+sept compétences, qui porte le BC04 à 12 sur 16. Puis **G1, correctifs et
+parc**. Vérification faite au passage : 26 des 34 pièces d'entreprise sont
+collectées, dont l'analyse rétrospective d'alerte qui sert cinq compétences.
