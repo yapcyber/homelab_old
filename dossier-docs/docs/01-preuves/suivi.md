@@ -5,8 +5,10 @@ sidebar_position: 1
 
 # Suivi des preuves homelab
 
-> État consolidé au **24 juillet 2026**. Périmètre : le **homelab** (la partie
-> entreprise est à collecter côté alternance).
+> État consolidé au **24 juillet 2026**. Périmètre : le **homelab**. La partie
+> entreprise fait l'objet d'une page dédiée —
+> [preuves Dupont Restauration](/preuves/dupont-restauration), 34 pièces
+> couvrant 34 des 61 compétences.
 
 **Légende :** ✅ Acquise · 📝 À formaliser · 🔨 À produire · ⛔ Bloquée (matériel) · 👤 À toi (entreprise/oral)
 
@@ -14,10 +16,10 @@ sidebar_position: 1
 
 | Dette | Statut | Détail |
 |---|---|---|
-| **1 · Backup hors-site** | ✅ Faite et dépassée | Restic → Drive + USB LUKS (3-2-1-1). Reste à rassembler les captures. |
-| **2 · Test restauration** | ✅ Faite | 22 juil. : snapshot restauré depuis le Drive, dumps intègres, `.enc` déchiffrés. Reste le PV. |
-| **3 · Bascule HA** | 🔓 Débloquée | Produisible en arrêtant un nœud ≠ pve1 (le NFS survit). À faire avec pve4 + Pi. |
-| **4 · Débits réseau** | ◑ À moitié | iperf3 1G faisable ; 10G bloqué (module SFP+ Cisco absent). |
+| **1 · Backup hors-site** | ✅ Faite et dépassée | Restic → Drive + USB LUKS : **3-2-1-1-0** fonctionnelle (hors-site + hors-ligne). Captures du rendu à rassembler post-21 août. |
+| **2 · Test restauration** | ✅ Faite | 22 juil. : snapshot restauré depuis le Drive, dumps intègres, `.enc` déchiffrés. + test post-sauvegarde sur la clé USB. PV à rédiger. |
+| **3 · Bascule HA** | 🔓 Débloquée | Produisible en arrêtant un nœud ≠ pve1 (le NFS survit). À faire avec pve4 + Pi avant le 21 août. |
+| **4 · Débits réseau** | ◑ À moitié | iperf3 1G faisable ; 10G bloqué (module SFP+ Cisco absent). Étude d'évolution rédigée, mesures différées. |
 
 ## Dettes techniques
 
@@ -27,6 +29,7 @@ sidebar_position: 1
 | 2 · Test réel de restauration | 📝 | Rédiger le PV depuis `restauration-sauvegardes.md`. | B3C13 |
 | 3 · Test bascule HA | 🔓 | VM témoin, arrêter un nœud ≠ pve1. À faire avec pve4 + Pi. | B3C16·17 |
 | 4 · Mesures réseau 1/10G | 🔨 | iperf3 1G + Grafana ; 10G ⛔ (SFP+). | B2C2·3 |
+| 4b · **Rédaction BC02 complète** | ✅ | **16 compétences rédigées (C01-C16).** À relire et réécrire. | B2 |
 | 5 · Portfolio en anglais | 🔨 | Ajouter locale `en` + traduire les pages structurantes. | B4C2 |
 | 6 · CV-as-Code | 👤 | Code présent ; finalisation en cours. | B2C10·11 |
 | 7 · Tableau BIA | 📝 | ~70 % dans l'analyse HA (criticité, RTO/RPO, dépendances). | B3C11·14 |

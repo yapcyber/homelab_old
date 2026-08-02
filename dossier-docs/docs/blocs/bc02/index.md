@@ -1,0 +1,61 @@
+---
+title: "BC02 — Vue d'ensemble"
+sidebar_position: 1
+---
+
+# BC02 — Assurer la gestion du Système d'information
+
+**Statut : C1 validée** (texte final à récupérer dans les sources), **15
+compétences en cours** (C2 à C16). Une page par compétence ci-dessous ;
+la rédaction séquentielle du rendu reprend à C2 — voir
+[l'état de la rédaction](/rendu/etat-redaction).
+
+## Intitulé
+
+Bloc de compétences 2 du titre RNCP 35594 : **Assurer la gestion du Système
+d'information**. Il regroupe **16 compétences** : évolutions et ITSM, débits et
+renouvellement d'équipements, déploiement, maquettage, budget, supervision,
+cartographie, migrations, intégration continue, support et tickets, et numérique
+responsable.
+
+## Ce que nous en avons compris
+
+Ce bloc évalue la **gestion** du SI dans la durée : décider et planifier les
+évolutions, les tester avant de les généraliser, les intégrer de façon
+incrémentale, tenir la cartographie et le budget, superviser et faire vivre le
+support. Plusieurs critères sont étroits et exigent du **mesurable** : « les
+débits sont optimisés » (C2), « l'empreinte carbone du SI est réduite » (C15),
+« des indicateurs environnementaux sont définis » (C16). Une étude, une cible ou
+une fonction configurée mais non testée ne doit jamais être présentée comme une
+réalisation démontrée.
+
+## Comment j'y réponds
+
+Un mélange homelab (mesures, comparatifs, migrations, chaîne d'intégration,
+indicateurs) et alternance Dupont Restauration anonymisée (projet
+périphériques, Tanium, GLPI), complété par l'expérience Concentrix à l'oral.
+Garde-fous d'honnêteté : l'étude 1G vers 10G est assumée comme étude, le cours
+ITIL d'Ynov (18/20) est une formation et non une certification, les chiffres
+budgétaires sont à contrôler avant insertion, et CV-as-Code ne sera décrit au
+présent qu'une fois réellement en production.
+
+## Les 16 compétences
+
+| C | Intitulé abrégé | Critère d'évaluation | Pronostic |
+|---|---|---|---|
+| [C1](./c01.md) | Gérer les évolutions selon l'IT Service Management | — | **Validée** |
+| [C2](./c02.md) | Évolution des équipements, technologies émergentes | Les débits sont optimisés | À confirmer |
+| [C3](./c03.md) | Comparer les solutions de renouvellement | Adéquation des propositions, ou certification ITIL | À confirmer |
+| [C4](./c04.md) | Ordonnancer le plan de déploiement | Le déploiement est planifié | Solide |
+| [C5](./c05.md) | Maquetter les solutions pour test et validation | Solutions maquettées ou procédures établies | Solide |
+| [C6](./c06.md) | Attribuer les ressources selon le budget alloué | Ressources disponibles, allouées, budget respecté | Solide |
+| [C7](./c07.md) | Superviser l'infrastructure et le patrimoine applicatif | Difficultés identifiées et solutions apportées | Solide |
+| [C8](./c08.md) | Recenser les ressources, cartographie du SI | La cartographie permet l'intégration de nouveautés | Solide |
+| [C9](./c09.md) | Migrer une architecture en gérant les risques | L'architecture cible est mise en place | À confirmer |
+| [C10](./c10.md) | Intégration permanente d'évolutions | Un environnement de tests permet la production continue | Solide |
+| [C11](./c11.md) | Évolutions applicatives incrémentales et automatisées | Une procédure d'intégration est définie | À confirmer |
+| [C12](./c12.md) | Centraliser les incidents en un point d'accès unique | Un point d'accès unique au support est à disposition | À confirmer |
+| [C13](./c13.md) | Tableau de bord de résolution des tickets | Un tableau de bord permet le suivi du traitement | À confirmer |
+| [C14](./c14.md) | Résoudre les tickets de niveau 3 et 4 | Les tickets de niveau 3 et 4 sont clôturés | À confirmer |
+| [C15](./c15.md) | Service numérique à empreinte carbone réduite | L'empreinte carbone du SI est réduite | Trace à créer |
+| [C16](./c16.md) | Indicateurs RSE et environnementaux | Des indicateurs environnementaux sont définis | Trace à créer |
