@@ -71,8 +71,9 @@ est en place. Après le déménagement, il est perdu et B2C02 retombe sur une
 | D10 | Liste des achats différés avec leur justification | B2C06, B4C16 | 30 min |
 | D11 | Étude d'évolution 1 Gb/s vers 10 Gb/s : état initial, gain attendu, coûts, limites | B2C02, B2C03 | 2 h |
 | D12 | Schéma de topologie réseau, chemin de quorum avant et après correction | B2C02 | 1 h |
-| D13 | Procédure de mise à jour d'un service, publiée sur la documentation | B2C11 | 1 h |
+| D13 | **Procédure de mise à jour d'un service, publiée sur la documentation.** Séquence déjà décrite dans la page C11, reste la mise en forme | B2C11 | 1 h |
 | D14 | Liste des constats de sécurité avec remédiation et état d'avancement | B3C02, B3C03 | 1 h |
+| D15 | Version expurgée de la cartographie et de l'inventaire des actifs, adresses réduites au segment | B2C08, B3C14 | 1 h |
 
 ---
 
@@ -207,7 +208,7 @@ direct, 19 et 23. Une est à retrouver, 34.
 | R1 | **Partie 1, écrit narratif** | 10 à 15 pages | **Rien n'est écrit.** Interrogatoire préparatoire disponible |
 | R2 | ~~Grappe G1, correctifs et parc~~ | 4 compétences | **Rédigée** |
 | R3 | Grappe G3, support et tickets | 3 compétences | À rédiger |
-| R4 | Grappe G7, IaC et intégration continue | 3 compétences | À rédiger |
+| R4 | ~~Grappe G7, IaC et intégration continue~~ | 3 compétences | **Rédigée** |
 | R5 | Grappe G10, encadrement | 3 compétences | À rédiger, dépend de Q7 et Q8 |
 | R6 | Grappe G12, gouvernance et audit | 3 compétences | À rédiger, dépend de D5 |
 | R7 | **Rafraîchissement factuel de BC01** : sonde au passé, quatre nœuds, HA non testée, ratio de consolidation | 11 compétences | À faire |

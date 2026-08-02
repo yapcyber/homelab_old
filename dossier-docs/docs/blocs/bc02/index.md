@@ -5,8 +5,8 @@ sidebar_position: 1
 
 # BC02 — Assurer la gestion du Système d'information
 
-**Statut : 11 compétences rédigées sur 16.** Restent C8, C10, C11, C12 et C13,
-rattachées aux grappes G7 et G3. Une page par compétence ci-dessous,
+**Statut : 14 compétences rédigées sur 16.** Restent C12 et C13, rattachées à
+la grappe G3. Une page par compétence ci-dessous,
 avec l'intitulé et le critère **exacts** du référentiel. La rédaction se fait
 par [grappe](/blocs/grappes) — voir aussi
 [l'état de la rédaction](/rendu/etat-redaction).
@@ -51,10 +51,10 @@ présent qu'une fois réellement en production.
 | [C5](./c05.md) | Maquetter les solutions pour test et validation | Les solutions sont maquettées ou les procédures sont établies | **Rédigée** (G1) |
 | [C6](./c06.md) | Attribuer les ressources selon le budget alloué | Les ressources sont disponibles, allouées et respectent le budget | **Rédigée** (G2) |
 | [C7](./c07.md) | Superviser l'infrastructure et le patrimoine applicatif | Les difficultés sont identifiées et les solutions apportées | **Rédigée** (G4) |
-| [C8](./c08.md) | Recenser les ressources, cartographie du SI | La cartographie permet l'intégration de nouveautés | Solide |
+| [C8](./c08.md) | Recenser les ressources, cartographie du SI | La cartographie du SI permet l'intégration maitrisée de nouveautés | **Rédigée** (G7) |
 | [C9](./c09.md) | Migrer une architecture en gérant les risques | L'architecture cible est mise en place | **Rédigée** (G1) |
-| [C10](./c10.md) | Intégration permanente d'évolutions | Un environnement de tests permet la production continue | Solide |
-| [C11](./c11.md) | Évolutions applicatives incrémentales et automatisées | Une procédure d'intégration est définie | À confirmer |
+| [C10](./c10.md) | Intégration permanente d'évolutions | Un environnement de tests permet la mise en production continue | **Rédigée** (G7) |
+| [C11](./c11.md) | Évolutions applicatives incrémentales et automatisées | Une procédure d'intégration est définie | **Rédigée** (G7) |
 | [C12](./c12.md) | Centraliser les incidents en un point d'accès unique | Un point d'accès unique au support est à disposition | À confirmer |
 | [C13](./c13.md) | Tableau de bord de résolution des tickets | Un tableau de bord permet le suivi du traitement | À confirmer |
 | [C14](./c14.md) | Résoudre les tickets de niveau 3 et 4 | Les tickets de niveau 3 & 4 sont clôturés | **Rédigée** (G1) |

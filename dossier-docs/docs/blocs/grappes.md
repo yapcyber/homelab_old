@@ -25,7 +25,7 @@ dans le document Word, où il est la seule chose que le jury voit.
 | **G4** | **Supervision et détection** | **B2C07, B3C08, B3C09** | **Détection est-ouest, cascade mémoire, post-mortem SOC** | **Rédigée** |
 | **G5** | **Continuité** | **B3C11, B3C12, B3C13, B3C14, B3C16, B3C17** | **BIA, PV de restauration, test de bascule** | **Rédigée** |
 | **G6** | **Réseau, budget, achats** | **B2C02, B2C03, B4C12, B4C15, B4C16** | **Arbitrages d'architecture, mesures de débit** | **Rédigée** |
-| G7 | IaC et intégration continue | B2C08, B2C10, B2C11 | Packer, OpenTofu, Renovate, CI, corpus GRC | À rédiger |
+| **G7** | **IaC et intégration continue** | **B2C08, B2C10, B2C11** | **Packer, OpenTofu, Renovate, CI, corpus GRC** | **Rédigée** |
 | **G8** | **Sécurité, identités, cloud** | **B3C02, B3C03, B3C04, B3C06, B3C07, B3C18** | **OPNsense, Authentik, MDM, politique cloud** | **Rédigée** |
 | **G9** | **Communication et sensibilisation** | **B4C02, B4C03, B4C06, B4C10, B4C11, B4C13, B4C14** | **Campagnes, procédures, base de connaissances** | **Rédigée** |
 | G10 | Encadrement | B4C04, B4C05, B4C09 | Suivi d'alternance, successeurs, challenge OVH | À rédiger |
@@ -76,6 +76,11 @@ déploiement chiffrée, un déploiement de test à 100 % sur 25 machines, et
 surtout une alerte réellement qualifiée puis clôturée avec son motif consigné.
 Cette dernière fait converger la grappe : le déploiement de correctifs a
 déclenché l'alerte que la même personne a dû qualifier.
+
+G7 a enfin branché le corpus de gouvernance sur le dossier, et son constat le
+plus utile est négatif : l'inventaire relevé en direct a montré que la
+documentation décrivait un matériel faux sur trois nœuds sur quatre. Une
+cartographie fausse donne confiance, ce qui est pire que pas de cartographie.
 
 ## Règle d'honnêteté commune
 

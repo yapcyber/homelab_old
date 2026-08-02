@@ -19,7 +19,7 @@ calibré sur cette date.
 |---|---|---|
 | Volume du document Word | 60 pages minimum hors annexes | environ 13 pages montées (BC01 seul) |
 | Partie 1, écrit narratif | 10 à 15 pages | **rien n'est écrit** |
-| Partie 2, portefeuille | 61 compétences | 43 rédigées sur le site, 18 restantes |
+| Partie 2, portefeuille | 61 compétences | 46 rédigées sur le site, 15 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
 La liste consolidée de tout ce qui reste à faire est sur la page
@@ -95,7 +95,7 @@ Elles ne souffrent aucune exception.
 | Bloc | Compétences | État |
 |---|---|---|
 | [BC01](/blocs/bc01) | 11 | Textes figés, **rafraîchissement factuel requis** |
-| [BC02](/blocs/bc02) | 16 | 11 rédigées. Restent C8, C10, C11 (G7) et C12, C13 (G3) |
+| [BC02](/blocs/bc02) | 16 | 14 rédigées. Restent C12 et C13 (G3) |
 | [BC03](/blocs/bc03) | 18 | 16 rédigées. Restent C1 et C15 (G12) |
 | [BC04](/blocs/bc04) | 16 | **G6, G2 et G9 rédigées** (12 compétences). Restent C4, C5, C7, C9 |
 | Partie 1 | — | **Intégralement à écrire.** [Interrogatoire préparatoire](/interrogatoires/partie1) disponible |
@@ -124,3 +124,5 @@ projet : les clés retenues n'exposent aucun numéro de série exploitable. Puis
 sept compétences, qui porte le BC04 à 12 sur 16. Puis **G1, correctifs et
 parc**. Vérification faite au passage : 26 des 34 pièces d'entreprise sont
 collectées, dont l'analyse rétrospective d'alerte qui sert cinq compétences.
+Puis **G7, infrastructure-as-code et intégration continue**, qui branche enfin
+le corpus de gouvernance sur le dossier.
