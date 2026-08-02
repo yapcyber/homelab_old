@@ -34,11 +34,12 @@ qui n'est rétabli qu'à l'assemblage du document Word.
 
 | Section | Contenu |
 |---|---|
+| **[Actions à mener](/actions)** | La liste consolidée de tout ce qui reste à faire, par priorité : manipulations, documents, captures, demandes au tuteur, anonymisation. |
 | **[Grappes de rédaction](/blocs/grappes)** | L'ordre de travail réel : douze grappes qui partagent une preuve, un contexte ou une méthode. |
 | **[Blocs de compétences](/blocs/bc01/)** | Une vue d'ensemble par bloc et **une page par compétence** (61 pages) : intitulé, interprétation, réponse, et preuves ou chemin de raisonnement. |
 | **[Rendu final (textes)](/rendu/bc01-textes)** | Les textes rédigés pour le rendu, en Markdown ([textes BC01](/rendu/bc01-textes)), et [l'état de la rédaction](/rendu/etat-redaction) (méthode, règles, points de vigilance). |
 | **[Preuves](/preuves/suivi)** | [Suivi des preuves](/preuves/suivi) (statut par item, dettes critiques) et [preuves Dupont Restauration](/preuves/dupont-restauration) (les 34 pièces que seule l'alternance peut fournir). |
-| **Interrogatoires** | Une page par sujet (situation, rôle, action, résultat, trace). |
+| **Interrogatoires** | Une page par sujet. Dont l'[interrogatoire de la partie 1](/interrogatoires/partie1), à renseigner pour débloquer l'écrit narratif. |
 | **Résultat** | Synthèse et résultat du dossier. |
 
 ## Comment l'utiliser

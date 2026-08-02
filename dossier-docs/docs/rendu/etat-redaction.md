@@ -22,6 +22,9 @@ calibré sur cette date.
 | Partie 2, portefeuille | 61 compétences | 39 rédigées sur le site, 22 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
+La liste consolidée de tout ce qui reste à faire est sur la page
+[Actions à mener](/actions).
+
 ## Méthode retenue
 
 ### Rédaction par grappe
@@ -95,7 +98,7 @@ Elles ne souffrent aucune exception.
 | [BC02](/blocs/bc02) | 16 | C1 validée, C2, C3, C4, C6, C7, C15 et C16 rédigées. 8 à rédiger |
 | [BC03](/blocs/bc03) | 18 | **G5, G4, G8 et G2 rédigées** (15 compétences). Restent C1, C10, C15 |
 | [BC04](/blocs/bc04) | 16 | **G6, G2 et G9 rédigées** (12 compétences). Restent C4, C5, C7, C9 |
-| Partie 1 | — | **Intégralement à écrire** |
+| Partie 1 | — | **Intégralement à écrire.** [Interrogatoire préparatoire](/interrogatoires/partie1) disponible |
 
 ## Historique
 
