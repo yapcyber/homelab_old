@@ -5,10 +5,11 @@ sidebar_position: 1
 
 # BC03 — Définir la politique de sécurisation du SI
 
-**Statut : 18 compétences à rédiger.** Une page par compétence ci-dessous, avec
-l'intitulé et le critère **exacts** du référentiel. La rédaction se fait par
-[grappe](/blocs/grappes) : G5 pour la continuité, G8 pour la sécurité et les
-identités, G4 pour la détection, G1 pour les correctifs, G12 pour l'audit.
+**Statut : G5 rédigée (6 compétences), 12 à rédiger.** Une page par compétence
+ci-dessous, avec l'intitulé et le critère **exacts** du référentiel. La
+rédaction se fait par [grappe](/blocs/grappes) : **G5 continuité (faite)**, G8
+pour la sécurité et les identités, G4 pour la détection, G1 pour les correctifs,
+G12 pour l'audit.
 
 ## Intitulé
 
@@ -68,11 +69,11 @@ tunnel distinct).
 | [C8](./c08.md) | Protections passives et actives, plan d'urgence viral | Accès contrôlés, ou attaque virale maîtrisée | Solide |
 | [C9](./c09.md) | Évaluer les perturbations via les sondes | Évaluation des risques liés aux malveillances produite | Solide |
 | [C10](./c10.md) | Mises à jour automatisées des outils de sécurité | Outils de sécurité mis à jour systématiquement | Solide |
-| [C11](./c11.md) | Criticité de l'interruption d'activité | Plan de reprise priorisé, délais validés | BIA à produire |
-| [C12](./c12.md) | Chiffrer les canaux de sauvegarde | Tests de sauvegarde sécurisée validés | Solide |
-| [C13](./c13.md) | Plan périodique de restauration | Tests de restauration probants | PV à formaliser |
-| [C14](./c14.md) | Éléments critiques pour la continuité | Rôles critiques et ressources indispensables identifiés | À confirmer |
+| [C11](./c11.md) | Criticité de l'interruption d'activité | Le plan de reprise est priorisé, les délais d'interruption sont validés | **Rédigée** (G5) |
+| [C12](./c12.md) | Chiffrer les canaux de sauvegarde | Tests de sauvegarde sécurisée validés, ou processus d'archives validé | **Rédigée** (G5) |
+| [C13](./c13.md) | Plan périodique de restauration | Les tests des procédures de restauration sont probants | **Rédigée** (G5) |
+| [C14](./c14.md) | Éléments critiques pour la continuité | Les rôles critiques et les ressources indispensables sont identifiés | **Rédigée** (G5) |
 | [C15](./c15.md) | Approvisionnement télétravail de masse | Stocks et chaîne d'approvisionnement opérationnels | Réel Concentrix (oral) |
-| [C16](./c16.md) | Ressources de continuité minimale | Tests de redondance et substitution probants | Test HA à tracer |
-| [C17](./c17.md) | Protections assurant la disponibilité (PCA) | Données répliquées disponibles et opérationnelles | Solide |
+| [C16](./c16.md) | Ressources de continuité minimale | Les tests de redondance et de substitution sont probants | **Rédigée** (G5) |
+| [C17](./c17.md) | Protections assurant la disponibilité (PCA) | Les données répliquées sont disponibles et opérationnelles | **Rédigée** (G5) |
 | [C18](./c18.md) | Sécurité cohérente sur site et dans le Cloud | La politique de sécurité du Cloud est définie | À confirmer |

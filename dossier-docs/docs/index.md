@@ -18,7 +18,7 @@ format Word puis PDF, mais tout se prépare et se centralise ici.
 |---|---|---|---|
 | [BC01](/blocs/bc01) | Administrer le système d'information | 11 | Validé, textes figés — **rafraîchissement factuel requis** |
 | [BC02](/blocs/bc02) | Assurer la gestion du SI | 16 | C1 validée, C2, C3, C15 et C16 rédigées — 11 à rédiger |
-| [BC03](/blocs/bc03) | Définir la politique de sécurisation du SI | 18 | Squelettes conformes au référentiel — 18 à rédiger |
+| [BC03](/blocs/bc03) | Définir la politique de sécurisation du SI | 18 | G5 rédigée (6 compétences) — 12 à rédiger |
 | [BC04](/blocs/bc04) | Communiquer avec tous les acteurs | 16 | C12, C15 et C16 rédigées — 13 à rédiger |
 | **Partie 1** | Écrit narratif (parcours, entreprise, métier) | — | **Intégralement à écrire** |
 

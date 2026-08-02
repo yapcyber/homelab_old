@@ -17,9 +17,9 @@ calibré sur cette date.
 
 | Élément | Exigence | État |
 |---|---|---|
-| Volume total | 60 pages minimum hors annexes | environ 13 pages rédigées |
+| Volume du document Word | 60 pages minimum hors annexes | environ 13 pages montées (BC01 seul) |
 | Partie 1, écrit narratif | 10 à 15 pages | **rien n'est écrit** |
-| Partie 2, portefeuille | 61 compétences | 11 rédigées, 50 restantes |
+| Partie 2, portefeuille | 61 compétences | 18 rédigées sur le site, 43 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
 ## Méthode retenue
@@ -91,7 +91,7 @@ Elles ne souffrent aucune exception.
 |---|---|---|
 | [BC01](/blocs/bc01) | 11 | Textes figés, **rafraîchissement factuel requis** |
 | [BC02](/blocs/bc02) | 16 | C1 validée, C2, C3, C15 et C16 rédigées. 11 à rédiger |
-| [BC03](/blocs/bc03) | 18 | Squelettes conformes au référentiel, 18 à rédiger |
+| [BC03](/blocs/bc03) | 18 | **G5 continuité rédigée** (C11 à C14, C16, C17). 12 à rédiger |
 | [BC04](/blocs/bc04) | 16 | C12, C15 et C16 rédigées. 13 à rédiger |
 | Partie 1 | — | **Intégralement à écrire** |
 
@@ -104,4 +104,7 @@ attribué au homelab alors qu'il n'y en a pas, matériel inexistant, adressage
 Corosync faux, tests de restauration et de bascule annoncés comme réalisés
 alors qu'ils ne l'étaient pas, chiffres inventés. Les 50 pages ont été
 régénérées depuis le référentiel comme source unique, et les grappes G6 et G11
-ont été rédigées.
+ont été rédigées, puis **G5, la continuité**, qui couvre six compétences du
+BC03. Trois preuves convergentes en sortent, par ordre de priorité : le test de
+bascule contrôlé, le procès-verbal du test de restauration du 22 juillet, et le
+tableau BIA.

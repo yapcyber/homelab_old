@@ -23,7 +23,7 @@ dans le document Word, où il est la seule chose que le jury voit.
 | G2 | Projet périphériques | B2C04, B2C06, B3C05, B4C01, B4C08 | Pièces 11 à 14 | À rédiger |
 | G3 | Support et tickets | B2C12, B2C13, B4C07 | GLPI, Concentrix | À rédiger |
 | G4 | Supervision et détection | B2C07, B3C08, B3C09 | Détection est-ouest, cascade mémoire, post-mortem SOC | À rédiger |
-| G5 | Continuité | B3C11, B3C12, B3C13, B3C14, B3C16, B3C17 | BIA, PV de restauration, test de bascule | À rédiger |
+| **G5** | **Continuité** | **B3C11, B3C12, B3C13, B3C14, B3C16, B3C17** | **BIA, PV de restauration, test de bascule** | **Rédigée** |
 | **G6** | **Réseau, budget, achats** | **B2C02, B2C03, B4C12, B4C15, B4C16** | **Arbitrages d'architecture, mesures de débit** | **Rédigée** |
 | G7 | IaC et intégration continue | B2C08, B2C10, B2C11 | Packer, OpenTofu, Renovate, CI, corpus GRC | À rédiger |
 | G8 | Sécurité, identités, cloud | B3C02, B3C03, B3C04, B3C06, B3C07, B3C18 | OPNsense, Authentik, MDM, politique cloud | À rédiger |
@@ -36,14 +36,17 @@ dans le document Word, où il est la seule chose que le jury voit.
 
 Chaque grappe partage soit une preuve, soit un contexte, soit une méthode. En
 rédigeant G2, on ouvre une seule fois les quatre pièces du projet
-périphériques et on couvre cinq compétences sur trois blocs. En rédigeant G5,
-on écrit une seule fois la chaîne de continuité, du tableau BIA au test de
-bascule, et on couvre six compétences du BC03.
+périphériques et on couvre cinq compétences sur trois blocs.
 
 Deux grappes sont volontairement placées en tête, G6 et G11, parce qu'elles
 portent les quatre compétences dont les critères sont les plus étroits du
 BC02 : les débits optimisés, l'adéquation des propositions, l'empreinte réduite
 et les indicateurs définis. Ce sont celles où un texte flou se fait recaler.
+
+G5 a été traitée ensuite parce qu'elle est la plus rentable du dossier : six des
+dix-huit compétences du BC03 d'un seul tenant, et une convergence de trois
+preuves à produire seulement, le test de bascule, le procès-verbal de
+restauration et le tableau BIA.
 
 ## Règle d'honnêteté commune
 
