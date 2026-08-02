@@ -5,9 +5,10 @@ sidebar_position: 1
 
 # BC03 — Définir la politique de sécurisation du SI
 
-**Statut : en cours.** 18 compétences — une page par compétence ci-dessous.
-Rédaction du rendu à venir après BC02 (séquence stricte dans l'ordre du
-référentiel).
+**Statut : 18 compétences à rédiger.** Une page par compétence ci-dessous, avec
+l'intitulé et le critère **exacts** du référentiel. La rédaction se fait par
+[grappe](/blocs/grappes) : G5 pour la continuité, G8 pour la sécurité et les
+identités, G4 pour la détection, G1 pour les correctifs, G12 pour l'audit.
 
 ## Intitulé
 
@@ -36,10 +37,11 @@ pas été pratiquée, à condition de l'assumer explicitement comme telle.
   avec refus par défaut et **isolement DMZ → production vérifié**, chiffrement
   en transit généralisé, et la chaîne de sauvegarde **3-2-1-1-0 en
   production** : dumps chiffrés locaux, copie hors site restic chiffrée côté
-  client, copie hors ligne sur clé USB LUKS, vérification quotidienne
-  d'intégrité et **tests de restauration réels** (dépôt hors site le
-  22 juillet, et après sauvegarde sur la clé USB). Restent à produire : le
-  tableau BIA (≈ 70 % prêt) et le test de bascule HA tracé.
+  client, copie hors ligne sur clé USB LUKS, et vérification quotidienne
+  d'intégrité. Un **test de restauration réel a eu lieu le 22 juillet 2026**
+  depuis le dépôt hors site ; son procès-verbal reste à rédiger. Restent à
+  produire : le tableau BIA et le **test de bascule HA tracé**, qui n'a jamais
+  été réalisé.
 - **Dupont Restauration (anonymisé)** : ISAE 3402, MDM, premier répondant
   EDR/SOC (alerte traitée de bout en bout, post-mortem), fiche réflexe
   d'isolement, habilitations AD.
@@ -66,9 +68,9 @@ tunnel distinct).
 | [C8](./c08.md) | Protections passives et actives, plan d'urgence viral | Accès contrôlés, ou attaque virale maîtrisée | Solide |
 | [C9](./c09.md) | Évaluer les perturbations via les sondes | Évaluation des risques liés aux malveillances produite | Solide |
 | [C10](./c10.md) | Mises à jour automatisées des outils de sécurité | Outils de sécurité mis à jour systématiquement | Solide |
-| [C11](./c11.md) | Criticité de l'interruption d'activité | Plan de reprise priorisé, délais validés | Trace à créer (BIA) |
-| [C12](./c12.md) | Chiffrer les canaux de sauvegarde | Tests de sauvegarde sécurisée validés | Solide (3-2-1-1-0) |
-| [C13](./c13.md) | Plan périodique de restauration | Tests de restauration probants | Solide (tests faits) |
+| [C11](./c11.md) | Criticité de l'interruption d'activité | Plan de reprise priorisé, délais validés | BIA à produire |
+| [C12](./c12.md) | Chiffrer les canaux de sauvegarde | Tests de sauvegarde sécurisée validés | Solide |
+| [C13](./c13.md) | Plan périodique de restauration | Tests de restauration probants | PV à formaliser |
 | [C14](./c14.md) | Éléments critiques pour la continuité | Rôles critiques et ressources indispensables identifiés | À confirmer |
 | [C15](./c15.md) | Approvisionnement télétravail de masse | Stocks et chaîne d'approvisionnement opérationnels | Réel Concentrix (oral) |
 | [C16](./c16.md) | Ressources de continuité minimale | Tests de redondance et substitution probants | Test HA à tracer |

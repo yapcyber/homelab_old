@@ -5,9 +5,10 @@ sidebar_position: 1
 
 # BC02 — Assurer la gestion du Système d'information
 
-**Statut : C1 validée** (texte final à récupérer dans les sources), **15
-compétences en cours** (C2 à C16). Une page par compétence ci-dessous ;
-la rédaction séquentielle du rendu reprend à C2 — voir
+**Statut : C1 validée** (texte final à retrouver, pièce 34), **C2, C3, C15 et
+C16 rédigées**, 11 compétences à rédiger. Une page par compétence ci-dessous,
+avec l'intitulé et le critère **exacts** du référentiel. La rédaction se fait
+par [grappe](/blocs/grappes) — voir aussi
 [l'état de la rédaction](/rendu/etat-redaction).
 
 ## Intitulé
@@ -43,9 +44,9 @@ présent qu'une fois réellement en production.
 
 | C | Intitulé abrégé | Critère d'évaluation | Pronostic |
 |---|---|---|---|
-| [C1](./c01.md) | Gérer les évolutions selon l'IT Service Management | — | **Validée** |
-| [C2](./c02.md) | Évolution des équipements, technologies émergentes | Les débits sont optimisés | À confirmer |
-| [C3](./c03.md) | Comparer les solutions de renouvellement | Adéquation des propositions, ou certification ITIL | À confirmer |
+| [C1](./c01.md) | Gérer les évolutions (ISO/CEI 20000) | Tableau de bord renseigné | **Validée** |
+| [C2](./c02.md) | Évolution des équipements et débits | Les débits sont optimisés | **Rédigée** (G6) |
+| [C3](./c03.md) | Comparer les solutions de renouvellement | Adéquation des propositions retenues, ou certification ITIL | **Rédigée** (G6) |
 | [C4](./c04.md) | Ordonnancer le plan de déploiement | Le déploiement est planifié | Solide |
 | [C5](./c05.md) | Maquetter les solutions pour test et validation | Solutions maquettées ou procédures établies | Solide |
 | [C6](./c06.md) | Attribuer les ressources selon le budget alloué | Ressources disponibles, allouées, budget respecté | Solide |
@@ -57,5 +58,5 @@ présent qu'une fois réellement en production.
 | [C12](./c12.md) | Centraliser les incidents en un point d'accès unique | Un point d'accès unique au support est à disposition | À confirmer |
 | [C13](./c13.md) | Tableau de bord de résolution des tickets | Un tableau de bord permet le suivi du traitement | À confirmer |
 | [C14](./c14.md) | Résoudre les tickets de niveau 3 et 4 | Les tickets de niveau 3 et 4 sont clôturés | À confirmer |
-| [C15](./c15.md) | Service numérique à empreinte carbone réduite | L'empreinte carbone du SI est réduite | Trace à créer |
-| [C16](./c16.md) | Indicateurs RSE et environnementaux | Des indicateurs environnementaux sont définis | Trace à créer |
+| [C15](./c15.md) | Service numérique à empreinte réduite | L'empreinte carbone du SI est réduite | **Rédigée** (G11) |
+| [C16](./c16.md) | Indicateurs environnementaux | Des indicateurs environnementaux sont définis | **Rédigée** (G11) |

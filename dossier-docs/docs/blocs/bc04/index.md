@@ -5,9 +5,10 @@ sidebar_position: 1
 
 # BC04 — Communiquer avec tous les acteurs internes ou externes
 
-**Statut : en cours.** 16 compétences — une page par compétence ci-dessous.
-Rédaction du rendu à venir après BC03 ; les routes des compétences sous tension
-sont actées.
+**Statut : C12, C15 et C16 rédigées, 13 à rédiger.** Une page par compétence
+ci-dessous, avec l'intitulé et le critère **exacts** du référentiel. La
+rédaction se fait par [grappe](/blocs/grappes) : G9 pour la communication, G10
+pour l'encadrement, G6 pour les fournisseurs, G2 et G3 pour le reste.
 
 ## Intitulé
 
@@ -40,8 +41,9 @@ homelab, la base de connaissances Dupont (12 procédures rédigées), les
 campagnes de sensibilisation, le rôle de contributeur au COSECOPS et les
 entretiens tuteur à mener (C4, C5, C14, C15, C16).
 
-**Anglais** : niveau C1, deux réunions professionnelles et mails prouvables ;
-la traduction réelle du portfolio est engagée avant le rendu. **Aucune
+**Anglais** : niveau C1, deux réunions professionnelles et les courriels de la
+pièce 31, qui sont collectés. Le portfolio n'a **aucune page en anglais** à ce
+jour : sa traduction est un bonus, pas une dépendance du critère. **Aucune
 certification réseau n'est présentée comme acquise** (CyberOps non validée,
 CCNA reportée) ; seule la préparation peut être mentionnée.
 
@@ -50,7 +52,7 @@ CCNA reportée) ; seule la préparation peut être mentionnée.
 | C | Intitulé abrégé | Critère d'évaluation | Route retenue |
 |---|---|---|---|
 | [C1](./c01.md) | Collecter et synthétiser | Une base de connaissances est disponible | Réel (Dupont + homelab) |
-| [C2](./c02.md) | Documentation technique FR et EN | Des documentations sont consultables | Réel + trace à créer (locale EN) |
+| [C2](./c02.md) | Documentation technique FR et EN | Des documentations sont consultables | Réel (courriels EN collectés) |
 | [C3](./c03.md) | Former les équipes support | L'équipe support est opérationnelle | Réel (accompagnement Tanium) |
 | [C4](./c04.md) | Compétences attendues, fiche de poste | Choix justifié, intégration positive | Réel + entretien tuteur |
 | [C5](./c05.md) | Conduire un entretien annuel | Objectifs réalistes, besoins identifiés | Réel (côté évalué) puis projection |
@@ -60,8 +62,8 @@ CCNA reportée) ; seule la préparation peut être mentionnée.
 | [C9](./c09.md) | Arbitrer par l'écoute active | Divergences aplanies sans conflit | Réel (OVH 48h, Nespresso) |
 | [C10](./c10.md) | Information de réunion, FR et EN | Comptes rendus diffusés rapidement | Réel (COSECOPS, réunions EN) |
 | [C11](./c11.md) | Diffuser les bonnes pratiques | Volet d'usage de la charte diffusé | Réel (campagnes Dupont) |
-| [C12](./c12.md) | Rapports qualité prix du marché | Présentation efficiente et compréhensible | Réel (comparatif chiffré) |
+| [C12](./c12.md) | Rapports qualité prix du marché | Présentation efficiente et compréhensible | **Rédigée** (G6) |
 | [C13](./c13.md) | Sensibiliser aux mesures techniques | Volet sécurité de la charte diffusé à tous | Réel (campagnes Dupont) |
 | [C14](./c14.md) | Adhésion des décideurs | Rapport de préconisation transmis à la direction | Entretien tuteur |
-| [C15](./c15.md) | Faire respecter les SLA | Obligations du fournisseur respectées | Réel (relances) + projection |
-| [C16](./c16.md) | Obtenir rabais, remises ou délais | L'avantage recherché est obtenu | Réel (occasion) + projection |
+| [C15](./c15.md) | Faire respecter les SLA | Obligations du fournisseur respectées | **Rédigée** (G6) |
+| [C16](./c16.md) | Obtenir rabais, remises ou délais | L'avantage recherché est obtenu | **Rédigée** (G6) |
