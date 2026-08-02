@@ -5,8 +5,8 @@ sidebar_position: 1
 
 # BC02 — Assurer la gestion du Système d'information
 
-**Statut : 14 compétences rédigées sur 16.** Restent C12 et C13, rattachées à
-la grappe G3. Une page par compétence ci-dessous,
+**Statut : les 16 compétences sont rédigées.** C1 était déjà validée, les
+quinze autres ont été écrites par grappes. Reste la relecture et l'assemblage. Une page par compétence ci-dessous,
 avec l'intitulé et le critère **exacts** du référentiel. La rédaction se fait
 par [grappe](/blocs/grappes) — voir aussi
 [l'état de la rédaction](/rendu/etat-redaction).
@@ -55,8 +55,8 @@ présent qu'une fois réellement en production.
 | [C9](./c09.md) | Migrer une architecture en gérant les risques | L'architecture cible est mise en place | **Rédigée** (G1) |
 | [C10](./c10.md) | Intégration permanente d'évolutions | Un environnement de tests permet la mise en production continue | **Rédigée** (G7) |
 | [C11](./c11.md) | Évolutions applicatives incrémentales et automatisées | Une procédure d'intégration est définie | **Rédigée** (G7) |
-| [C12](./c12.md) | Centraliser les incidents en un point d'accès unique | Un point d'accès unique au support est à disposition | À confirmer |
-| [C13](./c13.md) | Tableau de bord de résolution des tickets | Un tableau de bord permet le suivi du traitement | À confirmer |
+| [C12](./c12.md) | Centraliser les incidents en un point d'accès unique | Un point d'accès unique au support est à la disposition des utilisateurs | **Rédigée** (G3) |
+| [C13](./c13.md) | Tableau de bord de résolution des tickets | Un tableau de bord permet le suivi du traitement des tickets | **Rédigée** (G3) |
 | [C14](./c14.md) | Résoudre les tickets de niveau 3 et 4 | Les tickets de niveau 3 & 4 sont clôturés | **Rédigée** (G1) |
 | [C15](./c15.md) | Service numérique à empreinte réduite | L'empreinte carbone du SI est réduite | **Rédigée** (G11) |
 | [C16](./c16.md) | Indicateurs environnementaux | Des indicateurs environnementaux sont définis | **Rédigée** (G11) |

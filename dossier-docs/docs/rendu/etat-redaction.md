@@ -19,11 +19,12 @@ calibré sur cette date.
 |---|---|---|
 | Volume du document Word | 60 pages minimum hors annexes | environ 13 pages montées (BC01 seul) |
 | Partie 1, écrit narratif | 10 à 15 pages | **rien n'est écrit** |
-| Partie 2, portefeuille | 61 compétences | 46 rédigées sur le site, 15 restantes |
+| Partie 2, portefeuille | 61 compétences | 49 rédigées sur le site, 12 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
 La liste consolidée de tout ce qui reste à faire est sur la page
-[Actions à mener](/actions).
+[Actions à mener](/actions), et ce qui dépend d'un tiers sur la page
+[Compétences en dépendance](/dependances).
 
 ## Méthode retenue
 
@@ -95,9 +96,9 @@ Elles ne souffrent aucune exception.
 | Bloc | Compétences | État |
 |---|---|---|
 | [BC01](/blocs/bc01) | 11 | Textes figés, **rafraîchissement factuel requis** |
-| [BC02](/blocs/bc02) | 16 | 14 rédigées. Restent C12 et C13 (G3) |
+| [BC02](/blocs/bc02) | 16 | **Bloc complet**, 16 compétences rédigées |
 | [BC03](/blocs/bc03) | 18 | 16 rédigées. Restent C1 et C15 (G12) |
-| [BC04](/blocs/bc04) | 16 | **G6, G2 et G9 rédigées** (12 compétences). Restent C4, C5, C7, C9 |
+| [BC04](/blocs/bc04) | 16 | 13 rédigées. Restent C4, C5 et C9 (G10) |
 | Partie 1 | — | **Intégralement à écrire.** [Interrogatoire préparatoire](/interrogatoires/partie1) disponible |
 
 ## Historique
@@ -125,4 +126,6 @@ sept compétences, qui porte le BC04 à 12 sur 16. Puis **G1, correctifs et
 parc**. Vérification faite au passage : 26 des 34 pièces d'entreprise sont
 collectées, dont l'analyse rétrospective d'alerte qui sert cinq compétences.
 Puis **G7, infrastructure-as-code et intégration continue**, qui branche enfin
-le corpus de gouvernance sur le dossier.
+le corpus de gouvernance sur le dossier. Puis **G3, support et tickets**, qui
+achève le BC02 et corrige une erreur de classement : la preuve du tableau de
+bord des tickets était collectée depuis le début, rangée sous un autre numéro.

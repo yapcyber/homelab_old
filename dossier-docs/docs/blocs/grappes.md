@@ -21,7 +21,7 @@ dans le document Word, où il est la seule chose que le jury voit.
 |---|---|---|---|---|
 | **G1** | **Correctifs et parc** | **B2C05, B2C09, B2C14, B3C10** | **Tanium, WSUS, politique CVSS** | **Rédigée** |
 | **G2** | **Projet périphériques** | **B2C04, B2C06, B3C05, B4C01, B4C08** | **Pièces 11 à 14** | **Rédigée** |
-| G3 | Support et tickets | B2C12, B2C13, B4C07 | GLPI, Concentrix | À rédiger |
+| **G3** | **Support et tickets** | **B2C12, B2C13, B4C07** | **Portail, outil de gestion des demandes, Concentrix** | **Rédigée** |
 | **G4** | **Supervision et détection** | **B2C07, B3C08, B3C09** | **Détection est-ouest, cascade mémoire, post-mortem SOC** | **Rédigée** |
 | **G5** | **Continuité** | **B3C11, B3C12, B3C13, B3C14, B3C16, B3C17** | **BIA, PV de restauration, test de bascule** | **Rédigée** |
 | **G6** | **Réseau, budget, achats** | **B2C02, B2C03, B4C12, B4C15, B4C16** | **Arbitrages d'architecture, mesures de débit** | **Rédigée** |
@@ -81,6 +81,12 @@ G7 a enfin branché le corpus de gouvernance sur le dossier, et son constat le
 plus utile est négatif : l'inventaire relevé en direct a montré que la
 documentation décrivait un matériel faux sur trois nœuds sur quatre. Une
 cartographie fausse donne confiance, ce qui est pire que pas de cartographie.
+
+G3 a corrigé une erreur de classement coûteuse : la capture rangée sous la
+pièce 15 est en réalité le tableau de bord des tickets, avec ses compteurs et
+ses colonnes d'engagement de service. B2C13, annoncée comme la compétence la
+plus exposée du dossier, était en fait couverte depuis le début. Vérifier une
+pièce avant de la déclarer manquante.
 
 ## Règle d'honnêteté commune
 

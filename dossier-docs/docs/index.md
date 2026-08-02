@@ -17,9 +17,9 @@ format Word puis PDF, mais tout se prépare et se centralise ici.
 | Bloc | Intitulé | Compétences | État |
 |---|---|---|---|
 | [BC01](/blocs/bc01) | Administrer le système d'information | 11 | Validé, textes figés — **rafraîchissement factuel requis** |
-| [BC02](/blocs/bc02) | Assurer la gestion du SI | 16 | 14 compétences rédigées — 2 à rédiger |
+| [BC02](/blocs/bc02) | Assurer la gestion du SI | 16 | **Les 16 compétences sont rédigées** |
 | [BC03](/blocs/bc03) | Définir la politique de sécurisation du SI | 18 | 16 compétences rédigées — 2 à rédiger |
-| [BC04](/blocs/bc04) | Communiquer avec tous les acteurs | 16 | 12 compétences rédigées — 4 à rédiger |
+| [BC04](/blocs/bc04) | Communiquer avec tous les acteurs | 16 | 13 compétences rédigées — 3 à rédiger |
 | **Partie 1** | Écrit narratif (parcours, entreprise, métier) | — | **Intégralement à écrire** |
 
 Un bloc n'est validé que si **toutes** ses compétences le sont.
@@ -35,6 +35,7 @@ qui n'est rétabli qu'à l'assemblage du document Word.
 | Section | Contenu |
 |---|---|
 | **[Actions à mener](/actions)** | La liste consolidée de tout ce qui reste à faire, par priorité : manipulations, documents, captures, demandes au tuteur, anonymisation. |
+| **[Compétences en dépendance](/dependances)** | Ce qui dépend d'une preuve non encore demandée, par niveau de blocage, et le message à envoyer au tuteur. |
 | **[Grappes de rédaction](/blocs/grappes)** | L'ordre de travail réel : douze grappes qui partagent une preuve, un contexte ou une méthode. |
 | **[Blocs de compétences](/blocs/bc01/)** | Une vue d'ensemble par bloc et **une page par compétence** (61 pages) : intitulé, interprétation, réponse, et preuves ou chemin de raisonnement. |
 | **[Rendu final (textes)](/rendu/bc01-textes)** | Les textes rédigés pour le rendu, en Markdown ([textes BC01](/rendu/bc01-textes)), et [l'état de la rédaction](/rendu/etat-redaction) (méthode, règles, points de vigilance). |

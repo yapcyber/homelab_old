@@ -5,10 +5,10 @@ sidebar_position: 1
 
 # BC04 — Communiquer avec tous les acteurs internes ou externes
 
-**Statut : 12 compétences rédigées, 4 à rédiger** (C4, C5, C7, C9). Une page par compétence
+**Statut : 13 compétences rédigées, 3 à rédiger** (C4, C5, C9, grappe G10). Une page par compétence
 ci-dessous, avec l'intitulé et le critère **exacts** du référentiel. La
 rédaction se fait par [grappe](/blocs/grappes) : **G6, G2 et G9 faites**.
-Restent G10 pour l'encadrement (C4, C5, C9) et G3 pour C7.
+Reste **G10 pour l'encadrement** (C4, C5, C9), qui dépend des réponses tuteur.
 
 ## Intitulé
 
@@ -57,7 +57,7 @@ CCNA reportée) ; seule la préparation peut être mentionnée.
 | [C4](./c04.md) | Compétences attendues, fiche de poste | Choix justifié, intégration positive | Réel + entretien tuteur |
 | [C5](./c05.md) | Conduire un entretien annuel | Objectifs réalistes, besoins identifiés | Réel (côté évalué) puis projection |
 | [C6](./c06.md) | Outils collaboratifs | Les objectifs fixés sont réalistes | **Rédigée** (G9) |
-| [C7](./c07.md) | Déléguer les tâches N1 et N2 | Les tickets sont répartis entre techniciens | Réel (chargé de flux Concentrix) |
+| [C7](./c07.md) | Déléguer les tâches N1 et N2 | Les besoins en montée en compétences sont identifiés | **Rédigée** (G3) |
 | [C8](./c08.md) | Définir les rôles, planifier | Les tickets sont répartis, les tâches planifiées, le travail en équipe efficace | **Rédigée** (G2) |
 | [C9](./c09.md) | Arbitrer par l'écoute active | Divergences aplanies sans conflit | Réel (OVH 48h, Nespresso) |
 | [C10](./c10.md) | Information de réunion, FR et EN | Les comptes rendus de réunions sont diffusés rapidement | **Rédigée** (G9) |

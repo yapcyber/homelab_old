@@ -8,7 +8,8 @@ sidebar_position: 0.5
 **Consolidé au 2 août 2026.** Toutes les actions remontées par les grappes
 rédigées (G2, G4, G5, G6, G8, G9), plus celles issues de l'audit initial.
 
-Rendu écrit : **semaine 34, du 17 au 21 août 2026**.
+Rendu écrit : **semaine 34, du 17 au 21 août 2026**. Ce qui dépend d'un tiers
+est isolé sur la page [Compétences en dépendance](/dependances).
 
 :::danger Les cinq actions qui comptent le plus
 Si tu n'en fais que cinq, fais celles-ci. Chacune porte un critère qu'aucune
@@ -207,7 +208,7 @@ direct, 19 et 23. Une est à retrouver, 34.
 |---|---|---|---|
 | R1 | **Partie 1, écrit narratif** | 10 à 15 pages | **Rien n'est écrit.** Interrogatoire préparatoire disponible |
 | R2 | ~~Grappe G1, correctifs et parc~~ | 4 compétences | **Rédigée** |
-| R3 | Grappe G3, support et tickets | 3 compétences | À rédiger |
+| R3 | ~~Grappe G3, support et tickets~~ | 3 compétences | **Rédigée** |
 | R4 | ~~Grappe G7, IaC et intégration continue~~ | 3 compétences | **Rédigée** |
 | R5 | Grappe G10, encadrement | 3 compétences | À rédiger, dépend de Q7 et Q8 |
 | R6 | Grappe G12, gouvernance et audit | 3 compétences | À rédiger, dépend de D5 |
