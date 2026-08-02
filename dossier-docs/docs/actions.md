@@ -211,7 +211,7 @@ direct, 19 et 23. Une est à retrouver, 34.
 | R3 | ~~Grappe G3, support et tickets~~ | 3 compétences | **Rédigée** |
 | R4 | ~~Grappe G7, IaC et intégration continue~~ | 3 compétences | **Rédigée** |
 | R5 | Grappe G10, encadrement | 3 compétences | À rédiger, dépend de Q7 et Q8 |
-| R6 | Grappe G12, gouvernance et audit | 3 compétences | À rédiger, dépend de D5 |
+| R6 | ~~Grappe G12, gouvernance et audit~~ | 3 compétences | **Rédigée**. D5 reste à produire |
 | R7 | **Rafraîchissement factuel de BC01** : sonde au passé, quatre nœuds, HA non testée, ratio de consolidation | 11 compétences | À faire |
 | R8 | Assemblage Word : page de garde du certificateur, partie 1, quatre blocs, annexes, sommaire, pagination | — | À faire en dernier |
 

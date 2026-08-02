@@ -19,7 +19,7 @@ calibré sur cette date.
 |---|---|---|
 | Volume du document Word | 60 pages minimum hors annexes | environ 13 pages montées (BC01 seul) |
 | Partie 1, écrit narratif | 10 à 15 pages | **rien n'est écrit** |
-| Partie 2, portefeuille | 61 compétences | 49 rédigées sur le site, 12 restantes |
+| Partie 2, portefeuille | 61 compétences | **52 rédigées sur le site**, 9 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
 La liste consolidée de tout ce qui reste à faire est sur la page
@@ -97,7 +97,7 @@ Elles ne souffrent aucune exception.
 |---|---|---|
 | [BC01](/blocs/bc01) | 11 | Textes figés, **rafraîchissement factuel requis** |
 | [BC02](/blocs/bc02) | 16 | **Bloc complet**, 16 compétences rédigées |
-| [BC03](/blocs/bc03) | 18 | 16 rédigées. Restent C1 et C15 (G12) |
+| [BC03](/blocs/bc03) | 18 | **Bloc complet**, 18 compétences rédigées |
 | [BC04](/blocs/bc04) | 16 | 13 rédigées. Restent C4, C5 et C9 (G10) |
 | Partie 1 | — | **Intégralement à écrire.** [Interrogatoire préparatoire](/interrogatoires/partie1) disponible |
 
@@ -129,3 +129,6 @@ Puis **G7, infrastructure-as-code et intégration continue**, qui branche enfin
 le corpus de gouvernance sur le dossier. Puis **G3, support et tickets**, qui
 achève le BC02 et corrige une erreur de classement : la preuve du tableau de
 bord des tickets était collectée depuis le début, rangée sous un autre numéro.
+Puis **G12, gouvernance et audit**, qui achève le BC03. Onze grappes sur douze
+sont faites ; il ne reste que G10, l'encadrement, qui dépend des réponses du
+tuteur, et la partie 1.

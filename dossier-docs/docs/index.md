@@ -18,7 +18,7 @@ format Word puis PDF, mais tout se prépare et se centralise ici.
 |---|---|---|---|
 | [BC01](/blocs/bc01) | Administrer le système d'information | 11 | Validé, textes figés — **rafraîchissement factuel requis** |
 | [BC02](/blocs/bc02) | Assurer la gestion du SI | 16 | **Les 16 compétences sont rédigées** |
-| [BC03](/blocs/bc03) | Définir la politique de sécurisation du SI | 18 | 16 compétences rédigées — 2 à rédiger |
+| [BC03](/blocs/bc03) | Définir la politique de sécurisation du SI | 18 | **Les 18 compétences sont rédigées** |
 | [BC04](/blocs/bc04) | Communiquer avec tous les acteurs | 16 | 13 compétences rédigées — 3 à rédiger |
 | **Partie 1** | Écrit narratif (parcours, entreprise, métier) | — | **Intégralement à écrire** |
 

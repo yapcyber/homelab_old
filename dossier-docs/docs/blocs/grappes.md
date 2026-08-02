@@ -30,7 +30,7 @@ dans le document Word, où il est la seule chose que le jury voit.
 | **G9** | **Communication et sensibilisation** | **B4C02, B4C03, B4C06, B4C10, B4C11, B4C13, B4C14** | **Campagnes, procédures, base de connaissances** | **Rédigée** |
 | G10 | Encadrement | B4C04, B4C05, B4C09 | Suivi d'alternance, successeurs, challenge OVH | À rédiger |
 | **G11** | **Numérique responsable** | **B2C15, B2C16** | **Consolidation, réemploi, indicateurs** | **Rédigée** |
-| G12 | Gouvernance et audit | B2C01, B3C01, B3C15 | CVE, PingCastle, ISAE 3402, Concentrix | À rédiger |
+| **G12** | **Gouvernance et audit** | **B2C01, B3C01, B3C15** | **CVE, PingCastle, Concentrix** | **Rédigée** |
 
 ## Pourquoi ce regroupement
 
@@ -87,6 +87,10 @@ pièce 15 est en réalité le tableau de bord des tickets, avec ses compteurs et
 ses colonnes d'engagement de service. B2C13, annoncée comme la compétence la
 plus exposée du dossier, était en fait couverte depuis le début. Vérifier une
 pièce avant de la déclarer manquante.
+
+G12 achève le BC03. Elle a produit un texte de secours pour B2C01, dont le
+texte validé reste introuvable, et elle a fait du rapport d'audit formel le
+dernier livrable qui porte à lui seul un critère.
 
 ## Règle d'honnêteté commune
 

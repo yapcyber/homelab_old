@@ -5,10 +5,11 @@ sidebar_position: 1
 
 # BC03 — Définir la politique de sécurisation du SI
 
-**Statut : 16 compétences rédigées sur 18.** Restent C1 et C15, rattachées à G12. Une page par compétence
+**Statut : les 18 compétences sont rédigées.** Reste la relecture, le rapport d'audit formel et l'assemblage. Une page par compétence
 ci-dessous, avec l'intitulé et le critère **exacts** du référentiel. La
-rédaction se fait par [grappe](/blocs/grappes) : **G5 continuité, G4 détection et G8 sécurité et
-identités (faites)**. Restent C1 et C15, rattachées à G12.
+rédaction se fait par [grappe](/blocs/grappes) : G5 continuité, G4 détection, G8 sécurité et
+identités, G2 périphériques, G1 correctifs et G12 gouvernance, **toutes
+rédigées**.
 
 ## Intitulé
 
@@ -58,7 +59,7 @@ tunnel distinct).
 
 | C | Intitulé abrégé | Critère d'évaluation | Pronostic |
 |---|---|---|---|
-| [C1](./c01.md) | État des lieux méthodique des risques | Risques évalués dans un rapport d'audit validé, ou Cobit | À confirmer |
+| [C1](./c01.md) | État des lieux méthodique des risques | Risques évalués dans un rapport d'audit validé, ou certification Cobit | **Rédigée** (G12) |
 | [C2](./c02.md) | Connaître et appliquer ISO 27001, télétravail | Les failles de sécurité sont identifiées, ou certification ISO 27001 obtenue | **Rédigée** (G8) |
 | [C3](./c03.md) | Configurer des solutions de sécurité classiques | Les configurations des services réseaux sont conformes au niveau attendu | **Rédigée** (G8) |
 | [C4](./c04.md) | Sécuriser les transactions numériques | Des procédures de sécurité contrôlent l'accès aux données | **Rédigée** (G8) |
@@ -72,7 +73,7 @@ tunnel distinct).
 | [C12](./c12.md) | Chiffrer les canaux de sauvegarde | Tests de sauvegarde sécurisée validés, ou processus d'archives validé | **Rédigée** (G5) |
 | [C13](./c13.md) | Plan périodique de restauration | Les tests des procédures de restauration sont probants | **Rédigée** (G5) |
 | [C14](./c14.md) | Éléments critiques pour la continuité | Les rôles critiques et les ressources indispensables sont identifiés | **Rédigée** (G5) |
-| [C15](./c15.md) | Approvisionnement télétravail de masse | Stocks et chaîne d'approvisionnement opérationnels | Réel Concentrix (oral) |
+| [C15](./c15.md) | Approvisionnement télétravail de masse | Les stocks outils et la chaine d'approvisionnement sont opérationnels et fiables | **Rédigée** (G12) |
 | [C16](./c16.md) | Ressources de continuité minimale | Les tests de redondance et de substitution sont probants | **Rédigée** (G5) |
 | [C17](./c17.md) | Protections assurant la disponibilité (PCA) | Les données répliquées sont disponibles et opérationnelles | **Rédigée** (G5) |
 | [C18](./c18.md) | Sécurité cohérente sur site et dans le Cloud | La politique de sécurité du Cloud est définie | **Rédigée** (G8) |
