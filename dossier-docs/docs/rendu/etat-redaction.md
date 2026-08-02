@@ -19,7 +19,7 @@ calibré sur cette date.
 |---|---|---|
 | Volume du document Word | 60 pages minimum hors annexes | environ 13 pages montées (BC01 seul) |
 | Partie 1, écrit narratif | 10 à 15 pages | **rien n'est écrit** |
-| Partie 2, portefeuille | 61 compétences | 21 rédigées sur le site, 40 restantes |
+| Partie 2, portefeuille | 61 compétences | 27 rédigées sur le site, 34 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
 ## Méthode retenue
@@ -92,7 +92,7 @@ Elles ne souffrent aucune exception.
 |---|---|---|
 | [BC01](/blocs/bc01) | 11 | Textes figés, **rafraîchissement factuel requis** |
 | [BC02](/blocs/bc02) | 16 | C1 validée, C2, C3, C7, C15 et C16 rédigées. 10 à rédiger |
-| [BC03](/blocs/bc03) | 18 | **G5 continuité et G4 détection rédigées** (C8, C9, C11 à C14, C16, C17). 10 à rédiger |
+| [BC03](/blocs/bc03) | 18 | **G5, G4 et G8 rédigées** (C2 à C4, C6 à C9, C11 à C14, C16 à C18). Restent C1, C5, C10, C15 |
 | [BC04](/blocs/bc04) | 16 | C12, C15 et C16 rédigées. 13 à rédiger |
 | Partie 1 | — | **Intégralement à écrire** |
 
@@ -111,4 +111,6 @@ bascule contrôlé, le procès-verbal du test de restauration du 22 juillet, et 
 tableau BIA. Puis **G4, supervision et détection**, dont la preuve principale
 était déjà capturée, et qui a fait remonter une action technique courte :
 activer l'export des alertes du moteur de détection réseau vers le SIEM, qui
-est aujourd'hui désactivé.
+est aujourd'hui désactivé. Puis **G8, sécurité, identités et cloud**, qui
+achève l'essentiel du BC03 : il n'y reste que quatre compétences, rattachées à
+d'autres grappes.

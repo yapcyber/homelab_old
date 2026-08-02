@@ -26,7 +26,7 @@ dans le document Word, où il est la seule chose que le jury voit.
 | **G5** | **Continuité** | **B3C11, B3C12, B3C13, B3C14, B3C16, B3C17** | **BIA, PV de restauration, test de bascule** | **Rédigée** |
 | **G6** | **Réseau, budget, achats** | **B2C02, B2C03, B4C12, B4C15, B4C16** | **Arbitrages d'architecture, mesures de débit** | **Rédigée** |
 | G7 | IaC et intégration continue | B2C08, B2C10, B2C11 | Packer, OpenTofu, Renovate, CI, corpus GRC | À rédiger |
-| G8 | Sécurité, identités, cloud | B3C02, B3C03, B3C04, B3C06, B3C07, B3C18 | OPNsense, Authentik, MDM, politique cloud | À rédiger |
+| **G8** | **Sécurité, identités, cloud** | **B3C02, B3C03, B3C04, B3C06, B3C07, B3C18** | **OPNsense, Authentik, MDM, politique cloud** | **Rédigée** |
 | G9 | Communication et sensibilisation | B4C02, B4C03, B4C06, B4C10, B4C11, B4C13, B4C14 | Campagnes, procédures, base de connaissances | À rédiger |
 | G10 | Encadrement | B4C04, B4C05, B4C09 | Suivi d'alternance, successeurs, challenge OVH | À rédiger |
 | **G11** | **Numérique responsable** | **B2C15, B2C16** | **Consolidation, réemploi, indicateurs** | **Rédigée** |
@@ -52,6 +52,11 @@ G4 a suivi pour la raison inverse : sa preuve principale, la synthèse de
 détection est-ouest, était **déjà écrite et capturée**. Elle a coûté peu et
 elle a révélé une action technique courte à mener avant le rendu, l'activation
 de l'export des alertes réseau vers le SIEM.
+
+G8 a bouclé le gros du BC03 en réutilisant largement ce qui venait d'être écrit
+en G4, et a fait remonter deux dernières manipulations sur le pare-feu, à
+grouper avec la précédente, ainsi qu'un seul livrable manquant, la politique
+cloud d'une page.
 
 ## Règle d'honnêteté commune
 
