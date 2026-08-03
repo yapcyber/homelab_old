@@ -15,7 +15,9 @@ est isolé sur la page [Compétences en dépendance](/dependances).
 Si tu n'en fais que cinq, fais celles-ci. Chacune porte un critère qu'aucune
 autre preuve ne couvre.
 
-1. **Envoyer les demandes au tuteur** (§4). Seul délai qui ne t'appartient pas.
+1. **Demander un créneau au tuteur avant son départ le 7 au soir**, et demander
+   le **certificat de travail** aux ressources humaines, seul document
+   d'entreprise obligatoire du dossier. Voir la page Compétences en dépendance.
 2. **Procès-verbal du test de restauration** du 22 juillet (§2). Une page, sur
    des traces qui existent déjà. Porte B3C13 et renforce B3C17.
 3. **Test de bascule HA contrôlé** (§1). Porte B3C16 et B3C17, débloqué depuis
@@ -108,6 +110,7 @@ Toutes portent sur de l'existant. À grouper en une ou deux sessions.
 | Q4 | **Contenu exact des sensibilisations** : quelles mesures techniques sont abordées | B4C13 | Moyenne |
 | Q5 | **PRA et PCA** : où se trouve le document, consultable ? Référence du test de restauration auquel j'ai assisté | B3C11, B3C13 | Haute |
 | Q6 | **Criticité applicative** : comment elle est définie, RTO et RPO existants même approximatifs | B3C11, B3C14 | Haute |
+| **Q0** | **Certificat de travail ou attestation d'employeur**, à demander aux **ressources humaines**. Le guide l'impose « a minima » en accompagnement du CV détaillé | Dossier entier | **Obligatoire** |
 | Q7 | **Fiches de poste** : comment elles sont rédigées, compétences attendues pour un profil junior ou confirmé, exemple consultable | B4C04 | Haute, grappe G10 |
 | Q8 | **Entretien annuel** : déroulement, objectifs fixés, grille anonymisée consultable | B4C05 | Haute, grappe G10 |
 | Q9 | **Présentation des enjeux de sécurité à la direction** : arguments utilisés, exemple de support | B4C14 | Moyenne |

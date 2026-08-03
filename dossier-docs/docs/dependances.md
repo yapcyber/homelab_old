@@ -11,10 +11,35 @@ preuve qui n'est **pas encore demandée**, ou pas encore obtenue.
 C'est la seule catégorie d'actions dont le délai ne t'appartient pas. Tout le
 reste peut être rattrapé en travaillant plus ; ceci ne peut pas.
 
-:::danger Un seul message suffit
-Les onze demandes tiennent dans **un courriel au tuteur**. Envoyé aujourd'hui,
-il débloque huit compétences. Envoyé la semaine du 11 août, il arrive trop tard
-pour laisser le temps d'une relance.
+:::danger Le tuteur part en congé le 7 au soir
+La liste de demandes ci-dessous était calibrée pour un tuteur disponible. Avec
+quatre jours utiles, elle doit être **réduite à deux demandes**, sous peine que
+les deux vraies priorités passent au second plan. Voir la section
+[Priorisation avant le 7 août](#priorisation-avant-le-7-août).
+:::
+
+:::tip Le tuteur ne valide rien, vérification dans les documents du certificateur
+Le mot « tuteur » n'apparaît **ni dans le guide du dossier de validation, ni
+dans la grille d'évaluation**. Cette grille est celle du jury et ne porte que
+les signatures de ses membres. Les modalités précisent que la décision du jury
+d'évaluation est **souveraine**.
+
+Le guide demande seulement que les preuves établissent la **matérialité** du
+fait, et cite comme exemples acceptables une capture d'écran d'un outil de
+ticketing ou la copie d'un courriel identifiant son émetteur. **Aucun
+contreseing n'est requis.**
+
+Le tuteur est donc une source d'information pour deux compétences et un donneur
+d'autorisation, pas un valideur.
+:::
+
+:::caution Le seul document d'entreprise réellement obligatoire
+Le guide impose un minimum : « A minima il faut produire : CV détaillé
+accompagné de **certificats de travail ou d'ordres de mission** ».
+
+Il faut donc un **certificat de travail ou une attestation d'employeur**. Cela
+relève des **ressources humaines**, pas du tuteur : son départ ne bloque pas
+cette demande. À lancer sans attendre.
 :::
 
 ---
@@ -114,9 +139,36 @@ extraites.
 
 ---
 
-## 6. Le message à envoyer
+## Priorisation avant le 7 août
 
-Un seul courriel, onze points. Regroupés par nature pour qu'il soit lisible.
+Quatre jours utiles, un tuteur chargé. Deux demandes, pas onze.
+
+| Rang | Demande | Pourquoi elle passe devant | Format |
+|---|---|---|---|
+| **1** | **Créneau de 20 à 30 minutes** sur les fiches de poste et l'entretien annuel | Seule demande qui exige son **temps** et qui ne se rattrape pas. Débloque BC04 C4 et BC04 C5 | Rendez-vous |
+| **2** | **Périmètre de la charte informatique** | Seule question dont la réponse peut faire **tomber un critère**, BC04 C13 | Une ligne |
+| 3 | Autorisation générale d'usage anonymisé des captures internes | Coût nul, à glisser dans le même message | Une ligne |
+
+Si le créneau est écourté, traiter les **fiches de poste** en premier :
+la préparation de l'arrivée du remplaçant donne déjà une base réelle pour C4,
+et l'échange la complète. Pour C5, le suivi d'alternance vécu côté évalué tient
+la compétence avec une projection assumée.
+
+**À ne pas demander maintenant.** Comptes rendus du comité, ticket de niveau
+expert, plan de reprise et criticité, devis, enjeux présentés à la direction,
+classeur d'attestation. Tous ont un repli **déjà rédigé** dans le texte de leur
+compétence, et les inclure diluerait le message.
+
+**À demander ailleurs, sans lien avec le tuteur.** Le certificat de travail aux
+ressources humaines. Les indicateurs de hameçonnage et le contenu de la
+sensibilisation aux collègues concernés.
+
+---
+
+## 6. Le message à envoyer, version longue
+
+**Cette version longue n'est plus celle à envoyer avant le 7 août.** Elle reste
+utile pour la reprise après congés, et pour les demandes aux collègues.
 
 **Autorisations de capture, anonymisées**
 
