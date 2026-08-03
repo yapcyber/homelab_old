@@ -54,7 +54,7 @@ services:
       - postgres:/var/lib/postgresql
 
   redis:
-    image: docker.io/library/redis:7.4-alpine
+    image: docker.io/library/redis:8.10-alpine
     container_name: gf-redis
     restart: unless-stopped
     user: "999:1000"
