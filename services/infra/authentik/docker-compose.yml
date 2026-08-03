@@ -81,7 +81,7 @@ services:
   # pourrait vider le cache ou injecter des tâches malveillantes.
   # ===========================================================================
   authentik-redis:
-    image: redis:7-alpine
+    image: redis:8-alpine
     container_name: authentik-redis
     restart: unless-stopped
     security_opt:
