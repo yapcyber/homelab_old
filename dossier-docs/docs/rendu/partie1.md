@@ -116,17 +116,58 @@ des procédures particulières, confiés à trois personnes sur quarante. C'est 
 que j'ai appris l'écoute active, c'est-à-dire reformuler ce que l'on me dit avant
 de répondre, compétence dont je me sers aujourd'hui bien au-delà du téléphone.
 
-Ensuite chargé de flux, d'octobre 2022 à septembre 2023, sur un compte de crédit
-en ligne. Ma fonction consistait à recevoir les incidents entrants, à les
-qualifier et à les orienter vers le technicien approprié, en arbitrant entre la
-nature du problème, la charge de chacun et les délais internes à respecter. Une
-décision particulière relevait de moi et changeait la maille du travail : la
-déclaration d'une interruption de service lorsqu'un incident dépassait le cas
-individuel, ce qui transforme un afflux de demandes identiques en un objet
-unique. C'est aussi sur ce poste que j'ai automatisé l'intégralité du traitement
-des données, par des scripts pilotant l'outil de requêtage du tableur, qui
-ingéraient douze fichiers d'export quotidiens, les consolidaient et produisaient
-un courriel de synthèse prêt à l'envoi.
+Ensuite chargé de flux, d'octobre 2022 à septembre 2023, sur un compte de
+crédit à la consommation. C'est le poste qui a le plus pesé sur ma trajectoire,
+et il tenait en trois choses : du pilotage d'activité, de la coordination
+humaine et beaucoup d'analyse de données.
+
+Le plateau était organisé en quatre périmètres métier, recouvrement, financement
+de particuliers par l'intermédiaire de partenaires, activité entreprises et
+back-office d'octroi, traversés par cinq flux distincts : appels entrants,
+appels sortants, courriels et tickets, messages courts et dossiers. Chaque flux
+portait ses propres engagements. Le principal concernait la qualité de service
+des appels entrants : sur cent appels reçus, quatre-vingt-cinq devaient être
+décrochés, faute de quoi le contrat était pénalisé sur le mois. Le traitement
+des courriels imposait de son côté qu'aucun ticket n'attende plus de
+quarante-huit heures.
+
+Mon rôle consistait à surveiller ces flux et à répartir une quarantaine de
+personnes entre eux, en leur demandant de basculer d'une file à l'autre pour
+tenir simultanément des objectifs qui se disputaient les mêmes ressources.
+C'était une forme d'encadrement sans lien hiérarchique : je n'évaluais personne,
+mais l'atteinte des objectifs collectifs dépendait de mes arbitrages.
+
+Deux tâches m'incombaient en propre. J'envoyais les messages de relance aux
+clients en retard de paiement, sur une base de trente mille personnes, dans le
+but de générer des appels entrants ; le taux de retour s'établissait autour de
+deux pour cent sur un mois, ce qui oblige à calibrer l'effort en conséquence. Et
+je construisais la répartition des rappels d'appels perdus entre les agents,
+avec dédoublonnage, en veillant à ce qu'elle soit équitable : ces rappels
+entraient dans le calcul de leurs primes, et une répartition perçue comme
+injuste aurait coûté plus qu'elle n'aurait rapporté.
+
+Je fournissais enfin aux superviseurs les données de performance individuelle
+qui leur permettaient d'orienter leur accompagnement, croisées avec le tableau
+de la chargée de qualité pour réunir au même endroit les données de production,
+de satisfaction client et de qualité, assorties de commentaires.
+
+C'est sur ce poste que j'ai automatisé l'intégralité de la chaîne d'extraction,
+de traitement et d'analyse des données. Le reporting exigeait un envoi quotidien
+au client, un récapitulatif hebdomadaire, un comité de production mensuel et un
+comité de pilotage semestriel, chacun réclamant des données puisées dans
+plusieurs outils différents. J'ai écrit des scripts pilotant l'outil de
+requêtage du tableur, qui ingéraient douze fichiers d'export quotidiens et les
+consolidaient. Le bénéfice n'a pas été seulement du temps : comme les échéances
+hebdomadaires et mensuelles se construisaient au fil de l'eau à partir de la
+même source que le quotidien, les chiffres présentés en comité étaient
+nécessairement cohérents avec ceux envoyés chaque matin. Une production qui
+occupait une journée entière avec une procédure manuelle de bout en bout me
+prenait deux heures, analyse, rédaction et envoi compris.
+
+C'est cette montée en compétences qui m'a valu d'être recruté comme technicien
+informatique. On m'a d'ailleurs conseillé à l'époque de reprendre mes études en
+science des données ; je m'apprêtais à suivre ce conseil quand la cybersécurité
+m'a repris.
 
 Enfin technicien informatique, de septembre 2023 à août 2025, en support de
 proximité. Deux années au contact direct des utilisateurs et des postes, où j'ai
