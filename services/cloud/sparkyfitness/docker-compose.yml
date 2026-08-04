@@ -29,7 +29,7 @@ services:
       start_period: 30s
 
   sparkyfitness-server:
-    image: codewithcj/sparkyfitness_server:latest@sha256:33c3741bbb10ac847aaae323795cbcd1c538f65987d61b4e1d14eb141f947b4b
+    image: codewithcj/sparkyfitness_server:latest@sha256:d37fcac4d0d44c212b9bfacabaf53f502adda7c9a28a2c4941c066df7a0778e7
     container_name: sparkyfitness-server
     restart: unless-stopped
     security_opt: [no-new-privileges:true]
