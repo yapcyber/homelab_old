@@ -209,7 +209,7 @@ direct, 19 et 23. Une est à retrouver, 34.
 
 | # | Chantier | Volume | État |
 |---|---|---|---|
-| R1 | **Partie 1, écrit narratif** | 10 à 15 pages | **Rien n'est écrit.** Interrogatoire préparatoire disponible |
+| R1 | **Partie 1, écrit narratif** | 10 à 15 pages | **Premier jet rédigé le 4 août.** À relire, plus trois points à trancher |
 | R2 | ~~Grappe G1, correctifs et parc~~ | 4 compétences | **Rédigée** |
 | R3 | ~~Grappe G3, support et tickets~~ | 3 compétences | **Rédigée** |
 | R4 | ~~Grappe G7, IaC et intégration continue~~ | 3 compétences | **Rédigée** |

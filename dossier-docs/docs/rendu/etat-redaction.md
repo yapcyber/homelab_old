@@ -18,7 +18,7 @@ calibré sur cette date.
 | Élément | Exigence | État |
 |---|---|---|
 | Volume du document Word | 60 pages minimum hors annexes | environ 13 pages montées (BC01 seul) |
-| Partie 1, écrit narratif | 10 à 15 pages | **rien n'est écrit** |
+| Partie 1, écrit narratif | 10 à 15 pages | **Premier jet complet**, à relire et à t'approprier |
 | Partie 2, portefeuille | 61 compétences | **52 rédigées sur le site**, 9 restantes |
 | Preuves entreprise | anonymisées | 117 fichiers collectés, aucun anonymisé |
 
@@ -99,7 +99,7 @@ Elles ne souffrent aucune exception.
 | [BC02](/blocs/bc02) | 16 | **Bloc complet**, 16 compétences rédigées |
 | [BC03](/blocs/bc03) | 18 | **Bloc complet**, 18 compétences rédigées |
 | [BC04](/blocs/bc04) | 16 | 13 rédigées. Restent C4, C5 et C9 (G10) |
-| Partie 1 | — | **Intégralement à écrire.** [Interrogatoire préparatoire](/interrogatoires/partie1) disponible |
+| Partie 1 | — | **Premier jet complet rédigé** le 4 août, à relire. Trois points ouverts |
 
 ## Historique
 
