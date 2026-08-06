@@ -93,7 +93,9 @@ est en place. Après le déménagement, il est perdu et B2C02 retombe sur une
 
 ## 3. Captures du homelab
 
-Toutes portent sur de l'existant. À grouper en une ou deux sessions.
+Toutes portent sur de l'existant. Le détail complet, environ 90 artefacts groupés
+en 11 sessions de travail avec les compétences servies par chacun, est sur la
+page [Checklist des preuves homelab](/preuves/checklist-homelab).
 
 | Domaine | À capturer |
 |---|---|
