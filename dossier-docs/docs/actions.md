@@ -5,27 +5,38 @@ sidebar_position: 0.5
 
 # Actions à mener
 
-**Consolidé au 2 août 2026.** Toutes les actions remontées par les grappes
-rédigées (G2, G4, G5, G6, G8, G9), plus celles issues de l'audit initial.
+**Mis à jour le 6 août 2026.** Les douze grappes de rédaction sont faites et la
+partie 1 est écrite. Ce qui reste tient en **six actions techniques** et
+**dix-neuf documents**, presque tous d'une à deux heures.
 
 Rendu écrit : **semaine 34, du 17 au 21 août 2026**. Ce qui dépend d'un tiers
 est isolé sur la page [Compétences en dépendance](/dependances).
 
-:::danger Les cinq actions qui comptent le plus
-Si tu n'en fais que cinq, fais celles-ci. Chacune porte un critère qu'aucune
-autre preuve ne couvre.
+:::danger Les sept livrables qui portent seuls un critère
+Sans eux, la compétence correspondante n'est prouvée par rien d'autre. Ce sont
+les seuls dont l'absence fait tomber quelque chose.
 
-1. **Demander un créneau au tuteur avant son départ le 7 au soir**, et demander
-   le **certificat de travail** aux ressources humaines, seul document
-   d'entreprise obligatoire du dossier. Voir la page Compétences en dépendance.
-2. **Procès-verbal du test de restauration** du 22 juillet (§2). Une page, sur
-   des traces qui existent déjà. Porte B3C13 et renforce B3C17.
-3. **Test de bascule HA contrôlé** (§1). Porte B3C16 et B3C17, débloqué depuis
-   l'arrivée du quatrième nœud.
-4. **Mesure iperf3 du chemin 1 Gb/s, avant le déménagement** (§1). L'état
-   initial disparaît avec l'installation actuelle.
-5. **Lancer l'anonymisation** (§5). 108 fichiers, aucun traité. Une preuve non
-   anonymisée est une compétence non prouvée.
+| Livrable | Compétence | État de la matière |
+|---|---|---|
+| **Test de bascule HA** tracé | B3C16 | **Le test n'a pas eu lieu.** Seul cas où la preuve n'existe pas du tout |
+| **Procès-verbal du test de restauration** du 22 juillet | B3C13 | Le test a eu lieu, il reste à l'écrire |
+| **Rapport d'audit formel** du homelab | B3C01 | Matière complète dans le corpus de gouvernance |
+| **Tableau BIA** | B3C11 | Matière dans la note de haute disponibilité |
+| **Politique de sécurité cloud**, une page | B3C18 | Entièrement arbitrée dans le texte de C18 |
+| **Procédure de mise à jour** publiée | B2C11 | Séquence décrite dans le texte de C11 |
+| **Note de préconisation** transmise | B4C14 | Sujet tout trouvé : le bilan périphériques |
+
+Six d'entre eux ne demandent que de la mise en forme. Un seul demande une
+manipulation réelle : le test de bascule.
+:::
+
+:::caution Deux actions dont la fenêtre se referme
+La **mesure `iperf3` du chemin 1 Gb/s** n'est possible que tant que
+l'installation actuelle est en place. Après le déménagement, l'état initial est
+perdu.
+
+Le **certificat de travail** auprès des ressources humaines, seul document
+d'entreprise obligatoire du dossier, et le **créneau tuteur** avant son départ.
 :::
 
 ---
