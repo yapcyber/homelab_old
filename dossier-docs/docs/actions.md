@@ -30,13 +30,13 @@ Six d'entre eux ne demandent que de la mise en forme. Un seul demande une
 manipulation réelle : le test de bascule.
 :::
 
-:::caution Deux actions dont la fenêtre se referme
-La **mesure `iperf3` du chemin 1 Gb/s** n'est possible que tant que
-l'installation actuelle est en place. Après le déménagement, l'état initial est
-perdu.
+:::caution Actions dont la fenêtre se referme
+La **mesure `iperf3` du chemin 1 Gb/s** est **faite le 9 août 2026**, la veille
+du déménagement. L'état initial est sauvé.
 
-Le **certificat de travail** auprès des ressources humaines, seul document
-d'entreprise obligatoire du dossier, et le **créneau tuteur** avant son départ.
+Restent le **certificat de travail** auprès des ressources humaines, seul
+document d'entreprise obligatoire du dossier, et le **créneau tuteur** avant
+son départ.
 :::
 
 ---
@@ -48,7 +48,7 @@ d'entreprise obligatoire du dossier, et le **créneau tuteur** avant son départ
 | T1 | **Trois manipulations OPNsense en une session** : activer `syslog_eve` et déclarer la destination distante vers le SIEM ; supprimer les deux règles DMZ non conformes relevées par l'audit | B3C03, B3C08, B3C09 | ~30 min | Dès que possible |
 | T2 | **Rééquilibrer la mémoire entre les nœuds**, prérequis du test de bascule | B3C16 | 1 h | Avant T3 |
 | T3 | **Test de bascule HA contrôlé** : arrêter un nœud autre que celui qui porte le stockage, observer la relocalisation, mesurer la durée, conserver les journaux | B3C16, B3C17, B2C09 | 2 h | Après T2 |
-| T4 | **Mesure `iperf3` du chemin 1 Gb/s** : date, durée, nombre de flux, sens | B2C02, B2C03 | 1 h | **Avant le 10 août** |
+| T4 | ~~**Mesure `iperf3` du chemin 1 Gb/s**~~ **→ FAITE le 9 août 2026.** Trois chemins, neuf relevés, plus le débit du stockage. [Pièce](/preuves/mesures-reseau-1g) | B2C02, B2C03 | — | Close |
 | T5 | Mesure `iperf3` du lien 10 Gb/s et capture Grafana pendant les essais | B2C02 | 1 h | Après le 10 août |
 | T6 | **Relevé de consommation électrique** du cluster, puis comparaison après extinction d'une machine non essentielle | B2C15, B2C16 | 2 h | Après le 10 août |
 | T7 | Première restauration depuis la clé chiffrée hors ligne, seule branche non testée de la chaîne | B3C13 | 1 h | Souhaitable |
