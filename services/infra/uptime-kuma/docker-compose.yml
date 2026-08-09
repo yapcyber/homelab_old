@@ -1,10 +1,15 @@
 # =============================================================================
-# services/monitoring/uptime-kuma/docker-compose.yml
+# services/infra/uptime-kuma/docker-compose.yml
 # Uptime Kuma — supervision de disponibilité (sondes HTTP/TCP/ping/DNS/cert)
 # et page de statut. Complète Prometheus (métriques) et les timers docker-health
 # (santé conteneurs) : ici on teste "le service répond-il, de bout en bout ?".
-# Notifications à brancher sur ntfy (support natif) : http://10.0.30.11:8082, topic homelab.
+# Notifications à brancher sur ntfy (support natif) : http://10.0.30.10:8082, topic homelab.
 # Données (base SQLite + config) dans le volume ./data.
+#
+# Déplacé de la VM monitoring vers infra le 9 août 2026, dans le cadre de la
+# décommission qui précède le déménagement : garder une VM de 8 Gio pour deux
+# petits services n'avait plus de sens une fois Prometheus, Grafana, Loki et
+# NetBox arrêtés.
 # =============================================================================
 services:
   uptime-kuma:
@@ -18,12 +23,13 @@ services:
     environment:
       - TZ=Europe/Paris
     networks:
-      # default = son propre réseau ; monitoring = réseau partagé (Grafana, Prometheus…)
-      # pour sonder les backends co-localisés par nom de conteneur (ex. http://grafana:3000).
+      # default = son propre réseau ; traefik-proxy = réseau partagé d'infra, pour
+      # sonder les backends co-localisés par nom de conteneur (ex. authentik-server).
+      # L'ancien réseau `monitoring` a disparu avec la VM du même nom.
       - default
-      - monitoring
+      - traefik-proxy
 
 networks:
-  monitoring:
+  traefik-proxy:
     external: true
-    name: monitoring
+    name: traefik-proxy

@@ -11,4 +11,4 @@ http:
     ntfy-svc:
       loadBalancer:
         servers:
-          - url: "http://10.0.30.11:8082"
+          - url: "http://10.0.30.10:8082"

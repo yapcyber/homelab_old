@@ -1,4 +1,15 @@
 ---
+# Ports publiés à ne pas joindre en direct depuis les VLANs (filtre DOCKER-USER).
+# 8082 = ntfy, 3001 = Uptime Kuma, tous deux repris de la VM monitoring le 09/08/2026.
+docker_restricted_ports: [3001, 8082]
+
+# ntfy (8082) est le canal d'alerte de TOUTES les VM : sans cette exception, les
+# tâches planifiées des autres VM échouent en silence (constaté le 28/07/2026,
+# quand le durcissement du filtre avait coupé 5 VM sur 7 sans que rien ne le dise).
+docker_ingress_port_exceptions:
+  - port: 8082
+    sources: [10.0.30.0/24]
+
 scheduled_tasks:
   - {name: backup, description: "Sauvegarde quotidienne bases + configs", calendar: "01:30", random_delay: 30m, script: backup.sh}
   - {name: docker-health, description: "Health-check horaire des conteneurs", calendar: hourly, script: docker-health.sh}
